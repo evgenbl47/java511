@@ -1,7 +1,12 @@
+//upload to git
 git init
 git add.
 git commit -m "msg"
 git push -u origin master
+
+
+//get changes
+git pull origin master
 
 ================================================================================
 ОСНОВНЫЕ КОМАНДЫ GIT
