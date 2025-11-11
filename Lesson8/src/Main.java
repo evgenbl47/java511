@@ -8,6 +8,7 @@ public class Main {
 
         System.out.print("Enter positive number: ");
         Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
 
         //2. Не четные числа
         //Напишите программу, которая считывает число N и выводит все не четные числа от 1 до N.
