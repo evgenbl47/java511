@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +7,7 @@ public class Main {
         //Напишите программу, которая считывает число N и выводит все четные числа от 1 до N.
 
         System.out.print("Enter positive number: ");
+        Scanner scanner = new Scanner(System.in);
 
         //2. Не четные числа
         //Напишите программу, которая считывает число N и выводит все не четные числа от 1 до N.
