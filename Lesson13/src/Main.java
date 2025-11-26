@@ -16,15 +16,35 @@ public class Main {
         name = scanner.nextLine();
 
         do {
-            System.out.println("1 - Human-Computer");
-            System.out.println("2 - Computer-Human");
+            System.out.println("Choose option");
+            System.out.println("1 - Computer guess");
+            System.out.println("2 - Human guess");
             System.out.println("3 - Help (off)");
             System.out.println("4 - Try (off)");
-            System.out.println("5 - Range (0-100");
-            System.out.println("6 -Exit");
-            System.out.println();
+            System.out.println("5 - Range (" + min + " - " + max + ")");
+            System.out.println("6 - Exit");
 
             int select = scanner.nextInt();
+
+            if (select == 5) {
+                System.out.println("Change range");
+                do {
+                    System.out.println("Type min number: ");
+                    int minNumber = scanner.nextInt();
+                    System.out.println("Type max number: ");
+                    int maxNumber = scanner.nextInt();
+
+                    if (minNumber < maxNumber) {
+                        min = minNumber;
+                        max = maxNumber;
+                        System.out.println("New diapason: " + min + " - " + max + ")");
+                        break;
+                    } else {
+                        System.out.println("New diapason do not applied");
+                        break;
+                    }
+                } while (true);
+            }
 
             if (select == 6) {
                 System.out.println("GoodBye, se you later");
@@ -32,29 +52,39 @@ public class Main {
             } else if (select == 1) {
                 System.out.println("Welcome " + name + " to Human-Computer game");
                 System.out.println(name + " guess a number: ");
-                find = scanner.nextInt();
+                do {
+                    find = scanner.nextInt();
+                    if (find >= min && find <= max) {
+                        System.out.println("Number: " + find + " applied");
+                        break;
+                    } else {
+                        System.out.println("Incorrect range (" + min + " - " + max + ")");
+                    }
+                } while (true);
 
-                rand = random.nextInt(max - min + 1) + min;
+                do {
+                    rand = random.nextInt(max - min + 1) + min;
+                    System.out.println("Computer type number: " + rand);
 
+                    if (rand == find) {
+                        System.out.println("Computer guess, number: " + find);
+                        break;
+                    }
+
+                    System.out.println("1 - Bigger");
+                    System.out.println("2 - Lower");
+                    select = scanner.nextInt();
+                    if (select == 1) {
+                        min = rand + 1;
+                        System.out.println("Bigger needed");
+                    } else if (select == 2) {
+                        max = rand - 1;
+                        System.out.println("Lower needed");
+                    }
+                } while (true);
 
             }
-            if (select == 2) {
-
-            }
-            if (select == 2) {
-
-            }
-            if (select == 2) {
-
-            }
-            if (select == 2) {
-
-            }
-            if (select == 2) {
-
-            }
-
-        } while (true);
+        }while (true);
 
     }
 }
