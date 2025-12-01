@@ -1,4 +1,4 @@
-//upload to git
+-//upload to git
 git init
 git add .
 git commit -m "msg"

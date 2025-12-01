@@ -1,38 +1,67 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static char[] trim(char[] ch) {
 
-        return null;
+    public static char[] trim(char[] arr) {
+        int first = 0, end = 0;
+        char[] newArr = null;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != ' ') {
+                break;
+            }
+            first++;
+        }
+
+        for (int i = arr.length - 1; i > 0; i--) {
+            if (arr[i] != ' ') {
+                break;
+            }
+            end++;
+        }
+
+        int newArrSize;
+        newArrSize = arr.length - first - end;// - first - end;
+        newArr = new char[newArrSize];
+
+        for (int i = 0; i < arr.length; i++) {
+            if (i < first) {
+                continue;
+            }
+
+            if (i < (arr.length - first - end) + first) {
+                newArr[i - first] = arr[i];
+
+            }
+
+        }
+        return newArr;
     }
 
     public static void print(char[] ch) {
-        System.out.println("=======");
         for (int i = 0; i < ch.length; i++) {
             System.out.print(ch[i]);
         }
-        System.out.println("\n=======");
+        System.out.print("");
+
     }
 
     public static void main(String[] args) {
 
-//        char[] arr = {'X', 'i', 'a', 'o', 'm', 'i'};
-        String str = "  Redme 13 pro plus   ";
+        String str = "1234";
         char[] arr = str.toCharArray();
 
         print(arr);
-        trim(arr);
+        System.out.println();
+        System.out.println("Original lenght: " + str.length());
 
         str = str.trim();
         System.out.println("Original trim :" + str + " (" + str.length() + ")");
+
         arr = trim(arr);
-        System.out.println("My trim       :" + str + " (" + str.length() + ")");
-
-
-//        String str = "  Redme 13 pro plus   ";
-//        System.out.println("Original :" + str + " (" + str.length() + ")");
-//        str = str.trim();
-//        System.out.println("Trim     :" + str + " (" + str.length() + ")");
+        System.out.print("My trim       :");
+        print(arr);
+        System.out.println(" (" + arr.length + ")");
 
 
         //HomeWork
