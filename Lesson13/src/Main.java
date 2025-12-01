@@ -8,8 +8,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int find, min = 0, max = 100, rand;
+        int find, min = 0, max = 100, rand, counter = 0;
         String name;
+        boolean isHelp = true;
+        boolean isTry = false;
+
 
         System.out.println("Welcome to game ==Guess Number==");
         System.out.print("Type your name: ");
@@ -19,8 +22,8 @@ public class Main {
             System.out.println("Choose option");
             System.out.println("1 - Computer guess");
             System.out.println("2 - Human guess");
-            System.out.println("3 - Help (off)");
-            System.out.println("4 - Try (off)");
+            System.out.println("3 - Help " + (isHelp?"(on)":"(off)"));
+            System.out.println("4 - Try " + (isTry?"(on)":"(off)"));
             System.out.println("5 - Range (" + min + " - " + max + ")");
             System.out.println("6 - Exit");
 
@@ -47,9 +50,12 @@ public class Main {
             }
 
             if (select == 6) {
-                System.out.println("GoodBye, se you later");
+                System.out.println("GoodBye, see you later");
                 break;
-            } else if (select == 1) {
+            }
+
+            if (select == 1) {
+                counter = 0;
                 System.out.println("Welcome " + name + " to Human-Computer game");
                 System.out.println(name + " guess a number: ");
                 do {
@@ -63,27 +69,74 @@ public class Main {
                 } while (true);
 
                 do {
+
+                    if (counter > 4) {
+                        System.out.println("Your try empty");
+                        break;
+                    }
+
                     rand = random.nextInt(max - min + 1) + min;
                     System.out.println("Computer type number: " + rand);
+
+                    if (isTry) {
+                        System.out.println("Try amount: " + counter);
+                        counter++;
+                    }
 
                     if (rand == find) {
                         System.out.println("Computer guess, number: " + find);
                         break;
                     }
 
-                    System.out.println("1 - Bigger");
-                    System.out.println("2 - Lower");
-                    select = scanner.nextInt();
-                    if (select == 1) {
-                        min = rand + 1;
-                        System.out.println("Bigger needed");
-                    } else if (select == 2) {
-                        max = rand - 1;
-                        System.out.println("Lower needed");
+                    if (isHelp) {
+                        System.out.println("1 - Bigger");
+                        System.out.println("2 - Lower");
+                        select = scanner.nextInt();
+                        if (select == 1) {
+                            min = rand + 1;
+                            System.out.println("Bigger needed");
+                        } else if (select == 2) {
+                            max = rand - 1;
+                            System.out.println("Lower needed");
+                        } else if (select == -1) {
+                            break;
+                        }
+                    } else {
+                        System.out.println("Not the point try again");
                     }
+
                 } while (true);
 
             }
+
+            if (select == 2) {
+
+            }
+
+            if (select == 3) {
+                System.out.println("Change help");
+                System.out.println("1 - Turn on");
+                System.out.println("2 - Turn off");
+                select = scanner.nextInt();
+
+                if (select == 1) {
+                    isHelp = true;
+                } else isHelp = false;
+
+
+            }
+
+            if (select == 4) {
+                System.out.println("Change try");
+                System.out.println("1 - Turn on");
+                System.out.println("2 - Turn off");
+                select = scanner.nextInt();
+
+                if (select == 1) {
+                    isTry = true;
+                } else isTry = false;
+            }
+
         }while (true);
 
     }
