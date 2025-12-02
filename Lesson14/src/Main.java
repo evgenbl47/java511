@@ -190,7 +190,6 @@ public class Main {
         }
         System.out.println("My charAT              :" + charAT(arr, 33));
 
-
         System.out.println("Original indexOf       :" + str.indexOf('L'));
         System.out.println("My indexOf             :" + indexOf(arr, 'L'));
 
