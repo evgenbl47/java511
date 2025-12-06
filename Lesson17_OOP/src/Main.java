@@ -1,6 +1,7 @@
 //20251127_194441
 //Start OOP
 
+
 class Phone {
     String brand;
     String model;
@@ -65,37 +66,102 @@ class Phone {
 
 }
 
+class Book {
+    String title = "unknown";
+    String autor = "unknown";
+    int year = 0;
+    int pages = 0;
+
+    public Book(){
+
+    }
+
+    public Book(String title, String autor) {
+        this.title = title;
+        this.autor = autor;
+    }
+
+    public Book(String title, String autor, int year, int pages) {
+        this(title, autor);
+        this.year = year;
+        this.pages = pages;
+    }
+
+    public String print() {
+        return "Book [" +
+                "title :" + title +
+                ", autor :" + autor +
+                ", year :" + year +
+                ", pages :" + pages +
+                ']';
+    }
+
+    public boolean isOld() {
+        int currentYear = 2025;
+        if (year > currentYear) {
+            year = currentYear;
+        }
+
+        if ((currentYear - year) >= 50) {
+            return true;
+        }
+        return false;
+    }
+}
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Phone[] phones = new Phone[4];
-
-        for (int i = 0; i < 4; i++) {
-            phones[i] = new Phone("" + i, "" + i, 19.99, 10, false);
-        }
-
-        for (int i = 0; i < phones.length; i++) {
-            System.out.println(phones[i].getInfo());
-            phones[i].charge(15);phones[i].turnOn();
-            System.out.println(phones[i].getInfo());
-            phones[i].use(50);
-            System.out.println(phones[i].getInfo());
-        }
-
-       }
-}
-
-
-
-//Задание 1: Класс "Книга" (Book)
+        //Задание 1: Класс "Книга" (Book)
 //Что нужно сделать:
 //Создайте класс Book с полями: title (название), author (автор), year (год издания), pages (количество страниц)
 //Создайте 3 конструктора: без параметров, с 2 параметрами (title, author), с всеми параметрами
 //Создайте метод print() для вывода информации о книге
 //Создайте метод isOld() который возвращает true если книга издана более 50 лет назад
 //В main создайте 3 разные книги и выведите их информацию
+        Book[] books = new Book[3];
+        books[0] = new Book("BookOne", "Brain");
+        books[1] = new Book("BookTwo", "Pinkey", 1923, 20);
+        books[2] = new Book("BookThree", "Pinkey", 2012, 20);
+
+        for (Book book : books) {
+            System.out.println(book.print());
+//            System.out.println("Book is old? :" + book.isOld());
+
+        }
+
+
+
+
+        //Задание 6: Класс "Телефон" (Phone)
+//Что нужно сделать:
+//Создайте класс Phone с полями: brand, model, price, batteryLevel (уровень батареи), isOn (включен ли)
+//Создайте конструкторы (минимум 3 варианта)
+//Создайте методы: turnOn(), turnOff(), charge(int minut), use(int hours) (использование уменьшает батарею)
+//Создайте метод getInfo() возвращающий строку с информацией о телефоне
+//В main создайте массив из 4 телефонов и симулируйте день использования
+//
+//        Phone[] phones = new Phone[4];
+//
+//        for (int i = 0; i < 4; i++) {
+//            phones[i] = new Phone("" + i, "" + i, 19.99, 10, false);
+//        }
+//
+//        for (int i = 0; i < phones.length; i++) {
+//            System.out.println(phones[i].getInfo());
+//            phones[i].charge(15);phones[i].turnOn();
+//            System.out.println(phones[i].getInfo());
+//            phones[i].use(50);
+//            System.out.println(phones[i].getInfo());
+//        }
+//
+       }
+}
+
+
+
+
 //Задание 2: Класс "Товар" (Product)
 //Что нужно сделать:
 //
