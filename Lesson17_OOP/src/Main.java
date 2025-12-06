@@ -109,9 +109,72 @@ class Book {
     }
 }
 
+class Product {
+    String name;
+    double price;
+    int quantity;  //amount
+    String category;
+
+    //to do
+    Product(){
+        this.name = "unknown";
+        this.category = "no category";
+        this.price = 0.0;
+        this.quantity = 0;
+
+    }
+
+    Product(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
+    public double getTotalPrice() {
+        double result;
+        result = price * quantity;
+        return result;
+    }
+
+    public void sell(int amount) {
+        if (quantity == 0) {
+            System.out.println("Nothing for selling");
+            return;
+        }
+        if (quantity >= amount) {
+            quantity -= amount;
+            System.out.println("Sell amount: " + amount);
+        } else {
+            int res;
+            res = quantity%amount;
+            System.out.println("We sell only :" + res + ", you need :" + (amount - res));
+            quantity -= res;
+        }
+    }
+
+    public String printProduct() {
+        return "Product [" +
+                "name :" + name +
+                ", price :" + price +
+                ", quantity :" + quantity +
+                ", category :" + category +
+                "]";
+    }
+
+    public void restock(int amount) {
+        if (amount < 0) {
+            System.out.println("Negative arg");
+            return;
+        }
+        quantity += amount;
+        System.out.println(this.name + " restock +"+ amount + ", quantity :" + quantity);
+    }
+}
+
+
 public class Main {
 
     public static void main(String[] args) {
+
 
         //Задание 1: Класс "Книга" (Book)
 //Что нужно сделать:
@@ -120,16 +183,50 @@ public class Main {
 //Создайте метод print() для вывода информации о книге
 //Создайте метод isOld() который возвращает true если книга издана более 50 лет назад
 //В main создайте 3 разные книги и выведите их информацию
-        Book[] books = new Book[3];
-        books[0] = new Book("BookOne", "Brain");
-        books[1] = new Book("BookTwo", "Pinkey", 1923, 20);
-        books[2] = new Book("BookThree", "Pinkey", 2012, 20);
+//
+//        Book[] books = new Book[3];
+//        books[0] = new Book("BookOne", "Brain");
+//        books[1] = new Book("BookTwo", "Pinkey", 1923, 20);
+//        books[2] = new Book("BookThree", "Pinkey", 2012, 20);
+//
+//        for (Book book : books) {
+//            System.out.println(book.print());
+////            System.out.println("Book is old? :" + book.isOld());
+//
+//        }
 
-        for (Book book : books) {
-            System.out.println(book.print());
-//            System.out.println("Book is old? :" + book.isOld());
 
-        }
+        //Задание 2: Класс "Товар" (Product)
+//Что нужно сделать:
+//Создайте класс Product с полями: name (название), price (цена), quantity (количество на складе), category (категория)
+//Создайте конструкторы с делегированием (минимум 3 конструктора)
+//Создайте метод getTotalPrice() который возвращает общую стоимость (цена * количество)
+//Создайте метод sell(int amount) который уменьшает количество товара
+//Создайте метод restock(int amount) который увеличивает количество товара
+//В main создайте магазин с 5 товарами и проведите несколько операций продажи
+//
+        Product auto = new Product("Car", 12);
+        Product moto = new Product();
+        Product bike = new Product();
+        Product tram = new Product();
+        Product plane = new Product();
+        System.out.println(auto.printProduct());
+        auto.sell(10);
+        System.out.println(auto.printProduct());
+        auto.sell(40);
+        auto.restock(40);
+        auto.sell(30);
+        System.out.println(auto.printProduct());
+
+
+        //Задание 3: Класс "Банковская карта" (BankCard)
+//Что нужно сделать:
+//Создайте класс BankCard с полями: cardNumber (номер карты), ownerName (имя владельца), balance (баланс), expiryDate (срок действия)
+//Создайте конструкторы с разным количеством параметров
+//Создайте метод deposit(double amount) для пополнения
+//Создайте метод withdraw(double amount) для снятия (проверяйте достаточно ли денег)
+//Создайте метод transfer(BankCard recipient, double amount) для перевода денег на другую карту
+//В main создайте 3 карты и проведите операции между ними
 
 
 
@@ -162,24 +259,8 @@ public class Main {
 
 
 
-//Задание 2: Класс "Товар" (Product)
-//Что нужно сделать:
-//
-//Создайте класс Product с полями: name (название), price (цена), quantity (количество на складе), category (категория)
-//Создайте конструкторы с делегированием (минимум 3 конструктора)
-//Создайте метод getTotalPrice() который возвращает общую стоимость (цена * количество)
-//Создайте метод sell(int amount) который уменьшает количество товара
-//Создайте метод restock(int amount) который увеличивает количество товара
-//В main создайте магазин с 5 товарами и проведите несколько операций продажи
-//Задание 3: Класс "Банковская карта" (BankCard)
-//Что нужно сделать:
-//
-//Создайте класс BankCard с полями: cardNumber (номер карты), ownerName (имя владельца), balance (баланс), expiryDate (срок действия)
-//Создайте конструкторы с разным количеством параметров
-//Создайте метод deposit(double amount) для пополнения
-//Создайте метод withdraw(double amount) для снятия (проверяйте достаточно ли денег)
-//Создайте метод transfer(BankCard recipient, double amount) для перевода денег на другую карту
-//В main создайте 3 карты и проведите операции между ними
+
+
 //Задание 4: Класс "Прямоугольник" (Rectangle)
 //Что нужно сделать:
 //
