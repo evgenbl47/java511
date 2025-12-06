@@ -170,7 +170,50 @@ class Product {
     }
 }
 
+class BankCard {
+    int cardNumber;
+    String ownerName;
+    double balance;
+    int expityDate;
 
+    public BankCard(int cardNumber, String ownerName, double balance, int expityDate) {
+        this.cardNumber = cardNumber;
+        this.ownerName = ownerName;
+        this.balance = balance;
+        this.expityDate = expityDate;
+    }
+
+    public void deposit(double amount) {
+
+    }
+
+    public void withdraw(double amount) {
+
+    }
+
+    public void transfer(BankCard recipient, double amount) {
+
+    }
+
+    public String printBankCard() {
+//        return "BankCard [" +
+//                "cardNumber :" + cardNumber +
+//                ", price :" + price +
+//                ", quantity :" + quantity +
+//                ", category :" + category +
+//                "]";
+        return null;
+    }
+}
+//Задание 3: Класс "Банковская карта" (BankCard)
+//Что нужно сделать:
+//Создайте класс BankCard с полями: cardNumber (номер карты), ownerName (имя владельца), balance (баланс),
+// expiryDate (срок действия)
+//Создайте конструкторы с разным количеством параметров
+//Создайте метод deposit(double amount) для пополнения
+//Создайте метод withdraw(double amount) для снятия (проверяйте достаточно ли денег)
+//Создайте метод transfer(BankCard recipient, double amount) для перевода денег на другую карту
+//В main создайте 3 карты и проведите операции между ними
 public class Main {
 
     public static void main(String[] args) {
@@ -192,7 +235,6 @@ public class Main {
 //        for (Book book : books) {
 //            System.out.println(book.print());
 ////            System.out.println("Book is old? :" + book.isOld());
-//
 //        }
 
 
@@ -205,18 +247,18 @@ public class Main {
 //Создайте метод restock(int amount) который увеличивает количество товара
 //В main создайте магазин с 5 товарами и проведите несколько операций продажи
 //
-        Product auto = new Product("Car", 12);
-        Product moto = new Product();
-        Product bike = new Product();
-        Product tram = new Product();
-        Product plane = new Product();
-        System.out.println(auto.printProduct());
-        auto.sell(10);
-        System.out.println(auto.printProduct());
-        auto.sell(40);
-        auto.restock(40);
-        auto.sell(30);
-        System.out.println(auto.printProduct());
+//        Product auto = new Product("Car", 12);
+//        Product moto = new Product();
+//        Product bike = new Product();
+//        Product tram = new Product();
+//        Product plane = new Product();
+//        System.out.println(auto.printProduct());
+//        auto.sell(10);
+//        System.out.println(auto.printProduct());
+//        auto.sell(40);
+//        auto.restock(40);
+//        auto.sell(30);
+//        System.out.println(auto.printProduct());
 
 
         //Задание 3: Класс "Банковская карта" (BankCard)
@@ -229,6 +271,26 @@ public class Main {
 //В main создайте 3 карты и проведите операции между ними
 
 
+    //Задание 4: Класс "Прямоугольник" (Rectangle)
+//Что нужно сделать:
+//
+//Создайте класс Rectangle с полями: width (ширина), height (высота), color (цвет)
+//Создайте конструктор для квадрата (один параметр - сторона)
+//Создайте конструктор для прямоугольника без цвета
+//Создайте конструктор со всеми параметрами
+//Создайте методы: getArea(), getPerimeter(), isSquare()
+//В main создайте массив из 5 фигур (квадраты и прямоугольники) и найдите фигуру с максимальной площадью
+
+
+    //Задание 5: Класс "Сотрудник" (Employee)
+//Что нужно сделать:
+//
+//Создайте класс Employee с полями: name, position (должность), salary, experience (стаж в годах), department (отдел)
+//Создайте несколько конструкторов с делегированием
+//Создайте метод giveRaise(double percent) для повышения зарплаты
+//Создайте метод promote(String newPosition) для повышения должности
+//Создайте метод celebrateAnniversary() который увеличивает стаж на 1 год
+//В main создайте отдел из 7 сотрудников и найдите сотрудника с максимальной зарплатой
 
 
         //Задание 6: Класс "Телефон" (Phone)
@@ -255,35 +317,3 @@ public class Main {
 //
        }
 }
-
-
-
-
-
-
-//Задание 4: Класс "Прямоугольник" (Rectangle)
-//Что нужно сделать:
-//
-//Создайте класс Rectangle с полями: width (ширина), height (высота), color (цвет)
-//Создайте конструктор для квадрата (один параметр - сторона)
-//Создайте конструктор для прямоугольника без цвета
-//Создайте конструктор со всеми параметрами
-//Создайте методы: getArea(), getPerimeter(), isSquare()
-//В main создайте массив из 5 фигур (квадраты и прямоугольники) и найдите фигуру с максимальной площадью
-//Задание 5: Класс "Сотрудник" (Employee)
-//Что нужно сделать:
-//
-//Создайте класс Employee с полями: name, position (должность), salary, experience (стаж в годах), department (отдел)
-//Создайте несколько конструкторов с делегированием
-//Создайте метод giveRaise(double percent) для повышения зарплаты
-//Создайте метод promote(String newPosition) для повышения должности
-//Создайте метод celebrateAnniversary() который увеличивает стаж на 1 год
-//В main создайте отдел из 7 сотрудников и найдите сотрудника с максимальной зарплатой
-
-//Задание 6: Класс "Телефон" (Phone)
-//Что нужно сделать:
-//Создайте класс Phone с полями: brand, model, price, batteryLevel (уровень батареи), isOn (включен ли)
-//Создайте конструкторы (минимум 3 варианта)
-//Создайте методы: turnOn(), turnOff(), charge(int minut), use(int hours) (использование уменьшает батарею)
-//Создайте метод getInfo() возвращающий строку с информацией о телефоне
-//В main создайте массив из 4 телефонов и симулируйте день использования
