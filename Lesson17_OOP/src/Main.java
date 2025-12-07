@@ -2,6 +2,8 @@
 //Start OOP
 
 
+import java.util.Random;
+
 class Phone {
     String brand;
     String model;
@@ -217,6 +219,45 @@ class BankCard {
     }
 }
 
+class Rectangle {
+    int width;
+    int height;
+    int colour;
+
+    public String printRectangle() {
+        return "Rectangle [" +
+                "width :" + width +
+                ", height :" + height +
+                ", colour :" + colour +
+                "]";
+    }
+
+    Rectangle(int width) {
+        this.width = width;
+    }
+
+    public Rectangle(int width, int height) {
+        this(width);
+        this.height = height;
+    }
+
+    public int getArea() {
+        int res;
+        res = width * height;
+        return res;
+    }
+
+    public int getPerimeter() {
+        int res;
+        res = 2 * (width * height);
+        return res;
+    }
+
+    public boolean isSqare() {
+        boolean res;
+        return res = (height == width);
+    }
+}
 
 public class Main {
 
@@ -271,15 +312,15 @@ public class Main {
 //Создайте метод withdraw(double amount) для снятия (проверяйте достаточно ли денег)
 //Создайте метод transfer(BankCard recipient, double amount) для перевода денег на другую карту
 //В main создайте 3 карты и проведите операции между ними
-        BankCard card = new BankCard(0000, "name1", 30_000.0, 2025);
-        BankCard card2 = new BankCard(0000, "name2", 30_000.0, 2025);
-        BankCard card3 = new BankCard(0000, "name3", 30_000.0, 2025);
-        System.out.println(card.printBankCard());
-        System.out.println(card2.printBankCard());
-        System.out.println("Transfer...");
-        card.transfer(card2, 100_000);
-        System.out.println(card.printBankCard());
-        System.out.println(card2.printBankCard());
+//        BankCard card = new BankCard(0000, "name1", 30_000.0, 2025);
+//        BankCard card2 = new BankCard(0000, "name2", 30_000.0, 2025);
+//        BankCard card3 = new BankCard(0000, "name3", 30_000.0, 2025);
+//        System.out.println(card.printBankCard());
+//        System.out.println(card2.printBankCard());
+//        System.out.println("Transfer...");
+//        card.transfer(card2, 100_000);
+//        System.out.println(card.printBankCard());
+//        System.out.println(card2.printBankCard());
 
 
 
@@ -292,7 +333,34 @@ public class Main {
 //Создайте конструктор со всеми параметрами
 //Создайте методы: getArea(), getPerimeter(), isSquare()
 //В main создайте массив из 5 фигур (квадраты и прямоугольники) и найдите фигуру с максимальной площадью
+        Random random = new Random();
+        Rectangle rectangle = new Rectangle(20, 20);
+        System.out.println("rectangle.isSqare() : " + rectangle.isSqare());
 
+        Rectangle[] rectangles = new Rectangle[5];
+
+        for (int i = 0; i < rectangles.length; i++) {
+            rectangles[i] = new Rectangle(random.nextInt(1, 50), random.nextInt(0, 50));
+            System.out.println(rectangles[i].printRectangle());
+        }
+
+        String s;
+        Rectangle r = rectangles[0];
+        int find = rectangles[0].getPerimeter();
+        for (int i = 0; i < rectangles.length; i++) {
+            if (i == 0) {
+                s = "rectangle" + 0 + " getPerimeter :" + rectangles[i].getPerimeter();
+                System.out.println(s);
+                continue;
+            }
+            s = "rectangle" + i + " getPerimeter :" + rectangles[i].getPerimeter();
+            System.out.println(s);
+            if (rectangles[i].getPerimeter() > find){
+                find = rectangles[i].getPerimeter();
+                r = rectangles[i];
+            }
+        }
+        System.out.println("Max perimeter :" + r.printRectangle());
 
         //Задание 5: Класс "Сотрудник" (Employee)
 //Что нужно сделать:
