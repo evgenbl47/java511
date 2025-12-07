@@ -31,7 +31,7 @@ class Phone {
         isOn = false;
     }
 
-    public void charge(int  minutes) {
+    public void charge(int minutes) {
         if (0 < minutes) {
             int charge;
             charge = batteryLevel + (minutes * 2);
@@ -72,7 +72,7 @@ class Book {
     int year = 0;
     int pages = 0;
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -116,7 +116,7 @@ class Product {
     String category;
 
     //to do
-    Product(){
+    Product() {
         this.name = "unknown";
         this.category = "no category";
         this.price = 0.0;
@@ -145,7 +145,7 @@ class Product {
             System.out.println("Sell amount: " + amount);
         } else {
             int res;
-            res = quantity%amount;
+            res = quantity % amount;
             System.out.println("We sell only :" + res + ", you need :" + (amount - res));
             quantity -= res;
         }
@@ -166,7 +166,7 @@ class Product {
             return;
         }
         quantity += amount;
-        System.out.println(this.name + " restock +"+ amount + ", quantity :" + quantity);
+        System.out.println(this.name + " restock +" + amount + ", quantity :" + quantity);
     }
 }
 
@@ -184,41 +184,43 @@ class BankCard {
     }
 
     public void deposit(double amount) {
-
+        balance += amount;
     }
 
     public void withdraw(double amount) {
+        if (balance - amount >= 0) {
+            balance -= amount;
+        }
 
     }
 
     public void transfer(BankCard recipient, double amount) {
-
+        if (amount <= 0) {
+            System.out.println("Отрицательная сумма");
+            return;
+        }
+        if (amount <= balance) {
+            balance -=amount;
+            recipient.deposit(amount);
+        } else {
+            System.out.println("Недостаточно средств");
+        }
     }
 
     public String printBankCard() {
-//        return "BankCard [" +
-//                "cardNumber :" + cardNumber +
-//                ", price :" + price +
-//                ", quantity :" + quantity +
-//                ", category :" + category +
-//                "]";
-        return null;
+        return "BankCard [" +
+                "cardNumber :" + cardNumber +
+                ", ownerName :" + ownerName +
+                ", balance :" + balance +
+                ", expityDate :" + expityDate +
+                "]";
     }
 }
-//Задание 3: Класс "Банковская карта" (BankCard)
-//Что нужно сделать:
-//Создайте класс BankCard с полями: cardNumber (номер карты), ownerName (имя владельца), balance (баланс),
-// expiryDate (срок действия)
-//Создайте конструкторы с разным количеством параметров
-//Создайте метод deposit(double amount) для пополнения
-//Создайте метод withdraw(double amount) для снятия (проверяйте достаточно ли денег)
-//Создайте метод transfer(BankCard recipient, double amount) для перевода денег на другую карту
-//В main создайте 3 карты и проведите операции между ними
+
+
 public class Main {
 
     public static void main(String[] args) {
-
-
         //Задание 1: Класс "Книга" (Book)
 //Что нужно сделать:
 //Создайте класс Book с полями: title (название), author (автор), year (год издания), pages (количество страниц)
@@ -269,9 +271,19 @@ public class Main {
 //Создайте метод withdraw(double amount) для снятия (проверяйте достаточно ли денег)
 //Создайте метод transfer(BankCard recipient, double amount) для перевода денег на другую карту
 //В main создайте 3 карты и проведите операции между ними
+        BankCard card = new BankCard(0000, "name1", 30_000.0, 2025);
+        BankCard card2 = new BankCard(0000, "name2", 30_000.0, 2025);
+        BankCard card3 = new BankCard(0000, "name3", 30_000.0, 2025);
+        System.out.println(card.printBankCard());
+        System.out.println(card2.printBankCard());
+        System.out.println("Transfer...");
+        card.transfer(card2, 100_000);
+        System.out.println(card.printBankCard());
+        System.out.println(card2.printBankCard());
 
 
-    //Задание 4: Класс "Прямоугольник" (Rectangle)
+
+        //Задание 4: Класс "Прямоугольник" (Rectangle)
 //Что нужно сделать:
 //
 //Создайте класс Rectangle с полями: width (ширина), height (высота), color (цвет)
@@ -282,7 +294,7 @@ public class Main {
 //В main создайте массив из 5 фигур (квадраты и прямоугольники) и найдите фигуру с максимальной площадью
 
 
-    //Задание 5: Класс "Сотрудник" (Employee)
+        //Задание 5: Класс "Сотрудник" (Employee)
 //Что нужно сделать:
 //
 //Создайте класс Employee с полями: name, position (должность), salary, experience (стаж в годах), department (отдел)
@@ -315,5 +327,5 @@ public class Main {
 //            System.out.println(phones[i].getInfo());
 //        }
 //
-       }
+    }
 }
