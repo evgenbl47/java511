@@ -297,15 +297,7 @@ class Employee {
     }
 
 }
-//Задание 5: Класс "Сотрудник" (Employee)
-//Что нужно сделать:
-//
-//Создайте класс Employee с полями: name, position (должность), salary, experience (стаж в годах), department (отдел)
-//Создайте несколько конструкторов с делегированием
-//Создайте метод giveRaise(double percent) для повышения зарплаты
-//Создайте метод promote(String newPosition) для повышения должности
-//Создайте метод celebrateAnniversary() который увеличивает стаж на 1 год
-//В main создайте отдел из 7 сотрудников и найдите сотрудника с максимальной зарплатой
+
 public class Main {
 
     public static void main(String[] args) {
@@ -420,36 +412,35 @@ public class Main {
 //Создайте метод promote(String newPosition) для повышения должности
 //Создайте метод celebrateAnniversary() который увеличивает стаж на 1 год
 //В main создайте отдел из 7 сотрудников и найдите сотрудника с максимальной зарплатой
-
-        Random random = new Random();
-        Employee[] employee = new Employee[7];
-        for (int i = 0; i < employee.length; i++) {
-            employee[i] = new Employee("" + i, random.nextInt(1000, 5000), 3);
-            employee[i].printEmployee();
-        }
-
-        Employee maxSalaryEmployee = employee[0];
-        double maxSalary = employee[0].salary;
-        for (int i = 0; i < employee.length; i++) {
-            if (i == 0) {
-                continue;
-            }
-
-            if (maxSalaryEmployee.salary > employee[i].salary) {
-//                maxSalary = employee[i - 1].salary;
-//                maxSalaryEmployee = employee[i - 1];
-            } else {
-                maxSalary = employee[i].salary;
-                maxSalaryEmployee = employee[i];
-            }
-        }
-
-        for (Employee emp : employee) {
-            System.out.println(emp.printEmployee());
-        }
-
-        String s = maxSalaryEmployee.printEmployee();
-        System.out.println("Max salary employee :" + s);
+//        Random random = new Random();
+//        Employee[] employee = new Employee[7];
+//        for (int i = 0; i < employee.length; i++) {
+//            employee[i] = new Employee("" + i, random.nextInt(1000, 5000), 3);
+//            employee[i].printEmployee();
+//        }
+//
+//        Employee maxSalaryEmployee = employee[0];
+//        double maxSalary = employee[0].salary;
+//        for (int i = 0; i < employee.length; i++) {
+//            if (i == 0) {
+//                continue;
+//            }
+//
+//            if (maxSalaryEmployee.salary > employee[i].salary) {
+////                maxSalary = employee[i - 1].salary;
+////                maxSalaryEmployee = employee[i - 1];
+//            } else {
+//                maxSalary = employee[i].salary;
+//                maxSalaryEmployee = employee[i];
+//            }
+//        }
+//
+//        for (Employee emp : employee) {
+//            System.out.println(emp.printEmployee());
+//        }
+//
+//        String s = maxSalaryEmployee.printEmployee();
+//        System.out.println("Max salary employee :" + s);
 
 
 
