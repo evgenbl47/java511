@@ -259,6 +259,53 @@ class Rectangle {
     }
 }
 
+class Employee {
+    String name;
+    String position;
+    double salary;
+    int experience;
+    String department;
+
+    public String printEmployee() {
+        return "Employee [" +
+                "name :" + name +
+                ", position :" + position +
+                ", salary :" + salary +
+                ", experience :" + experience +
+                "]";
+    }
+
+    //to do constructors
+    public Employee(String name, double salary, int experience) {
+        this.name = name;
+        this.salary = salary;
+        this.experience = experience;
+    }
+
+    public void giveRaise(double percent) {
+        double res;
+        res = salary * (1 + (percent / 100));
+        salary = res;
+    }
+
+    public void promote(String newPosition) {
+        position = newPosition;
+    }
+
+    public void celebrateAnniversary() {
+        experience += 1;
+    }
+
+}
+//Задание 5: Класс "Сотрудник" (Employee)
+//Что нужно сделать:
+//
+//Создайте класс Employee с полями: name, position (должность), salary, experience (стаж в годах), department (отдел)
+//Создайте несколько конструкторов с делегированием
+//Создайте метод giveRaise(double percent) для повышения зарплаты
+//Создайте метод promote(String newPosition) для повышения должности
+//Создайте метод celebrateAnniversary() который увеличивает стаж на 1 год
+//В main создайте отдел из 7 сотрудников и найдите сотрудника с максимальной зарплатой
 public class Main {
 
     public static void main(String[] args) {
@@ -333,34 +380,36 @@ public class Main {
 //Создайте конструктор со всеми параметрами
 //Создайте методы: getArea(), getPerimeter(), isSquare()
 //В main создайте массив из 5 фигур (квадраты и прямоугольники) и найдите фигуру с максимальной площадью
-        Random random = new Random();
-        Rectangle rectangle = new Rectangle(20, 20);
-        System.out.println("rectangle.isSqare() : " + rectangle.isSqare());
+//        Random random = new Random();
+//        Rectangle rectangle = new Rectangle(20, 20);
+//        System.out.println("rectangle.isSqare() : " + rectangle.isSqare());
+//
+//        Rectangle[] rectangles = new Rectangle[5];
+//
+//        for (int i = 0; i < rectangles.length; i++) {
+//            rectangles[i] = new Rectangle(random.nextInt(1, 50), random.nextInt(0, 50));
+//            System.out.println(rectangles[i].printRectangle());
+//        }
+//
+//        String s;
+//        Rectangle r = rectangles[0];
+//        int find = rectangles[0].getPerimeter();
+//        for (int i = 0; i < rectangles.length; i++) {
+//            if (i == 0) {
+//                s = "rectangle" + 0 + " getPerimeter :" + rectangles[i].getPerimeter();
+//                System.out.println(s);
+//                continue;
+//            }
+//            s = "rectangle" + i + " getPerimeter :" + rectangles[i].getPerimeter();
+//            System.out.println(s);
+//            if (rectangles[i].getPerimeter() > find){
+//                find = rectangles[i].getPerimeter();
+//                r = rectangles[i];
+//            }
+//        }
+//        System.out.println("Max perimeter :" + r.printRectangle());
 
-        Rectangle[] rectangles = new Rectangle[5];
 
-        for (int i = 0; i < rectangles.length; i++) {
-            rectangles[i] = new Rectangle(random.nextInt(1, 50), random.nextInt(0, 50));
-            System.out.println(rectangles[i].printRectangle());
-        }
-
-        String s;
-        Rectangle r = rectangles[0];
-        int find = rectangles[0].getPerimeter();
-        for (int i = 0; i < rectangles.length; i++) {
-            if (i == 0) {
-                s = "rectangle" + 0 + " getPerimeter :" + rectangles[i].getPerimeter();
-                System.out.println(s);
-                continue;
-            }
-            s = "rectangle" + i + " getPerimeter :" + rectangles[i].getPerimeter();
-            System.out.println(s);
-            if (rectangles[i].getPerimeter() > find){
-                find = rectangles[i].getPerimeter();
-                r = rectangles[i];
-            }
-        }
-        System.out.println("Max perimeter :" + r.printRectangle());
 
         //Задание 5: Класс "Сотрудник" (Employee)
 //Что нужно сделать:
@@ -371,6 +420,37 @@ public class Main {
 //Создайте метод promote(String newPosition) для повышения должности
 //Создайте метод celebrateAnniversary() который увеличивает стаж на 1 год
 //В main создайте отдел из 7 сотрудников и найдите сотрудника с максимальной зарплатой
+
+        Random random = new Random();
+        Employee[] employee = new Employee[7];
+        for (int i = 0; i < employee.length; i++) {
+            employee[i] = new Employee("" + i, random.nextInt(1000, 5000), 3);
+            employee[i].printEmployee();
+        }
+
+        Employee maxSalaryEmployee = employee[0];
+        double maxSalary = employee[0].salary;
+        for (int i = 0; i < employee.length; i++) {
+            if (i == 0) {
+                continue;
+            }
+
+            if (maxSalaryEmployee.salary > employee[i].salary) {
+//                maxSalary = employee[i - 1].salary;
+//                maxSalaryEmployee = employee[i - 1];
+            } else {
+                maxSalary = employee[i].salary;
+                maxSalaryEmployee = employee[i];
+            }
+        }
+
+        for (Employee emp : employee) {
+            System.out.println(emp.printEmployee());
+        }
+
+        String s = maxSalaryEmployee.printEmployee();
+        System.out.println("Max salary employee :" + s);
+
 
 
         //Задание 6: Класс "Телефон" (Phone)
