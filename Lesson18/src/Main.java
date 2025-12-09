@@ -93,6 +93,29 @@ class Country{
     }
 }
 
+class Product {
+
+    private final String name;
+    private final String barCode;
+    private int price;
+
+    public Product(String name, String barCode) {
+        this.barCode = barCode;
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getBarCode() {
+        return barCode;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+}
 public class Main {
     public static void main(String[] args) {
         //1
@@ -117,5 +140,9 @@ public class Main {
         System.out.println("Country title :" + country.getTitle());
         System.out.println("Country population :" + country.getPopulation());
 
+        //3
+        Product product = new Product("Head Phones", "1243");
+        product.setPrice(200);
+        System.out.println(product.getPrice());
     }
 }
