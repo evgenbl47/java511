@@ -36,13 +36,27 @@ public class Main {
         Bird cockatoo = new Bird("bird", 1);
 
         Animal[] animals = new Animal[]{martin, max, cockatoo};
-
         for (Animal animal : animals) {
             System.out.println(animal.getInfo());
             animal.makeSound();
             animal.doSmth();
-
         }
+
+//        Задание 2: Студент
+//        Создай класс Student с приватными полями: имя, возраст, средний балл.
+//                Добавь геттеры и сеттеры, но в сеттере для возраста проверяй,
+//                чтобы возраст был от 16 до 100 лет, а для среднего балла - от 0 до 100.
+        Student student = new Student();
+
+        student.setAge(20);
+        student.setAverage(40);
+
+        System.out.println("student.getAge() :" + student.getAge());
+        System.out.println("student.getAverage() :" + student.getAverage());
+
+
+
+
     }
 
 
