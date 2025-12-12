@@ -70,7 +70,7 @@ public class Main {
         Rectangle rectangle = new Rectangle(10, 10);
         System.out.println("calc area :"+ rectangle.calcArea());
         System.out.println("calc perimeter :" + rectangle.calcPerimeter());
+
+
     }
-
-
 }
