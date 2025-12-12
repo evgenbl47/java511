@@ -3,8 +3,11 @@ import animal.Bird;
 import animal.Cat;
 import animal.Dog;
 import car.Bicycle;
-import car.Car;
 import car.Motorcycle;
+import employee.Developer;
+import employee.Employee;
+import employee.Intern;
+import employee.Manager;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -90,13 +93,24 @@ public class Main {
 //        Motorcycle (добавь тип мотоцикла) и Bicycle (добавь количество передач).
 //        У каждого свой метод движения.
 
-
         Bicycle bicycle = new Bicycle("model", 1990);
         Motorcycle motorcycle = new Motorcycle("model", 1980);
+        motorcycle.info(motorcycle);
         System.out.println(motorcycle.getType());
-        Car car = new Car("car", 200);
-        System.out.println(car.getType());
-    }
 
+
+//        Задание 8: Работники
+//        Создай класс employee.Employee с полями имя, зарплата и методом calculateSalary().
+//        Создай дочерние классы Manager (зарплата + бонус), Developer (зарплата + за проекты) и
+//        Intern (почасовая оплата). Переопредели расчет зарплаты для каждого типа.
+
+        Employee[] emp = {new Manager("Alex", 3.200), new Developer("Tom", 3.200), new Intern("Phill", 3.200)};
+        for (Employee employee : emp) {
+            System.out.println(employee.getClass());
+            employee.info();
+            System.out.println(employee.calculateSalary());
+
+
+        }
     }
 }

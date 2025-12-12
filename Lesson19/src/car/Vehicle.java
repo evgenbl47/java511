@@ -37,4 +37,8 @@ public class Vehicle {
         return type;
     }
 
+    public void info(Vehicle vehicle) {
+        System.out.printf("Type :%s, model :%s, manufacture :%d.\n", type ,model, manufacture);
+    }
+
 }
