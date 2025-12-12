@@ -68,9 +68,16 @@ public class Main {
 //        методы для вычисления площади и периметра. Не давай прямого доступа к полям.
 
         Rectangle rectangle = new Rectangle(10, 10);
-        System.out.println("calc area :"+ rectangle.calcArea());
+        System.out.println("calc area :" + rectangle.calcArea());
         System.out.println("calc perimeter :" + rectangle.calcPerimeter());
+
+//        Задание 5: Пароль
+//        Создай класс Password с приватным полем для хранения пароля.
+//        Добавь метод для установки пароля (минимум 8 символов), метод для проверки пароля
+//        (сравнение с введенным) и запрети прямое получение пароля (нет геттера).
+
+        Password password = new Password();
+        password.setPassword("asd456AS");
+        password.checkPassword("asd456AS");
     }
-
-
 }
