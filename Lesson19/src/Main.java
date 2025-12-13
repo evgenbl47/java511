@@ -4,6 +4,10 @@ import animal.Cat;
 import animal.Dog;
 import car.Bicycle;
 import car.Motorcycle;
+import course.Course;
+import course.HybridCourse;
+import course.OfflineCourse;
+import course.OnlineCouse;
 import employee.Developer;
 import employee.Employee;
 import employee.Intern;
@@ -23,6 +27,7 @@ public class Main {
 //        Добавь методы для пополнения счета, снятия денег (с проверкой достаточности средств) и
 //        получения баланса.
 //        Все поля должны быть защищены от прямого доступа.
+        System.out.println(1);
 
         BankAccount accountOne = new BankAccount(1111, "AA");
         BankAccount accountTwo = new BankAccount(2222, "BB");
@@ -39,6 +44,7 @@ public class Main {
 //    Создай базовый класс animal с полями имя и возраст, методом makeSound().
 //    Создай три дочерних класса: Dog, Cat, Bird. Каждый должен переопределить метод makeSound()
 //    своим звуком и добавить один уникальный метод (например, собака умеет приносить палку).
+        System.out.println(2);
 
         Dog martin = new Dog("dog", 3);
         Cat max = new Cat("cat", -2);
@@ -55,6 +61,8 @@ public class Main {
 //        Создай класс Student с приватными полями: имя, возраст, средний балл.
 //        Добавь геттеры и сеттеры, но в сеттере для возраста проверяй,
 //        чтобы возраст был от 16 до 100 лет, а для среднего балла - от 0 до 100.
+        System.out.println(2);
+
         Student student = new Student();
 
         student.setAge(20);
@@ -67,14 +75,17 @@ public class Main {
 //        Создай класс Book с приватными полями: название, автор, количество страниц, цена.
 //        Сделай поля название и автор доступными только для чтения (только геттеры),
 //        а цену можно изменять, но только на положительное значение.
+        System.out.println(3);
 
         Book book = new Book("autor", "title", 20);
         book.setPrice(12);
+        book.info();
 
 //        Задание 4: Прямоугольник
 //        Создай класс Rectangle с приватными полями длина и ширина.
 //        Добавь методы для установки размеров (с проверкой на положительные значения),
 //        методы для вычисления площади и периметра. Не давай прямого доступа к полям.
+        System.out.println(4);
 
         Rectangle rectangle = new Rectangle(10, 10);
         System.out.println("calc area :" + rectangle.calcArea());
@@ -84,6 +95,7 @@ public class Main {
 //        Создай класс Password с приватным полем для хранения пароля.
 //        Добавь метод для установки пароля (минимум 8 символов), метод для проверки пароля
 //        (сравнение с введенным) и запрети прямое получение пароля (нет геттера).
+        System.out.println(5);
 
         Password password = new Password();
         password.setPassword("asd456AS");
@@ -95,6 +107,7 @@ public class Main {
 //        Создай дочерние классы Car (добавь количество дверей),
 //        Motorcycle (добавь тип мотоцикла) и Bicycle (добавь количество передач).
 //        У каждого свой метод движения.
+        System.out.println(7);
 
         Bicycle bicycle = new Bicycle("model", 1990);
         Motorcycle motorcycle = new Motorcycle("model", 1980);
@@ -106,6 +119,7 @@ public class Main {
 //        Создай класс employee.Employee с полями имя, зарплата и методом calculateSalary().
 //        Создай дочерние классы Manager (зарплата + бонус), Developer (зарплата + за проекты) и
 //        Intern (почасовая оплата). Переопредели расчет зарплаты для каждого типа.
+        System.out.println(8);
 
         Employee[] emp = {new Manager("Alex", 3.200), new Developer("Tom", 3.200), new Intern("Phill", 3.200)};
         for (Employee employee : emp) {
@@ -121,6 +135,7 @@ public class Main {
 //        Circle	    Area = π × r²	            Circumference = 2 × π × r
 //        Square	    Area = a²	                Perimeter = 4 × a
 //        Triangle      Area = 0.5 × base × height	Perimeter = a + b + c
+        System.out.println(9);
 
         Circle circle = new Circle(3);
         Sqare sqare = new Sqare(3);
@@ -133,5 +148,17 @@ public class Main {
 
         System.out.println("Triangle calc area :" + triangle.calculateArea());
         System.out.println("Triangle calc perimeter :" + triangle.calculatePerimeter());
+
+
+//        Задание 10: Учебные курсы
+//        Создай класс Course с полями название, продолжительность (в часах). Создай дочерние классы
+//        OnlineCourse (добавь платформу), OfflineCourse (добавь адрес), HybridCourse (комбинация обоих).
+//        Добавь метод получения информации о курсе, который выводит разную информацию в зависимости от типа.
+        System.out.println(10);
+
+        Course[] courses = {new OnlineCouse("GeekBrains"), new OfflineCourse("Tenistaya Street 8B"), new HybridCourse("FurmANOVA Street 57", "Top-Academy")};
+        for (Course course : courses) {
+            course.info();
+        }
     }
 }

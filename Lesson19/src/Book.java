@@ -36,4 +36,8 @@ public class Book {
 
         this.price = price;
     }
+
+    public void info() {
+        System.out.println("Book autor :" + autor + ", title : " + title + ", price :" + price);
+    }
 }
