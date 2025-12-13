@@ -5,6 +5,10 @@ public class Sqare extends Shape{
     private double area;
     private double perimeter;
 
+    public Sqare(double side) {
+        this.side = side;
+    }
+
     @Override
     public double calculateArea() {
         return area = Math.pow(side, 2);

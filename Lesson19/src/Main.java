@@ -9,6 +9,8 @@ import employee.Employee;
 import employee.Intern;
 import employee.Manager;
 import figure.Circle;
+import figure.Sqare;
+import figure.Triangle;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -120,7 +122,16 @@ public class Main {
 //        Square	    Area = a²	                Perimeter = 4 × a
 //        Triangle      Area = 0.5 × base × height	Perimeter = a + b + c
 
-        Circle circle = new Circle();
+        Circle circle = new Circle(3);
+        Sqare sqare = new Sqare(3);
+        Triangle triangle = new Triangle(3, 3, 3);
+        System.out.println("Circle calc area :" + circle.calculateArea());
+        System.out.println("Circle calc perimeter :" + circle.calculatePerimeter());
 
+        System.out.println("Square calc area :" + sqare.calculateArea());
+        System.out.println("Square calc perimeter :" + sqare.calculatePerimeter());
+
+        System.out.println("Triangle calc area :" + triangle.calculateArea());
+        System.out.println("Triangle calc perimeter :" + triangle.calculatePerimeter());
     }
 }
