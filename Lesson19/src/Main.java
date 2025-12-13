@@ -8,6 +8,7 @@ import employee.Developer;
 import employee.Employee;
 import employee.Intern;
 import employee.Manager;
+import figure.Circle;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -109,8 +110,17 @@ public class Main {
             System.out.println(employee.getClass());
             employee.info();
             System.out.println(employee.calculateSalary());
-
-
         }
+
+//        Задание 9: Геометрические фигуры
+//        Создай базовый класс Shape с абстрактными методами calculateArea() и calculatePerimeter().
+//        Создай дочерние классы Circle, Square, Triangle. Каждый должен реализовать свои формулы расчета площади и периметра.
+//        Shape	        Area Formula	            Perimeter/Circumference Formula
+//        Circle	    Area = π × r²	            Circumference = 2 × π × r
+//        Square	    Area = a²	                Perimeter = 4 × a
+//        Triangle      Area = 0.5 × base × height	Perimeter = a + b + c
+
+        Circle circle = new Circle();
+
     }
 }

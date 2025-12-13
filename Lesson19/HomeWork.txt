@@ -40,6 +40,10 @@ Intern (почасовая оплата). Переопредели расчет 
 Задание 9: Геометрические фигуры
 Создай базовый класс Shape с абстрактными методами calculateArea() и calculatePerimeter().
 Создай дочерние классы Circle, Square, Triangle. Каждый должен реализовать свои формулы расчета площади и периметра.
+Shape	    Area Formula	            Perimeter/Circumference Formula
+Circle	    Area = π × r²	            Circumference = 2 × π × r
+Square	    Area = a²	                Perimeter = 4 × a
+Triangle    Area = 0.5 × base × height	Perimeter = a + b + c
 
 Задание 10: Учебные курсы
 Создай класс Course с полями название, продолжительность (в часах). Создай дочерние классы
