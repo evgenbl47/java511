@@ -13,14 +13,13 @@ public class Savings extends BankAccount{
             return;
         }
         if (!checkPositive(getBalance() - amount)) {
-            System.out.println(getBalance() - amount);
             System.out.printf("Restock card :%s is NOT possible, new balance (%.2f) after operation is under %d.\n", accountNumber, getBalance() - amount, MIN_AMOUNT);
             return;
         }
 
-        System.out.printf("Restock card :%s, new balance (%.2f), new savings :%.2f.\n", accountNumber, getBalance(), savings );
         balance = balance - amount;
         savings = savings + amount;
+        System.out.printf("Restock card :%s, new balance (%.2f), new savings :%.2f.\n", accountNumber, getBalance(), savings );
 
 
     }
@@ -47,7 +46,7 @@ public class Savings extends BankAccount{
     @Override
     public void withdraw(double amount) {
         final int MIN_AMOUNT = 0;
-        if (amount < MIN_AMOUNT) {
+        if (!checkPositive(amount)) {
             System.out.printf("Withdraw from card :%s is NOT possible, sum (%.2f) is under %d.\n", accountNumber, amount, MIN_AMOUNT);
             return;
         }

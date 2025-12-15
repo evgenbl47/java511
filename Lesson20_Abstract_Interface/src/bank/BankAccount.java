@@ -4,9 +4,8 @@ public abstract class BankAccount {
 
     protected String accountNumber;
     protected double balance;
-    private String ownerName;
-    Savings savings;
-    CurrentAccount currentAccount;
+    protected String ownerName;
+
 
     public BankAccount(String accountNumber, double balance, String ownerName) {
         this.accountNumber = accountNumber;
@@ -38,11 +37,5 @@ public abstract class BankAccount {
         return ownerName;
     }
 
-    public void setSavings(Savings savings) {
-        this.savings = savings;
-    }
 
-    public void setCurrentAccount(CurrentAccount currentAccount) {
-        this.currentAccount = currentAccount;
-    }
 }
