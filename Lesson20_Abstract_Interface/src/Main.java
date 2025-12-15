@@ -1,5 +1,9 @@
 import bank.BankAccount;
 import bank.Savings;
+import employee.Developer;
+import employee.Employee;
+import employee.Intern;
+import employee.Manager;
 import transport.Boat;
 import transport.Car;
 import transport.Transport;
@@ -68,5 +72,34 @@ public class Main {
         boat.displayInfo();
         boat.move();
         boat.refuel();
+
+
+//        Задание 3: Сотрудники компании
+//        Создайте абстрактный класс employee.Employee с полями:
+//        name (String) - имя
+//        id (int) -  ID сотрудника
+//        baseSalary (double) - базовая зарплата
+//        Добавьте:
+//        Конструктор
+//        Абстрактный метод calculateSalary() - возвращает итоговую зарплату
+//        Конкретный метод getInfo() - выводит информацию о сотруднике
+//        Создайте классы-наследники:
+//        Manager - зарплата = baseSalary + 20% бонус
+//        Developer - зарплата = baseSalary + 1000 за каждый завершенный проект (добавьте поле completedProjects)
+//        Intern - зарплата = baseSalary (без надбавок)
+
+        Employee[] employees = new Employee[]{
+                new Manager("Tom", 23, 3000),
+                new Developer("Alex", 18, 3000),
+                new Intern("Vasya", 1234, 3000)};
+
+        for (Employee employee : employees) {
+            employee.getInfo();
+            System.out.println(employee.getName() + " :" + employee.calculateSalary());
+        }
+
+
     }
+
+
 }
