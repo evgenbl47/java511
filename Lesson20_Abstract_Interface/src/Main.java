@@ -10,8 +10,6 @@ import transport.Transport;
 
 import java.util.concurrent.TransferQueue;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         System.out.println("Lesson 20");
@@ -97,6 +95,19 @@ public class Main {
             employee.getInfo();
             System.out.println(employee.getName() + " :" + employee.calculateSalary());
         }
+//todo
+//        Интерфейсы (5 заданий)
+//        Задание 4: Платежные системы
+//        Создайте интерфейс Payable с методами:
+//        processPayment(double amount) - обработка платежа
+//        refundPayment(double amount) - возврат средств
+//        Default метод printReceipt() - выводит "Чек распечатан"
+//        Создайте классы:
+//        CreditCard - реализует Payable
+//        PayPal - реализует Payable
+//        Cash - реализует Payable
+//        Каждый класс должен по-своему реализовать методы платежа.
+
 
 
     }
