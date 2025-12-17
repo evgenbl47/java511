@@ -1,18 +1,21 @@
 package pay;
 
-public class CreditCard implements Payable{
+public class CreditCard implements Payable {
     @Override
     public void processPayment(double amount) {
-
+        if (amount <= 0) {
+            System.out.println("Sum can't be less than 1. REJECTED\n");
+            return;
+        }
+        System.out.printf("Payment %.2f from CreditCard was SUCCESS\n", amount);
     }
 
     @Override
     public void refoundPayment(double amount) {
-
-    }
-
-    @Override
-    public void printReceipt() {
-
+        if (amount <= 0) {
+            System.out.println("Sum can't be less than 1. REJECTED\n");
+            return;
+        }
+        System.out.printf("Cash back to CreditCard. SUCCESS\n");
     }
 }
