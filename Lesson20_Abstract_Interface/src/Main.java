@@ -1,5 +1,8 @@
-import bank.BankAccount;
 import bank.Savings;
+import dStorage.CloudStorage;
+import dStorage.DataStorage;
+import dStorage.DatabaseStorage;
+import dStorage.FIleStorage;
 import employee.Developer;
 import employee.Employee;
 import employee.Intern;
@@ -12,8 +15,6 @@ import smartHome.Light;
 import transport.Boat;
 import transport.Car;
 import transport.Transport;
-
-import java.util.concurrent.TransferQueue;
 
 public class Main {
     public static void main(String[] args) {
@@ -143,8 +144,27 @@ public class Main {
         fan.getStatus();
         fan.turnOff();
 
+//        Задание 6: Хранилища данных
+//        Создайте интерфейс DataStorage с методами:
+//        save(String data) - сохранить данные
+//        load() - загрузить данные (возвращает String)
+//        delete() - удалить данные
+//        Static метод getStorageType() - возвращает "Data Storage System"
+//        Default метод backup() - выводит "Создание резервной копии"
+//        Создайте классы:
+//        FileStorage - работа с файлами
+//        DatabaseStorage - работа с базой данных
+//        CloudStorage - работа с облаком
+        FIleStorage storage = new FIleStorage();
+        CloudStorage cloudStorage = new CloudStorage();
+        DataStorage databaseStorage = new DatabaseStorage();
+        databaseStorage.delete();
+        databaseStorage.save("Data1.");
+        databaseStorage.save("Data2.");
+        System.out.println(databaseStorage.load());
 
     }
+
 
 
 }
