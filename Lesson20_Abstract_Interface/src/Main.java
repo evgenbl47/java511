@@ -4,6 +4,11 @@ import employee.Developer;
 import employee.Employee;
 import employee.Intern;
 import employee.Manager;
+import pay.CreditCard;
+import pay.PayPal;
+import pay.Payable;
+import smartHome.Fan;
+import smartHome.Light;
 import transport.Boat;
 import transport.Car;
 import transport.Transport;
@@ -95,7 +100,8 @@ public class Main {
             employee.getInfo();
             System.out.println(employee.getName() + " :" + employee.calculateSalary());
         }
-//todo
+
+
 //        Интерфейсы (5 заданий)
 //        Задание 4: Платежные системы
 //        Создайте интерфейс Payable с методами:
@@ -107,7 +113,35 @@ public class Main {
 //        PayPal - реализует Payable
 //        Cash - реализует Payable
 //        Каждый класс должен по-своему реализовать методы платежа.
+        Payable[] payMethod = {new CreditCard(), new PayPal()};
+        for (Payable payable : payMethod) {
+            payable.processPayment(500);
+            payable.refoundPayment(50);
+            payable.printReceipt();
+        }
 
+
+//                Задание 5: Умный дом
+//        Создайте интерфейсы:
+//        Controllable с методами: turnOn(), turnOff(), getStatus()
+//        Dimmable с методами: setBrightness(int level), getBrightness()
+//        Создайте классы:
+//        Light - реализует оба интерфейса (Controllable и Dimmable)
+//        Fan - реализует только Controllable
+//        SmartTV - реализует оба интерфейса (яркость экрана)
+
+        Light light = new Light();
+        light.getStatus();
+        light.turnOn();
+        light.getBrightness();
+        light.setBrightness(59);
+        light.getStatus();
+
+        Fan fan = new Fan();
+        fan.getStatus();
+        fan.turnOn();
+        fan.getStatus();
+        fan.turnOff();
 
 
     }

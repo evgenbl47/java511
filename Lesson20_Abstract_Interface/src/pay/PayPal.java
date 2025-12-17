@@ -13,11 +13,12 @@ public class PayPal implements Payable{
 
     @Override
     public void refoundPayment(double amount) {
+        if (amount <= 0) {
+            System.out.println("Sum can't be less than 1. REJECTED");
+            return;
+        }
+        System.out.println("Cash back to PayPal. SUCCESS");
 
     }
 
-    @Override
-    public void printReceipt() {
-
-    }
 }
