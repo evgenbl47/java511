@@ -1,14 +1,20 @@
-import bank.BankAccount;
 import bank.Savings;
+import dStorage.CloudStorage;
+import dStorage.DataStorage;
+import dStorage.DatabaseStorage;
+import dStorage.FIleStorage;
 import employee.Developer;
 import employee.Employee;
 import employee.Intern;
 import employee.Manager;
+import pay.CreditCard;
+import pay.PayPal;
+import pay.Payable;
+import smartHome.Fan;
+import smartHome.Light;
 import transport.Boat;
 import transport.Car;
 import transport.Transport;
-
-import java.util.concurrent.TransferQueue;
 
 public class Main {
     public static void main(String[] args) {
@@ -95,7 +101,8 @@ public class Main {
             employee.getInfo();
             System.out.println(employee.getName() + " :" + employee.calculateSalary());
         }
-//todo
+
+
 //        Интерфейсы (5 заданий)
 //        Задание 4: Платежные системы
 //        Создайте интерфейс Payable с методами:
@@ -107,10 +114,57 @@ public class Main {
 //        PayPal - реализует Payable
 //        Cash - реализует Payable
 //        Каждый класс должен по-своему реализовать методы платежа.
+        Payable[] payMethod = {new CreditCard(), new PayPal()};
+        for (Payable payable : payMethod) {
+            payable.processPayment(500);
+            payable.refoundPayment(50);
+            payable.printReceipt();
+        }
 
 
+//                Задание 5: Умный дом
+//        Создайте интерфейсы:
+//        Controllable с методами: turnOn(), turnOff(), getStatus()
+//        Dimmable с методами: setBrightness(int level), getBrightness()
+//        Создайте классы:
+//        Light - реализует оба интерфейса (Controllable и Dimmable)
+//        Fan - реализует только Controllable
+//        SmartTV - реализует оба интерфейса (яркость экрана)
+
+        Light light = new Light();
+        light.getStatus();
+        light.turnOn();
+        light.getBrightness();
+        light.setBrightness(59);
+        light.getStatus();
+
+        Fan fan = new Fan();
+        fan.getStatus();
+        fan.turnOn();
+        fan.getStatus();
+        fan.turnOff();
+
+//        Задание 6: Хранилища данных
+//        Создайте интерфейс DataStorage с методами:
+//        save(String data) - сохранить данные
+//        load() - загрузить данные (возвращает String)
+//        delete() - удалить данные
+//        Static метод getStorageType() - возвращает "Data Storage System"
+//        Default метод backup() - выводит "Создание резервной копии"
+//        Создайте классы:
+//        FileStorage - работа с файлами
+//        DatabaseStorage - работа с базой данных
+//        CloudStorage - работа с облаком
+        FIleStorage storage = new FIleStorage();
+        CloudStorage cloudStorage = new CloudStorage();
+        DataStorage databaseStorage = new DatabaseStorage();
+        databaseStorage.delete();
+        databaseStorage.save("Data1.");
+        databaseStorage.save("Data2.");
+        System.out.println(databaseStorage.load());
 
     }
+
 
 
 }
