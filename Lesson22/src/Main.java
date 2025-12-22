@@ -2,9 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
+
     public static void main(String[] args) {
 
         ClassWork myList = new ClassWork();
+
+
         myList.addEnd(55);
         myList.addEnd(66);
         myList.addEnd(66);

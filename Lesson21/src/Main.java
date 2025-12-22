@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         MyList myList = new MyList();
+
         System.out.println("addEnd(55)");
         myList.addEnd(55);
         System.out.println("addEnd(66)");
@@ -23,16 +24,21 @@ public class Main {
         System.out.printf("List size : %d\n", myList.size());
         System.out.println("addStart(555)");
         myList.addStart(555);
-        System.out.print("List before reverse -> ");
+        System.out.println("addEnd(77)");
+        myList.addEnd(77);
+        System.out.println("addEnd(78)");
+        myList.addEnd(78);
+        System.out.print("List before remove -> ");
         myList.print();
-        myList.reverse();
-        System.out.print("List  after reverse -> ");
+        System.out.println("removeByValueLast(88)");
+        myList.removeByValueLast(88);
+        //myList.reverse();
+        System.out.print("List  after remove -> ");
         myList.print();
         System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
         System.out.println("List clear()");
         myList.clear();
-        System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
-        myList.isEmpty();
+        System.out.println(myList.getFirst());;
 
     }
 }

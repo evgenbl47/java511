@@ -25,6 +25,14 @@ public class ClassWork {
         //  1 4 2 3
     }
 
+    public void addE(int num) {
+        arr[size++] = num;
+        //num = 4   index = 1
+
+        //  1 2 3
+        //  1 4 2 3
+    }
+
     public void addStart(int num) {
         int[] tmp = new int[size + 1];
         for (int i = 0; i < size; i++) {

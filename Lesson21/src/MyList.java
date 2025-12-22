@@ -1,7 +1,7 @@
 public class MyList {
 
-    int[] arr;
-    int size;
+    private int[] arr;
+    private int size;
 
     {
         size = 0;
@@ -63,12 +63,13 @@ public class MyList {
         size++;
     }
 
-    //todo
     public int getFirst() {
         int elem;
-        if (size < 0) {
-            System.out.println("First size is less than 0");
-            return elem = 0;
+        if (size == 0) {
+            System.out.println(getClass() + " : method getFirst() can't be applied ");
+            System.out.println("Array isEmpty() :" + isEmpty());
+            System.out.println("ERROR!! LIST IS NOT CREATED YET");
+            throw new ArrayIndexOutOfBoundsException("ARRAY SIZE : 0 / ZERO)");
         }
         elem = arr[0];
         return elem;
@@ -93,31 +94,22 @@ public class MyList {
         size = 0;
     }
 
-    public void addByIndex(int index, int num) {
-        if (index <= 0) {
-            addStart(num);
-        } else if (index >= size) {
-            addEnd(num);
-        } else {
-            int[] tmp = new int[size + 1];
-            for (int i = 0, j = 0; i < tmp.length; i++) {
-                if (i == index) {
-                    tmp[i] = num;
-                } else {
-                    tmp[i] = arr[j++];
-                }
+    public  void removeByIndex(int index) {
+        int[] tmp = new int[size - 1];
+
+        boolean remove = false;
+        for (int i = 0; i < tmp.length; i++) {
+            if (i == index) {
+                remove = true;
             }
-//            for (int i = 0,j =0; i < size; i++,j++ ) {
-//                if(j==index){
-//                    tmp[j] = num;
-//                    i--;
-//                }else{
-//                    tmp[j] = arr[i];
-//                }
-//            }
-            size++;
-            arr = tmp;
+            if (!remove) {
+                tmp[i] = arr[i];
+            } else {
+                tmp[i] = arr[i + 1];
+            }
         }
+        size--;
+        arr = tmp;
     }
 
     public void removeByValueFirst(int num) {
@@ -162,6 +154,55 @@ public class MyList {
     public  boolean isEmpty() {
         return size < 1 ? true : false;
     }
+
+    public void addByIndex(int index, int num) {
+        if (index <= 0) {
+            addStart(num);
+        } else if (index >= size) {
+            addEnd(num);
+        } else {
+            int[] tmp = new int[size + 1];
+            for (int i = 0, j = 0; i < tmp.length; i++) {
+                if (i == index) {
+                    tmp[i] = num;
+                } else {
+                    tmp[i] = arr[j++];
+                }
+            }
+//            for (int i = 0,j =0; i < size; i++,j++ ) {
+//                if(j==index){
+//                    tmp[j] = num;
+//                    i--;
+//                }else{
+//                    tmp[j] = arr[i];
+//                }
+//            }
+            size++;
+            arr = tmp;
+        }
+    }
+
+    public  void removeByValueLast(int num) {
+        int[] tmp = new int[size - 1];
+        boolean remove = false;
+        for (int i = arr.length - 1; i > 0; i--) {
+            if (arr[i] == num) {
+                if (!remove) {
+                    remove = true;
+                }
+            }
+            if (!remove) {
+                tmp[i-1] = arr[i];
+            } else {
+                tmp[i-1] = arr[i - 1];
+            }
+        }
+        if (remove) {
+            size--;
+            arr = tmp;
+        }
+
+    }
 }
 
 
@@ -182,8 +223,8 @@ public class MyList {
 //13   -    public  int indexOf(int num);
 //14   -    public  int lastIndexOf(int num);
 //15   -    public  int getLast();
-//16   -    public  void addByIndex(int index, int num);
-//17   -    public  void removeByIndexLast(int index);
+//16   +    public  void addByIndex(int index, int num);
+//17   +    public  void removeByValueLast(int num);
 
 
 
