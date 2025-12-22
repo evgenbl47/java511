@@ -47,6 +47,20 @@ public class MyList {
         return elem;
     }
 
+    public boolean isHasValue(int num) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == num) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public  int size() {
+        return size;
+    }
+
     public void removeByValueFirst(int num) {
         boolean isHas = true;
 
@@ -98,15 +112,6 @@ public class MyList {
         }
     }
 
-    public boolean isHasValue(int num) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == num) {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }
 
 
@@ -114,8 +119,8 @@ public class MyList {
 //2    +   public  void print();
 //3    +   public  void addStart(int num);
 //4    +   public  int getFirst();
-//5    -   public  boolean isHasValue(int num);
-//9    -   public  int size();
+//5    +   public  boolean isHasValue(int num);
+//9    +   public  int size();
 //10   -   public  void clear();
 //7    +   public  void removeByIndex(int index);
 //8    +   public  void removeByValueFirst(int num);
