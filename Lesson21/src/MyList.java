@@ -8,6 +8,8 @@ public class MyList {
         arr = new int[size];
     }
 
+    //part_1
+
     public void addEnd(int num) {
         int[] tmp = new int[size + 1];
         for (int i = 0; i < size; i++) {
@@ -91,30 +93,6 @@ public class MyList {
         size = 0;
     }
 
-    public void removeByValueFirst(int num) {
-        boolean isHas = true;
-
-        for (int i = 0; i < size; i++) {
-            if (arr[i] == num) {
-                isHas = true;
-                break;
-            }
-        }
-
-        if (isHas) {
-            int[] tmp = new int[size - 1];
-            for (int i = 0, j = 0; i < size; i++) {
-                if (isHas && arr[i] == num) {
-                    isHas = false;
-                    continue;
-                }
-                tmp[j++] = arr[i];
-            }
-            size--;
-            arr = tmp;
-        }
-    }
-
     public void addByIndex(int index, int num) {
         if (index <= 0) {
             addStart(num);
@@ -142,6 +120,44 @@ public class MyList {
         }
     }
 
+    public void removeByValueFirst(int num) {
+        boolean isHas = true;
+
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == num) {
+                isHas = true;
+                break;
+            }
+        }
+
+        if (isHas) {
+            int[] tmp = new int[size - 1];
+            for (int i = 0, j = 0; i < size; i++) {
+                if (isHas && arr[i] == num) {
+                    isHas = false;
+                    continue;
+                }
+                tmp[j++] = arr[i];
+            }
+            size--;
+            arr = tmp;
+        }
+    }
+
+    //part_2
+
+    public void reverse() {
+        if (size < 0) {
+            return;
+        }
+        int j = size - 1;
+        int[] tmp = new int[size];
+        for (int i = 0; i < arr.length; i++ , j--) {
+            tmp[i] = arr[j];
+        }
+
+        arr = tmp;
+    }
 }
 
 
