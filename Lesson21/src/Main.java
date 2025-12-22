@@ -36,6 +36,7 @@ public class Main {
         System.out.print("List  after remove -> ");
         myList.print();
         System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
+        System.out.println("Array last elem :" + myList.getLast());
         System.out.println("List clear()");
         myList.clear();
         System.out.println(myList.getFirst());;
@@ -60,6 +61,6 @@ public class Main {
 //12   -    public  int get(int index);
 //13   -    public  int indexOf(int num);
 //14   -    public  int lastIndexOf(int num);
-//15   -    public  int getLast();
-//16   -    public  void addByIndex(int index, int num);
-//17   -    public  void removeByIndexLast(int index);
+//15   +    public  int getLast();
+//16   +    public  void addByIndex(int index, int num);
+//17   +    public  void removeByIndexLast(int index);

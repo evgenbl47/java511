@@ -155,6 +155,23 @@ public class MyList {
         return size < 1 ? true : false;
     }
 
+//    public  int get(int index) {
+//
+//    }
+
+//    public  int indexOf(int num) {
+//
+//    }
+
+//    public  int lastIndexOf(int num) {
+//
+//    }
+
+    public int getLast() {
+        int res;
+        return res = arr[size - 1];
+    }
+
     public void addByIndex(int index, int num) {
         if (index <= 0) {
             addStart(num);
@@ -222,7 +239,7 @@ public class MyList {
 //12   -    public  int get(int index);
 //13   -    public  int indexOf(int num);
 //14   -    public  int lastIndexOf(int num);
-//15   -    public  int getLast();
+//15   +    public  int getLast();
 //16   +    public  void addByIndex(int index, int num);
 //17   +    public  void removeByValueLast(int num);
 
