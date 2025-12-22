@@ -2,7 +2,6 @@
 
 public class Main {
     public static void main(String[] args) {
-        MyList list = new MyList();
 
         MyList myList = new MyList();
         System.out.println("addEnd(55)");
@@ -22,6 +21,10 @@ public class Main {
         System.out.printf("getFrirst() :arr[%d] : %d\n", 0, myList.getFirst());
         System.out.printf("isHasValue(%d) : %b\n", 66, myList.isHasValue(66));
         System.out.printf("List size : %d\n", myList.size());
+        System.out.println("List clear()");
+        myList.clear();
+        myList.print();
+        myList.addStart(555);
         myList.print();
     }
 }
@@ -33,7 +36,7 @@ public class Main {
 //4    +   public  int getFirst();
 //5    +   public  boolean isHasValue(int num);
 //6    +   public  int size();
-//7    -   public  void clear();
+//7    +   public  void clear();
 //8    -   public  void removeByIndex(int index);
 //9    +   public  void removeByValueFirst(int num);
 

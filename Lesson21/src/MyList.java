@@ -19,9 +19,34 @@ public class MyList {
     }
 
     public void print() {
-        for (int i = 0; i < size; i++) {
-            System.out.print(arr[i] + " ");
-            ;
+        if (size == 0) {
+            System.out.println("[]");
+            return;
+        }
+        if (size == 1) {
+            System.out.println(arr[0]);
+            return;
+        }
+        if (size == 2) {
+            System.out.printf("[%d, %d]\n", arr[0], arr[1]);
+            return;
+        }
+        if (size > 2) {
+            for (int i = 0; i < size; i++) {
+                if (i == 0) {
+                    System.out.print("[");
+                }
+
+                if (i != size - 1) {
+                    System.out.print(arr[i] + ", ");
+                }
+
+                if (i >= size - 1) {
+                    System.out.print(arr[i]);
+                    System.out.print("]");
+
+                }
+            }
         }
         System.out.println();
     }
@@ -59,6 +84,11 @@ public class MyList {
 
     public  int size() {
         return size;
+    }
+
+    public  void clear() {
+        arr = new int[0];
+        size = 0;
     }
 
     public void removeByValueFirst(int num) {
@@ -121,7 +151,7 @@ public class MyList {
 //4    +   public  int getFirst();
 //5    +   public  boolean isHasValue(int num);
 //9    +   public  int size();
-//10   -   public  void clear();
+//10   +   public  void clear();
 //7    +   public  void removeByIndex(int index);
 //8    +   public  void removeByValueFirst(int num);
 
