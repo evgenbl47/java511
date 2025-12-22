@@ -158,6 +158,10 @@ public class MyList {
 
         arr = tmp;
     }
+
+    public  boolean isEmpty() {
+        return size < 1 ? true : false;
+    }
 }
 
 
@@ -172,8 +176,8 @@ public class MyList {
 //8    +   public  void removeByValueFirst(int num);
 
 
-//10   -    public  void reverse();
-//11   -    public  boolean isEmpty();
+//10   +    public  void reverse();
+//11   +    public  boolean isEmpty();
 //12   -    public  int get(int index);
 //13   -    public  int indexOf(int num);
 //14   -    public  int lastIndexOf(int num);

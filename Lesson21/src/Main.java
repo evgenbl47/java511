@@ -21,8 +21,6 @@ public class Main {
         System.out.printf("getFrirst() :arr[%d] : %d\n", 0, myList.getFirst());
         System.out.printf("isHasValue(%d) : %b\n", 66, myList.isHasValue(66));
         System.out.printf("List size : %d\n", myList.size());
-//        System.out.println("List clear()");
-//        myList.clear();
         System.out.println("addStart(555)");
         myList.addStart(555);
         System.out.print("List before reverse -> ");
@@ -30,6 +28,12 @@ public class Main {
         myList.reverse();
         System.out.print("List  after reverse -> ");
         myList.print();
+        System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
+        System.out.println("List clear()");
+        myList.clear();
+        System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
+        myList.isEmpty();
+
     }
 }
 
@@ -46,7 +50,7 @@ public class Main {
 
 //part_2
 //10   +    public  void reverse();
-//11   -    public  boolean isEmpty();
+//11   +    public  boolean isEmpty();
 //12   -    public  int get(int index);
 //13   -    public  int indexOf(int num);
 //14   -    public  int lastIndexOf(int num);
