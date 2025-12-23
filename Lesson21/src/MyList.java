@@ -155,17 +155,33 @@ public class MyList {
         return size < 1 ? true : false;
     }
 
-//    public  int get(int index) {
-//
-//    }
+    public  int getIndexElem(int index) {
+        int elem;
+        return elem = arr[index];
+    }
 
-//    public  int indexOf(int num) {
-//
-//    }
+    //todo
+    public  int indexOf(int num) {
+    int find;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == num) {
+                find = i;
+                return find;
+            }
+        }
+        return -1;
+    }
 
-//    public  int lastIndexOf(int num) {
-//
-//    }
+    public  int lastIndexOf(int num) {
+        int find;
+        for (int i = size; i >= 0; i--) {
+            if (arr[i] == num) {
+                find = i;
+                return find;
+            }
+        }
+        return -1;
+    }
 
     public int getLast() {
         int res;
@@ -236,9 +252,9 @@ public class MyList {
 
 //10   +    public  void reverse();
 //11   +    public  boolean isEmpty();
-//12   -    public  int get(int index);
-//13   -    public  int indexOf(int num);
-//14   -    public  int lastIndexOf(int num);
+//12   +    public  int get(int index); //rename getIndexElem
+//13   +    public  int indexOf(int num);
+//14   +    public  int lastIndexOf(int num);
 //15   +    public  int getLast();
 //16   +    public  void addByIndex(int index, int num);
 //17   +    public  void removeByValueLast(int num);

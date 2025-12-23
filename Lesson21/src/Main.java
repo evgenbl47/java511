@@ -24,6 +24,8 @@ public class Main {
         System.out.printf("List size : %d\n", myList.size());
         System.out.println("addStart(555)");
         myList.addStart(555);
+        System.out.println("getIndexElem(0)");
+        System.out.println(myList.getIndexElem(0));
         System.out.println("addEnd(77)");
         myList.addEnd(77);
         System.out.println("addEnd(78)");
