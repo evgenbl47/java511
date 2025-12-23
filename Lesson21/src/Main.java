@@ -3,45 +3,68 @@
 public class Main {
     public static void main(String[] args) {
 
-        MyList myList = new MyList();
+//        MyList myList = new MyList();
 
-        System.out.println("addEnd(55)");
-        myList.addEnd(55);
-        System.out.println("addEnd(66)");
-        myList.addEnd(66);
-        System.out.println("addByIndex(2, 99)");
-        myList.addByIndex(2, 99);
-        System.out.println("addEnd(77)");
-        myList.addEnd(77);
-        myList.print();
-        System.out.println("addStart(44)");
-        myList.addStart(44);
-        System.out.println("addStart(33)");
-        myList.addStart(33);
-        myList.print();
-        System.out.printf("getFrirst() :arr[%d] : %d\n", 0, myList.getFirst());
-        System.out.printf("isHasValue(%d) : %b\n", 66, myList.isHasValue(66));
-        System.out.printf("List size : %d\n", myList.size());
-        System.out.println("addStart(555)");
-        myList.addStart(555);
-        System.out.println("getIndexElem(0)");
-        System.out.println(myList.getIndexElem(0));
-        System.out.println("addEnd(77)");
-        myList.addEnd(77);
-        System.out.println("addEnd(78)");
-        myList.addEnd(78);
-        System.out.print("List before remove -> ");
-        myList.print();
-        System.out.println("removeByValueLast(88)");
-        myList.removeByValueLast(88);
-        //myList.reverse();
-        System.out.print("List  after remove -> ");
-        myList.print();
-        System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
-        System.out.println("Array last elem :" + myList.getLast());
-        System.out.println("List clear()");
-        myList.clear();
-        System.out.println(myList.getFirst());;
+//        System.out.println("addEnd(55)");
+//        myList.addEnd(55);
+//        System.out.println("addEnd(66)");
+//        myList.addEnd(66);
+//        System.out.println("addByIndex(2, 99)");
+//        myList.addByIndex(2, 99);
+//        System.out.println("addEnd(77)");
+//        myList.addEnd(77);
+//        myList.print();
+//        System.out.println("addStart(44)");
+//        myList.addStart(44);
+//        System.out.println("addStart(33)");
+//        myList.addStart(33);
+//        myList.print();
+//        System.out.printf("getFrirst() :arr[%d] : %d\n", 0, myList.getFirst());
+//        System.out.printf("isHasValue(%d) : %b\n", 66, myList.isHasValue(66));
+//        System.out.printf("List size : %d\n", myList.size());
+//        System.out.println("addStart(555)");
+//        myList.addStart(555);
+//        System.out.println("getIndexElem(0)");
+//        System.out.println(myList.getIndexElem(0));
+//        System.out.println("addEnd(77)");
+//        myList.addEnd(77);
+//        System.out.println("addEnd(78)");
+//        myList.addEnd(78);
+//        System.out.print("List before remove -> ");
+//        myList.print();
+//        System.out.println("removeByValueLast(88)");
+//        myList.removeByValueLast(88);
+//        //myList.reverse();
+//        System.out.print("List  after remove -> ");
+//        myList.print();
+//        System.out.printf("Array isEmpty : %b\n", myList.isEmpty());
+//        System.out.println("Array last elem :" + myList.getLast());
+//        System.out.println("List clear()");
+//        myList.clear();
+//        System.out.println(myList.getFirst());;
+
+        MyList myList = new MyList();
+        myList.addStart(1);
+        myList.addEnd(2);
+        myList.addEnd(2);
+        myList.addEnd(3);
+        myList.addEnd(3);
+        myList.addEnd(4);
+        myList.addEnd(5);
+        myList.addEnd(5);
+        myList.addEnd(6);
+        myList.addEnd(7);
+//        myList.addEnd(5);
+//        myList.addEnd(5);
+//        myList.addEnd(6);
+//        myList.addEnd(7);
+
+
+//1 2 3 4 1 1 1 1 1 2 3 4 => 1 2 3 4
+
+        myList.print();//1 2 2 3 3 4 5 5 6 7
+        myList.removeAllDuplicat();
+        myList.print();//1 2 3 4 5 6 7
 
     }
 }

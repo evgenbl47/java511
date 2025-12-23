@@ -85,16 +85,16 @@ public class MyList {
         return false;
     }
 
-    public  int size() {
+    public int size() {
         return size;
     }
 
-    public  void clear() {
+    public void clear() {
         arr = new int[0];
         size = 0;
     }
 
-    public  void removeByIndex(int index) {
+    public void removeByIndex(int index) {
         int[] tmp = new int[size - 1];
 
         boolean remove = false;
@@ -144,25 +144,25 @@ public class MyList {
         }
         int j = size - 1;
         int[] tmp = new int[size];
-        for (int i = 0; i < arr.length; i++ , j--) {
+        for (int i = 0; i < arr.length; i++, j--) {
             tmp[i] = arr[j];
         }
 
         arr = tmp;
     }
 
-    public  boolean isEmpty() {
+    public boolean isEmpty() {
         return size < 1 ? true : false;
     }
 
-    public  int getIndexElem(int index) {
+    public int getIndexElem(int index) {
         int elem;
         return elem = arr[index];
     }
 
     //todo
-    public  int indexOf(int num) {
-    int find;
+    public int indexOf(int num) {
+        int find;
         for (int i = 0; i < size; i++) {
             if (arr[i] == num) {
                 find = i;
@@ -172,7 +172,7 @@ public class MyList {
         return -1;
     }
 
-    public  int lastIndexOf(int num) {
+    public int lastIndexOf(int num) {
         int find;
         for (int i = size; i >= 0; i--) {
             if (arr[i] == num) {
@@ -215,7 +215,7 @@ public class MyList {
         }
     }
 
-    public  void removeByValueLast(int num) {
+    public void removeByValueLast(int num) {
         int[] tmp = new int[size - 1];
         boolean remove = false;
         for (int i = arr.length - 1; i > 0; i--) {
@@ -225,9 +225,9 @@ public class MyList {
                 }
             }
             if (!remove) {
-                tmp[i-1] = arr[i];
+                tmp[i - 1] = arr[i];
             } else {
-                tmp[i-1] = arr[i - 1];
+                tmp[i - 1] = arr[i - 1];
             }
         }
         if (remove) {
@@ -236,6 +236,58 @@ public class MyList {
         }
 
     }
+
+    public void removeAllDuplicat() {
+        int[] res = new int[size];
+        int temp = 0;
+        int counter = 0;
+        boolean turnNull = false;
+        int toRemove = 0;
+        for (int i = 0; i < size; i++) {
+            temp = arr[i];
+            if (arr[i] == -1) {
+                continue;
+            }
+
+            for (int j = 0; j < size; j++) {
+                if (i == j) {
+                    continue;
+                }
+                if (temp == arr[j]) {
+                    counter++;
+                }
+            }
+            if (counter > 1) {
+                turnNull = true;
+                toRemove = arr[i];
+            }
+
+            if (turnNull) {
+                arr[i] = -1;
+                turnNull = false;
+                counter = 0;
+                continue;
+            }
+
+            if (toRemove == arr[i]) {
+                arr[i] = toRemove;
+            }
+            res[i] = arr[i];
+
+
+        }
+
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == -1) {
+                continue;
+            }
+
+            System.out.print(arr[i] + " ");
+        }
+
+        System.out.println();
+    }
+
 }
 
 
