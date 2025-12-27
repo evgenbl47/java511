@@ -160,7 +160,6 @@ public class MyList {
         return elem = arr[index];
     }
 
-    //todo
     public int indexOf(int num) {
         int find;
         for (int i = 0; i < size; i++) {

@@ -27,6 +27,11 @@ public class Player {
 //        }
     }
 
+    //todo
+    public void move(int steps) {
+        direction.step(currentPos);
+    }
+
     public Direction getDirection() {
         return direction;
     }
@@ -43,9 +48,10 @@ public class Player {
                 ']';
     }
 
-    public String print() {
+    public String showStep() {
         return "Player [" +
                 "name=" + name +
+                ", new pos" +
                 ", posX=" + x +
                 ", posY=" + y +
                 ']';

@@ -1,4 +1,4 @@
-
+//todo Added method removeAllDuplicat() from classWork
 
 public class Main {
     public static void main(String[] args) {
@@ -54,12 +54,8 @@ public class Main {
         myList.addEnd(5);
         myList.addEnd(6);
         myList.addEnd(7);
-//        myList.addEnd(5);
-//        myList.addEnd(5);
-//        myList.addEnd(6);
-//        myList.addEnd(7);
 
-
+//before => after
 //1 2 3 4 1 1 1 1 1 2 3 4 => 1 2 3 4
 
         myList.print();//1 2 2 3 3 4 5 5 6 7

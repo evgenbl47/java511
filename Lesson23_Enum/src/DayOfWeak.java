@@ -6,7 +6,12 @@ public enum DayOfWeak {
     THURSDAY,
     FRIDAY,
     SATURDAY,
-    SUNDAY
+    SUNDAY;
+
+    public boolean isWeekend() {
+        boolean res;
+        return res = (this == SATURDAY || this == SUNDAY);
+    }
 }
 //Monday — run day,
 // Tuesday — news day,
