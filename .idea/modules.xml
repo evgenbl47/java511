@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/HewYear2026/HewYear2026.iml" filepath="$PROJECT_DIR$/HewYear2026/HewYear2026.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lesson1.iml" filepath="$PROJECT_DIR$/Lesson1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lesson11/Lesson11.iml" filepath="$PROJECT_DIR$/Lesson11/Lesson11.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lesson12/Lesson12.iml" filepath="$PROJECT_DIR$/Lesson12/Lesson12.iml" />
@@ -26,6 +27,7 @@
       <module fileurl="file://$PROJECT_DIR$/Lesson9-10/Lesson9-10.iml" filepath="$PROJECT_DIR$/Lesson9-10/Lesson9-10.iml" />
       <module fileurl="file://$PROJECT_DIR$/it_academy/lesson1/Practic1/Practic1.iml" filepath="$PROJECT_DIR$/it_academy/lesson1/Practic1/Practic1.iml" />
       <module fileurl="file://$PROJECT_DIR$/it_academy/lesson1/Practic2/Practic2.iml" filepath="$PROJECT_DIR$/it_academy/lesson1/Practic2/Practic2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/it_academy/lesson1/Practic3/Practic3.iml" filepath="$PROJECT_DIR$/it_academy/lesson1/Practic3/Practic3.iml" />
     </modules>
   </component>
 </project>
