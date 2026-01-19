@@ -1,0 +1,6 @@
+LinkedList
+
+void addStart(String value);
+void add(int index, String value);
+
+*void reverse();
