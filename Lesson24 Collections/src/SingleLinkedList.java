@@ -2,7 +2,7 @@ public class SingleLinkedList {
 
     private Node head;
 
-    public void add(String value) {
+    public void add(String value)  {
         if (head == null) {
             head = new Node(value);
         } else  {
@@ -14,17 +14,9 @@ public class SingleLinkedList {
         }
     }
 
-    public void addStart(String value) {
-        if (head == null) {
-            head = new Node(value);
-        }else {
-            addToBegin(value);
-        }
-    }
-
     public void add(int index, String value) {
         if (index <= 0) {
-            addToBegin(value);
+            addStart(value);
             return;
         }
 
@@ -44,10 +36,15 @@ public class SingleLinkedList {
         adress.next = newNode;
     }
 
-    private void addToBegin(String value) {
-        Node newHead = new Node(value);
-        newHead.next = head;
-        head = newHead;
+    void addStart(String value) {
+        if (head == null) {
+            head = new Node(value);
+        } else {
+            Node newHead = new Node(value);
+            newHead.next = head;
+            head = newHead;
+        }
+
     }
 
     public String get(int index) {
@@ -76,5 +73,14 @@ public class SingleLinkedList {
         System.out.println();
     }
 
+    public int size() {
+        Node start = head;
+        int count = 0;
+        while (start != null) {
+            count++;
+            start = start.next;
+        }
+        return count;
+    }
 
 }
