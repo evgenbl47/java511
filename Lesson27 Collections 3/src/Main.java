@@ -9,7 +9,7 @@ public class Main {
         Dictionary dictionary = new Dictionary();
         dictionary.runDictionary();
 
-
+1
     }
 
     static void runMain() {
