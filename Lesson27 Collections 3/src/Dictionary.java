@@ -28,18 +28,25 @@ public class Dictionary {
                     4 - exit""");
 
             Scanner sc = new Scanner(System.in);
-            int choise = sc.nextInt();
+            String choise = sc.next();
 
-            if (choise == 1) {
+            if (choise.equals("1")) {
                 printDictionary(dictionary);
-            } else if (choise == 2) {
+            } else if (choise.equals("2")) {
                 sc = new Scanner(System.in);
 
                 System.out.println("Enter word to translate");
                 String word = sc.next();
-            } else if (choise == 3) {
 
-            } else if (choise == 4) {
+                if (!translated(word, dictionary)) {
+                    System.out.println("Would you like to add this word? \n 1 - yes\n 2 - no");
+                    sc = new Scanner(System.in);
+                    choise = sc.next();
+                }
+                ;
+            } else if (choise.equals("3")) {
+
+            } else if (choise.equals("4")) {
                 System.out.println("Exit");
                 break;
             } else {
@@ -75,7 +82,7 @@ public class Dictionary {
         }
     }
 
-    public static void translated(String word, Map<String, Map<String, Map<String, List<String>>>> dictionary) {
+    public static boolean translated(String word, Map<String, Map<String, Map<String, List<String>>>> dictionary) {
         word = word.toLowerCase();
         for (Map.Entry<String, Map<String, Map<String, List<String>>>> entry : dictionary.entrySet()) {
             System.out.print(entry.getKey() + " ");  //en
@@ -85,14 +92,21 @@ public class Dictionary {
 
                 for (Map.Entry<String, List<String>> subSubEntry : subEntry.getValue().entrySet()) {
                     System.out.print(subEntry.getKey() + " => ");  //key =>
-
-                    for (String key : subSubEntry.getValue()) {
-                        System.out.print(key + " ");  //value
+                    if (subSubEntry.getKey().equalsIgnoreCase(word)) {
+                        System.out.print(word + " => ");
+                        for (String key : subSubEntry.getValue()) {
+                            System.out.print(key + " ");  //value
+                        }
+                        return true;
+                    } else if (subSubEntry.getValue().contains(word)) {
+                        System.out.print(word + " => " + subSubEntry.getKey() + " ");
+                        return true;
                     }
-                    System.out.println();
                 }
             }
         }
+        System.out.println();
+        return false;
     }
 }
 

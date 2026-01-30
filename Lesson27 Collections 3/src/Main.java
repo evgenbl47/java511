@@ -5,9 +5,12 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+//
+//        Dictionary dictionary = new Dictionary();
+//        dictionary.runDictionary();
 
-        Dictionary dictionary = new Dictionary();
-        dictionary.runDictionary();
+        HomeWork hw = new HomeWork();
+        hw.showMap();
 
 
     }
