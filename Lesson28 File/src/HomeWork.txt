@@ -1,0 +1,18 @@
+
+//list    -> печатает все папки и файлы
+//files   -> печатает все файлы
+//folders -> печатает все папки
+//cd path -> переходить в указанный путь
+//cd ..   -> переходить на шаг назад
+
+//Scanner input = new Scanner(System.in);
+//String currentPath = "C:\\Users\\f-abd";
+//
+//while (true) {
+//        System.out.println("......");
+//    System.out.println("......");
+//    System.out.println("......");
+//
+//    System.out.print(currentPath +" : ");
+//    String path = input.next();
+//    }
