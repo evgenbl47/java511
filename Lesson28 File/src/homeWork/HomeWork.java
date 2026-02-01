@@ -7,24 +7,23 @@ public class HomeWork {
 
     public void runHomeWork() {
         String homePath = "C:\\Users\\Мой дом\\IdeaProjects\\java511\\git\\homeWork";
+        String path = homePath;
         File folder = new File(homePath);
 
-        String path = homePath;
         String getConsoleInput;
 
-        System.out.println("homePath : " + homePath);
+        System.out.println("homePath " + homePath );
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.println("""
-                    list()  -> печатает все папки и файлы
-                    files()  -> печатает все файлы
-                    folders() -> печатает все папки
+                    list   -> печатает все папки и файлы
+                    files   -> печатает все файлы
+                    folders  -> печатает все папки
                     cd path  -> переходить в указанный путь
                     cd ..   -> переходить на шаг назад""");
-            System.out.print(path + ": ");
+            System.out.print(path  + " ");
             getConsoleInput = setConsoleInput();
 
-            if (getConsoleInput.equals("list()")) {
+            if (getConsoleInput.equals("list")) {
                 //печатает все папки и файлы
                 if (null == folder.listFiles()) {
                     return;
@@ -38,7 +37,7 @@ public class HomeWork {
                     }
                 }
             }
-            if (getConsoleInput.equals("files()")) {
+            if (getConsoleInput.equals("files")) {
                 if (null == folder.listFiles()) {
                     return;
                 }
@@ -50,7 +49,7 @@ public class HomeWork {
                 }
                 //печатает все файлы
             }
-            if (getConsoleInput.equals("folders()")) {
+            if (getConsoleInput.equals("folders")) {
                 //печатает все папки
                 if (null == folder.listFiles()) {
                     return;
@@ -67,43 +66,38 @@ public class HomeWork {
                     path = directory.toString();
                 }
                 folder = new File(path);
+                getConsoleInput = "";
             }
             if (getConsoleInput.equals("cd home")) {
+                folder = new File(homePath);
                 path = homePath;
+                getConsoleInput = "";
             }
-            if (getConsoleInput.startsWith("cd ")) {
-                String newPath = getConsoleInput.substring(3);
-                File[] file = folder.listFiles();
-                for (int i = 0; i < file.length; i++) {
-                    if (file[i].getName().equals(getConsoleInput.substring(3))) {
-                        folder = new File(path += "\\" + newPath);
-                        break;
-                    }
-                }
-
-
-//                    File newFile = new File(path + newPath);
+              //переход по 1 папке
+//            if (getConsoleInput.startsWith("cd ")) {
+//                String newPath = (path + "\\") + (getConsoleInput.substring(3));
+//                File newFile = new File(newPath);
 //                if (newFile.exists() && newFile.isDirectory()) {
-//                    path += newPath;
+//                    path = newPath;
 //                    folder = new File(path);
 //                }
+//                getConsoleInput = "list";
+//            }
 
-/*
-                File newFolder = new File(folder, newPath);
-                if (newFolder.exists() && newFolder.isDirectory()) {
-                    System.out.println(newPath);
-                    folder = newFolder;
-                    path = folder.getPath();
+            //переход по путю каталога
+            if (getConsoleInput.startsWith("cd ")) {
+                String newPath = getConsoleInput.substring(3);
+                File newFile = new File(newPath);
+                if (newFile.exists() && newFile.isDirectory()) {
+                    path = newPath;
+                    folder = new File(path);
                 }
-                System.out.println(folder.getAbsolutePath());
-                //переходить в указанный путь
-
- */
+                getConsoleInput = "list";
             }
         }
     }
 
-    private static String setConsoleInput() {
+    private String setConsoleInput() {
         String consoleInput = new Scanner(System.in).nextLine();
         return consoleInput;
     }
