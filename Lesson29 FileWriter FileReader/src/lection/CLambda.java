@@ -28,6 +28,8 @@ public class CLambda {
 
 //        System.out.println("hello");
 
+
+
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         print(arr, (x) -> true);
@@ -44,6 +46,24 @@ public class CLambda {
             if (checkable.check(i)) {
                 System.out.println(i + " ");
             }
+        }
+    }
+
+    public void printEven(int[] arr) {
+        for (int i : arr) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void printOdd(int[] arr) {
+        for (int i : arr) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
         }
     }
 
