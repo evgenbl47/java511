@@ -1,23 +1,28 @@
 package homeWork;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Home {
     Scanner scanner = new Scanner(System.in);
 
     public void run() {
+        System.out.println("run() - start");
 //        notes();
-        shoppingList();
-
+//        shoppingList();
+//        greetings();
+//        stringOperation();
+        System.out.println("run - end");
     }
 
-    //Задание 1: Программа "Заметки"
+    //        Задание 1: Программа "Заметки"
 //Создайте программу с меню:
-    //Записать заметку (стирает старое содержимое файла)
-    //Добавить новую заметку (добавляет в конец файла)
-    //Прочитать все заметки
-    //        Выход
+//Записать заметку (стирает старое содержимое файла)
+//Добавить новую заметку (добавляет в конец файла)
+//Прочитать все заметки
+//        Выход
     public void notes() {
         String currentPath = "C:\\Users\\Мой дом\\IdeaProjects\\java511\\git\\Lesson29 FileWriter FileReader\\data\\file.txt";
         File file = new File(currentPath);
@@ -94,14 +99,16 @@ public class Home {
     }
 
 
-//Задание 2: Список покупок
+//        Задание 2: Список покупок
 //Создайте программу для управления списком покупок в файле "shopping.txt":
 
-    //Добавить товар
+//Добавить товар
 //Показать весь список
 //Удалить все товары (очистить файл)
 //Подсчитать количество товаров в списке
 //        Выход
+
+    //todo
     public void shoppingList() {
         String currentPath = "C:\\Users\\Мой дом\\IdeaProjects\\java511\\git\\Lesson29 FileWriter FileReader\\data\\shopping.txt";
         File file = new File(currentPath);
@@ -117,7 +124,7 @@ public class Home {
     }
 
 
-//Задание 3: Дневник событий
+//        Задание 3: Дневник событий
 //Создайте программу-дневник:
 
 //Добавить запись (формат: дата + описание события)
@@ -129,30 +136,43 @@ public class Home {
 
 //-----------------------------------------------------------------------------------------
 //Lyambda
-    @FunctionalInterface
-    interface Greetable {
-        void greet();
 
-    }
-
-    class Greet {
-        Greetable greetable = () -> System.out.println("Hello");
-//        Greetable greetable = () -> System.out.println("Good morning!");
-//        Greetable greetable = () -> System.out.println("Привет!");
-//        Greetable greetable = () -> System.out.println("Привет!");
-
-    }
-
-//Задание 1: Приветствия
+//        Задание 1: Приветствия
 //Создайте функциональный интерфейс Greetable с методом void greet().
-//        Напишите программу, которая создает 4 разных лямбда-выражения:
+//Напишите программу, которая создает 4 разных лямбда-выражения:
 
-//Выводит "Hello!"
+    //Выводит "Hello!"
 //Выводит "Good morning!"
 //Выводит "Привет!"
 //Выводит текущую дату + приветствие
-
 //Вызовите каждую лямбду.
+    public void greetings() {
+        @FunctionalInterface
+        interface Greetable {
+            void greet();
+        }
+
+        class Greet {
+            List<String> list = new ArrayList<>();
+
+            Greet() {
+                start();
+            }
+
+            public void start() {
+                String currentDate = "currentDate";
+                list.add("Hello!");
+                list.add("Good morning!");
+                list.add("Привет!");
+                list.add("currentDate" + " Hello!");
+                for (String greetings : list) {
+                    Greetable greetable = () -> System.out.println(greetings);
+                    greetable.greet();
+                }
+            }
+        }
+        new Greet();
+    }
 
 
 //        Задание 2: Строковые операции
@@ -164,15 +184,79 @@ public class Home {
 //Перевернуть строку задом наперед
 //Удалить все пробелы
 //Добавить в начало и конец строки символ "*"
-
 //Протестируйте каждую лямбду на строке "Hello World".
+    public void stringOperation() {
+        @FunctionalInterface
+        interface StringOperation {
+            String apply(String s);
+        }
+
+        class Oper {
+
+            Oper() {
+                start();
+            }
+
+            void start() {
+                String s = "Control MessagE";
+                StringOperation upper = (a) -> s.toUpperCase();
+                StringOperation lower = (a) -> s.toLowerCase();
+ //                StringOperation reverse = (a) -> s.reverse();
+                 StringOperation change = (a) -> {
+                     return "*" + s + "*";
+                 };
+                StringOperation cutSpace = (a) -> {
+                    return s.replace(" ", "");
+                };
+
+                System.out.println(upper.apply(s));
+                System.out.println(lower.apply(s));
+                System.out.println(cutSpace.apply(s));
+                System.out.println(change.apply(s));
+            }
+        }
+
+        new Oper();
+
+    }
 
 
-//Задание 3: Фильтрация списка
+//        Задание 3: Фильтрация списка
 //Создайте функциональный интерфейс StringChecker с методом boolean test(String s).
 //Создайте ArrayList со строками: "Java", "Python", "JavaScript", "C++", "Ruby", "Go", "Kotlin"
 //Напишите метод filter(List<String> list, StringChecker checker), который возвращает новый список строк, прошедших проверку.
 //Создайте лямбда-выражения для фильтрации:
+    //todo
+    public void listFilter() {
+        @FunctionalInterface
+        interface StringChecker {
+            boolean test(String s);
+        }
+
+        class Oper{
+            List<String> list = new ArrayList<>();
+
+            Oper(){
+                start();
+            }
+            public void start(){
+
+                list.add("Java");
+                list.add("Python");
+                list.add("JavaScript");
+                list.add("C++");
+                list.add("Ruby");
+                list.add("Go");
+                list.add("Kotlin");
+
+            }
+
+            void f1lter(List<String> list, StringChecker checker) {
+
+            }
+        }
+        new Oper();
+    }
 
 //Строк длиной больше 4 символов
 //Строк, начинающихся с "J"
