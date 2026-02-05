@@ -15,6 +15,7 @@ public class Home {
 //        greetings();
 //        stringOperation();
 //        listFilter();
+//        eventsDiary();
         System.out.println("run - end");
     }
 
@@ -108,10 +109,11 @@ public class Home {
 //Удалить все товары (очистить файл)
 //Подсчитать количество товаров в списке
 //        Выход
-
-    //todo don't have enough time. do it in future
     public void shoppingList() {
+        boolean run = true;
         String currentPath = "C:\\Users\\Мой дом\\IdeaProjects\\java511\\git\\Lesson29 FileWriter FileReader\\data\\shopping.txt";
+        Scanner userAnsfer = new Scanner(System.in);
+
         File file = new File(currentPath);
         if (!file.exists()) {
             try {
@@ -121,6 +123,72 @@ public class Home {
                 throw new RuntimeException(e);
             }
         }
+
+        do {
+            System.out.println("""
+                    1 - Добавить товар
+                    2 - Показать весь список
+                    3 - Удалить все товары (очистить файл)
+                    4 - Подсчитать количество товаров в списке
+                    5 - Выход""");
+
+            int ansfer = userAnsfer.nextInt();
+
+            if (ansfer == 1) {
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(currentPath, true))) {
+                    System.out.println("Введите название продукта");
+                    String productName = userAnsfer.next();
+                    bw.append(productName);
+                    bw.newLine();
+                    bw.close();
+                    System.out.println(" product added in file");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (ansfer == 2) {
+                try (BufferedReader br = new BufferedReader(new FileReader(currentPath))){
+                    String line;
+                    System.out.println("Product list: ");
+                    while ((line = br.readLine()) !=  null) {
+                        System.out.println(line);
+                    }
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (ansfer == 3) {
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(currentPath))){
+                    bw.write("");
+                    System.out.println("product list clear");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (ansfer == 4) {
+                try (BufferedReader br = new BufferedReader(new FileReader(currentPath))) {
+                    int counter = 0;
+                    while ((br.readLine()) != null) {
+                        counter++;
+                    }
+                    System.out.println("количество товаров в списке: " + counter);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (ansfer == 5) {
+                run = false;
+                break;
+            }
+        } while (run);
 
     }
 
@@ -135,7 +203,24 @@ public class Home {
 //        Выход
 //todo don't have enough time. do it in future
     public void eventsDiary() {
+        Scanner userAnsfer = new Scanner(System.in);
+        boolean run = true;
 
+        do {
+            System.out.println("""
+                  1 - Добавить запись (формат: дата + описание события)
+                  2 - Показать последние 5 записей
+                  3 - Показать все записи
+                  4 - Найти запись по ключевому слову
+                  5 - Выход""");
+
+            int ansfer = userAnsfer.nextInt();
+
+            if (ansfer == 5) {
+                run = false;
+                break;
+            }
+        } while (run);
     }
 
 
