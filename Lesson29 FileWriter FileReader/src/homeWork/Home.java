@@ -109,7 +109,7 @@ public class Home {
 //Подсчитать количество товаров в списке
 //        Выход
 
-    //todo
+    //todo don't have enough time. do it in future
     public void shoppingList() {
         String currentPath = "C:\\Users\\Мой дом\\IdeaProjects\\java511\\git\\Lesson29 FileWriter FileReader\\data\\shopping.txt";
         File file = new File(currentPath);
@@ -133,6 +133,10 @@ public class Home {
 //Показать все записи
 //Найти запись по ключевому слову
 //        Выход
+//todo don't have enough time. do it in future
+    public void eventsDiary() {
+
+    }
 
 
 //-----------------------------------------------------------------------------------------
