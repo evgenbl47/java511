@@ -14,6 +14,7 @@ public class Home {
 //        shoppingList();
 //        greetings();
 //        stringOperation();
+//        listFilter();
         System.out.println("run - end");
     }
 
@@ -179,7 +180,7 @@ public class Home {
 //Создайте функциональный интерфейс StringOperation с методом String apply(String s).
 //Напишите программу с 5 лямбда-выражениями для строки:
 
-//Перевести в верхний регистр
+    //Перевести в верхний регистр
 //Перевести в нижний регистр
 //Перевернуть строку задом наперед
 //Удалить все пробелы
@@ -201,10 +202,10 @@ public class Home {
                 String s = "Control MessagE";
                 StringOperation upper = (a) -> s.toUpperCase();
                 StringOperation lower = (a) -> s.toLowerCase();
- //                StringOperation reverse = (a) -> s.reverse();
-                 StringOperation change = (a) -> {
-                     return "*" + s + "*";
-                 };
+                //                StringOperation reverse = (a) -> s.reverse();
+                StringOperation change = (a) -> {
+                    return "*" + s + "*";
+                };
                 StringOperation cutSpace = (a) -> {
                     return s.replace(" ", "");
                 };
@@ -220,27 +221,25 @@ public class Home {
 
     }
 
-
 //        Задание 3: Фильтрация списка
 //Создайте функциональный интерфейс StringChecker с методом boolean test(String s).
 //Создайте ArrayList со строками: "Java", "Python", "JavaScript", "C++", "Ruby", "Go", "Kotlin"
 //Напишите метод filter(List<String> list, StringChecker checker), который возвращает новый список строк, прошедших проверку.
 //Создайте лямбда-выражения для фильтрации:
-    //todo
     public void listFilter() {
         @FunctionalInterface
         interface StringChecker {
             boolean test(String s);
         }
 
-        class Oper{
+        class Oper {
             List<String> list = new ArrayList<>();
 
-            Oper(){
+            Oper() {
                 start();
             }
-            public void start(){
 
+            public void start() {
                 list.add("Java");
                 list.add("Python");
                 list.add("JavaScript");
@@ -249,19 +248,35 @@ public class Home {
                 list.add("Go");
                 list.add("Kotlin");
 
+                System.out.println("длиной больше 4 символов");
+                filter(list, s -> s.length() > 4);
+
+                System.out.println("начинающихся с J");
+                filter(list, s -> s.startsWith("J"));
+
+                System.out.println("содержащих букву a");
+                filter(list, s -> s.contains("a"));
+
+                System.out.println("которые НЕ содержат букву y");
+                filter(list, s -> !s.contains("y"));
+
+                System.out.println("Строк длиной ровно 6 символов");
+                filter(list, s -> s.length() == 6);
             }
 
-            void f1lter(List<String> list, StringChecker checker) {
-
+            void filter(List<String> list, StringChecker checker) {
+                for (String s : list) {
+                    if (checker.test(s)) {
+                        System.out.println(s);
+                    }
+                }
             }
         }
         new Oper();
     }
-
+}
 //Строк длиной больше 4 символов
 //Строк, начинающихся с "J"
 //Строк, содержащих букву "a"
 //Строк, которые НЕ содержат букву "y"
 //Строк длиной ровно 6 символов
-
-}
