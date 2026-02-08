@@ -1,4 +1,4 @@
-package classWork;
+package exampl;
 public class ClassWork {
     public void run() {
         SingleLnkedList linkedList = new SingleLnkedList();

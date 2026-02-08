@@ -1,4 +1,4 @@
-package classWork;
+package exampl;
 
 import java.io.File;
 
