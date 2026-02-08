@@ -1,0 +1,31 @@
+Реализовать пагинацию
+ int view = 3; // skolko filmov na 1 stranicu
+  int pageSize = 10; //  skolko vseqo filmov podskazka totalMovies/view
+    int page = 5;  // kakaya stranica
+
+
+
+        Scanner sc = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+
+        int totalMovies = 30;
+        for (int i = 1; i <= totalMovies; i++) {
+            list.add("Movie #"+i);
+        }
+        int view = 3; // skolko filmov na 1 stranicu
+//        int page = 5;  // kakaya stranica
+        int pageSize = 10; //  skolko vseqo filmov podskazka totalMovies/view
+
+        do {
+            sc = new Scanner(System.in);
+            for(int i = 1; i <= pageSize; i++) {
+                System.out.print(i + " ");
+            }
+            System.out.println();  // Otobrazitsa vozmojnie stranici
+            int page = sc.nextInt();
+            //choice
+
+            list.stream().limit(10).forEach(System.out::println); // pecataet pravilniy diapazon
+
+            //
+        }while(true);
