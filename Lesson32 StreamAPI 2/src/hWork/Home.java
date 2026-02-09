@@ -1,18 +1,16 @@
 package hWork;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Home {
     List<String> list = new ArrayList<>();
-    List<Integer> example = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     //    Реализовать пагинацию
-    int totalMovies = 30;
-    int view = 3; // skolko filmov na 1 stranicu
-    int pageSize = totalMovies / view; //  skolko vseqo filmov podskazka totalMovies/view
-    int page = 5;  // kakaya stranica
+    int totalMovies = 10; //общее количество фильмов
+    int pageCapacity = 3; // Фильмов на одной странице
+    int totalPage = totalMovies / pageCapacity;  //Количество страниц
+    int currentPage = 1;  // kakaya stranica
 
 
 
@@ -23,17 +21,22 @@ public class Home {
             list.add("Movie #" + i);
         }
         do {
-            sc = new Scanner(System.in);
-            for (int i = 1; i <= pageSize; i++) {
-                System.out.print(i + " ");
+              currentPage = Integer.parseInt(sc.next());
+            if (currentPage < 1 || currentPage >= totalMovies / totalPage) {
+                System.out.println("page is unreacheble");
+                continue;
             }
-            System.out.println();  // Otobrazitsa vozmojnie stranici
-            int page = sc.nextInt();
-            //choice
+            System.out.println("--- Страница " + currentPage + " ---");
+            list.stream()
+                    .skip((long) (currentPage - 1) * totalPage)
+                    .limit(pageCapacity)
+                    .forEach(System.out::println);
 
-            list.stream().limit(10).forEach(System.out::println); // pecataet pravilniy diapazon
+            if (currentPage * totalPage >= totalMovies) {
+                System.out.println("it is a last page");
+                break;
+            }
 
-            //
         } while (true);
 
 
