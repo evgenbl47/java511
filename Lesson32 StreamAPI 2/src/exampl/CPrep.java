@@ -8,10 +8,11 @@ public class CPrep {
     Scanner scanner = new Scanner(System.in);;
     List<String> list = new ArrayList<>();
     boolean run = true;
-    int totalItems = 40;
+    int totalItems = 60;
     int currentPage;
-    int itemsPerPage = 6;
+    int itemsPerPage = 7;
     int pageAvailable = (int) Math.ceil((double) totalItems / itemsPerPage);
+    //int totalPages = (totalItems + itemsPerPage - 1) / itemsPerPage;
 
     public void start() {
         for (int i = 1; i <= totalItems; i++) {
@@ -19,13 +20,33 @@ public class CPrep {
         }
 
         do {
+
             System.out.print("Page ");
             for (int i = 1; i <= pageAvailable; i++) {
-                System.out.print(" |"+ i + "| ");
+                if (i == currentPage) {
+                    if (currentPage < 10) {
+                        System.out.print("\u001B[33m" + " |_| " + "\u001B[0m");
+                    } else {
+                        System.out.print("\u001B[33m" + " |__| " + "\u001B[0m");
+                    }
+                } else System.out.print(" |"+ i + "| ");
             }
 
             System.out.print("\nEnter paage number (or 0 to exit): ");
             currentPage = scanner.nextInt();
+
+            System.out.print("Page ");
+
+//            for (int i = 1; i <= pageAvailable; i++) {
+//
+//                if (i == currentPage) {
+//                    if (currentPage < 10) {
+//                        System.out.print(" |" + "_" + "| ");
+//                    } else {
+//                        System.out.print(" |" + "__" + "| ");
+//                    }
+//                }else System.out.print(" |"+ i + "| ");
+//            }
 
             if (currentPage == 0) {
                 System.out.println("GoodBye");
