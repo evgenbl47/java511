@@ -11,7 +11,7 @@ public class CPrep {
     int totalItems = 40;
     int currentPage;
     int itemsPerPage = 6;
-    int pageAmount = (int) Math.ceil((double) totalItems / itemsPerPage);
+    int pageAvailable = (int) Math.ceil((double) totalItems / itemsPerPage);
 
     public void start() {
         for (int i = 1; i <= totalItems; i++) {
@@ -20,12 +20,12 @@ public class CPrep {
 
         do {
             System.out.print("Page ");
-            for (int i = 1; i <= pageAmount; i++) {
+            for (int i = 1; i <= pageAvailable; i++) {
                 System.out.print(" |"+ i + "| ");
             }
 
             System.out.print("\nEnter paage number (or 0 to exit): ");
-            int currentPage = scanner.nextInt();
+            currentPage = scanner.nextInt();
 
             if (currentPage == 0) {
                 System.out.println("GoodBye");
@@ -33,7 +33,7 @@ public class CPrep {
                 break;
             }
 
-            if (currentPage < 0 || currentPage > pageAmount) {
+            if (currentPage < 0 || currentPage > pageAvailable) {
                 System.out.println("Invalid page!");
                 continue;
             }
