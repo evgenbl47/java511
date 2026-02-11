@@ -162,8 +162,8 @@ class MyList {
 //10   -   public  void clear();
 //7    -   public  void removeByIndex(int index);
 //8    +   public  void removeByValueFirst(int num);
-
-
+//
+//
 //10   -    public  void reverse();
 //11   -    public  boolean isEmpty();
 //12   -    public  int get(int index);
@@ -187,24 +187,24 @@ public class Main {
 //        int[] arr = {1111111,22222222,333333};
 //        System.out.println(arr.length);
 
-        String str = "111111122222222333333";
-        System.out.println(str.length());
-
-        MyList list = new MyList();
-        for (int i = 1000; i < 1003; i++) {
-            list.addEnd(i);
-
-            System.out.println(list.capacity() + "/" + list.size());
-        }
-
-
-        list.size = 200;
-        System.out.println(list.size);
-        list.decreaseCapacity();
-        System.out.println(list.size);
+//        String str = "111111122222222333333";
+//        System.out.println(str.length());
+//
+//        MyList list = new MyList();
+//        for (int i = 1000; i < 1003; i++) {
+//            list.addEnd(i);
+//
+//            System.out.println(list.capacity() + "/" + list.size());
+//        }
 
 
-        list.print();
+//        list.size = 200;
+//        System.out.println(list.size);
+//        list.decreaseCapacity();
+//        System.out.println(list.size);
+//
+//
+//        list.print();
 
 
 //        String str = "";
