@@ -2,33 +2,24 @@ package example;
 
 public class Example {
 
-//    int[] arr = {-5, 0, 1, 1, 2, 3, 6, 8, 22, 45, 678};
-    int[] arr = {-5, 0, 1, 22, 678};
+    //    int[] arr = {-5, 0, 1, 1, 2, 3, 6, 8, 22, 45, 678};
+    int[] arr = {-5, 22};
+    int[] arr2 = {-10, 998, 1100};
 //    int[] arr2 = {-10, 2, 3, 6, 7, 7, 7, 9, 11, 1000, 1010, 1100};
-    int[] arr2 = {-10, 2, 3, 7, 1010, 1100};
-
-
-        //1) Знать все конструкции +
-        //2) Уметь ими пользоваться
-        //3) Уметь конвертировать своми мысли в код
-
-        //4) Пошаговое решение задачи
-
 
 
     public void start() {
 
-
-
         int[] arr3 = mergeArrays(arr, arr2);
-
 
         for (int i = 0; i < arr3.length; i++) {
             System.out.print(arr3[i] + " ");
         }
         //retuslt =>
         // arr3 = { -10,-5,0,1,1,2,2,3,3,6,6,7,7,7,8,9,11,22,45,678,1000,1010,1100}
+    }
 
+    public void start2() {
 
 //        String str = "101112";
 //        int num = 1000;
@@ -94,35 +85,45 @@ public class Example {
 //        myList.print();
 //        myList.removeByValueLast(4);
 //        myList.print();
-
     }
+
     //Sortirovku
     //v 3 massiv a potom sortirovat
     // one + two =>
+    //todo method not working
     public int[] mergeArrays(int[] one, int[] two) {
+        int[] result = new int[one.length + two.length];
+        boolean add = false;
+        int first = 0;
+        int second = 0;
 
-        int[] arr3 = new int[one.length + two.length];
+        boolean fstop = false;
+        boolean sstop = false;
 
-//        int arrLength = arr.length + arr2.length;
-        for (int i = 0, a1 = 0, a2 = 0; i < arr3.length; i++) {
-            if (arr[a1] < arr2[a2] && arr[a1] < a1) {
-                arr3[i] = arr[a1];
-                    a1++;
+//        first = one[first];
+//        second = two[second];
+//        int[] arr = {-5, 22};
+//        int[] arr2 = {-10, 998, 1100};
+        // arr3 = { -10,-5,0,1,1,2,2,3,3,6,6,7,7,7,8,9,11,22,45,678,1000,1010,1100}
+        for (int i = 0; i < result.length; i++) {
 
-            } else {
-                arr3[i] = arr2[a2];
-                a2++;
-                if (a2 < arr2.length - 1) {
-                    a2++;
-                }
+            fstop = first + 1 > one.length;
+            sstop = second + 1> two.length;
+            add = one[first] < two[second];  //todo исправь ошибку решение будет на гитхабе
+            System.out.println(one[first] + " < " + two[second]);
+
+            if ((add && !fstop) || fstop) {
+                result[i] = one[first];
+                fstop = (first++) == one.length;
+            }
+
+            if ((!add && !sstop) || sstop) {
+                result[i] = two[second];
+                second ++;
             }
         }
-        // 1 loop
-        // 1 if + else
 
-        //logic
-
-        return arr3;
+        return result;
     }
 
 }
