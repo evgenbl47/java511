@@ -2,10 +2,10 @@ package example;
 
 public class Example {
 
-    //    int[] arr = {-5, 0, 1, 1, 2, 3, 6, 8, 22, 45, 678};
-    int[] arr = {-5, 22};
-    int[] arr2 = {-10, 998, 1100};
-//    int[] arr2 = {-10, 2, 3, 6, 7, 7, 7, 9, 11, 1000, 1010, 1100};
+    int[] arr = {-5, 0, 1, 1, 2, 3, 6, 8, 22, 45, 678};
+    //    int[] arr = {-5, 22};
+//    int[] arr2 = {-10, 998, 1100};
+    int[] arr2 = {-10, 2, 3, 6, 7, 7, 7, 9, 11, 1000, 1010, 1100};
 
 
     public void start() {
@@ -93,37 +93,20 @@ public class Example {
     //todo method not working
     public int[] mergeArrays(int[] one, int[] two) {
         int[] result = new int[one.length + two.length];
-        boolean add = false;
-        int first = 0;
-        int second = 0;
 
-        boolean fstop = false;
-        boolean sstop = false;
-
-//        first = one[first];
-//        second = two[second];
-//        int[] arr = {-5, 22};
-//        int[] arr2 = {-10, 998, 1100};
-        // arr3 = { -10,-5,0,1,1,2,2,3,3,6,6,7,7,7,8,9,11,22,45,678,1000,1010,1100}
-        for (int i = 0; i < result.length; i++) {
-
-            fstop = first + 1 > one.length;
-            sstop = second + 1> two.length;
-            add = one[first] < two[second];  //todo исправь ошибку решение будет на гитхабе
-            System.out.println(one[first] + " < " + two[second]);
-
-            if ((add && !fstop) || fstop) {
-                result[i] = one[first];
-                fstop = (first++) == one.length;
-            }
-
-            if ((!add && !sstop) || sstop) {
-                result[i] = two[second];
-                second ++;
+        for (int i = 0, firstSize = 0, secondSize = 0; i < result.length; i++) {
+            // ✅ Добавь эту проверку!
+            if (firstSize >= one.length) {
+                result[i] = two[secondSize++];
+            } else if (secondSize >= two.length) {
+                result[i] = one[firstSize++];
+            } else if (one[firstSize] < two[secondSize]) {
+                result[i] = one[firstSize++];
+            } else {
+                result[i] = two[secondSize++];
             }
         }
-
         return result;
     }
-
 }
+
