@@ -1,9 +1,12 @@
 import example.Example;
+import example.MySecondList;
 
 public class Main {
     public static void main(String[] args) {
-        Example example = new Example();
-        example.start();
+//        Example example = new Example();
+//        example.start();
 
+        MySecondList myList = new MySecondList();
+        myList.start();
     }
 }
