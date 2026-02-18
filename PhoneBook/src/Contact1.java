@@ -1,4 +1,4 @@
-public class Contact {
+public class Contact1 {
     static int contactCounter;
     int id;
     String name;
@@ -6,7 +6,7 @@ public class Contact {
     long phoneNumber;
     int age;
 
-    public Contact(String name, String surname, long phoneNumber, int age) {
+    public Contact1(String name, String surname, long phoneNumber, int age) {
         this.id = contactCounter;
         this.name = name;
         this.surname = surname;

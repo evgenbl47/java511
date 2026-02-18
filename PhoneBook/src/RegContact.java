@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class RegContact {
     Scanner scanner = new Scanner(System.in);
-    Contact contact;
+    Contact1 contact;
 
-    public Contact register() {
+    public Contact1 register() {
         System.out.println("Enter name");
         String userName = scanner.nextLine();
 
@@ -17,17 +17,17 @@ public class RegContact {
         System.out.println("Enter age");
         int userAge = scanner.nextInt();
 
-        return contact = new Contact(userName, userSurname, userPhoneNumber, userAge);
+        return contact = new Contact1(userName, userSurname, userPhoneNumber, userAge);
 
     }
 
-    public Contact reg() {
+    public Contact1 reg() {
         String userName = "userName";
         String userSurname = "userSurname";
         long userPhoneNumber = 88005553535L;
         int userAge = 20;
 
-        return contact = new Contact(userName, userSurname, userPhoneNumber, userAge);
+        return contact = new Contact1(userName, userSurname, userPhoneNumber, userAge);
     }
 }
 
