@@ -7,6 +7,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<Contact> contacts = new ArrayList<>();
         List<User> users = new ArrayList<>();
+        Logger logger = new Logger();
         boolean run = true;
         int userChoise;
 
@@ -92,6 +93,8 @@ public class Main {
 
                     if (userChoise == 5) {
                         System.out.println("Logger");
+                        logger.makeLog("Create log");
+
                     }
 
                     if (userChoise == 6) {
