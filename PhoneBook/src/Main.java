@@ -1,11 +1,20 @@
+import tmp.Runner;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        Runner runner = new Runner();
+        runner.run();
+
+    }
+
+    public static void run() {
         Scanner scanner = new Scanner(System.in);
-        List<Contact> contacts = new ArrayList<>();
+        List<Contact1> contacts = new ArrayList<>();
         List<User> users = new ArrayList<>();
         Logger logger = new Logger();
         boolean run = true;
@@ -22,7 +31,7 @@ public class Main {
                     |        3   -   Exit              |
                     |                                  |
                      -----------------------------------""");
-             userChoise = scanner.nextInt();
+            userChoise = scanner.nextInt();
 
             if (userChoise == 1) {
                 boolean login = true;
