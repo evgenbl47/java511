@@ -1,0 +1,446 @@
+Полная техническая документация проекта «Телефонная книга» (Java, SOLID)
+
+1. Введение
+
+Данный проект представляет собой консольное приложение «Телефонная книга», разработанное на языке Java. Основная цель проекта — демонстрация применения принципов SOLID при проектировании архитектуры приложения. Приложение позволяет:
+
+· Добавлять контакты (имя, телефон, email)
+· Просматривать все контакты
+· Редактировать существующие контакты
+· Удалять контакты
+· Искать контакты по имени или номеру телефона
+
+Проект специально написан так, чтобы каждый класс имел чёткую ответственность, а зависимости строились на абстракциях, что облегчает расширение и тестирование.
+
+2. Общая архитектура
+
+Приложение построено по принципу разделения ответственности и состоит из следующих ключевых компонентов:
+
+· Модель (Contact) — представляет сущность «контакт».
+· Репозиторий (ContactRepository) — абстракция хранилища контактов; конкретная реализация (InMemoryContactRepository) хранит данные в оперативной памяти.
+· Сервисы ввода/вывода (InputService, OutputService) — отвечают за взаимодействие с пользователем через консоль.
+· Команды (Command) — каждая команда реализует одно действие пользователя (добавить, показать, редактировать, удалить, поиск).
+· Главный класс приложения (PhoneBookApp) — инициализирует все компоненты и запускает основной цикл обработки команд.
+
+Все компоненты слабо связаны благодаря использованию интерфейсов и внедрению зависимостей через конструкторы.
+
+Схема взаимодействия
+
+```
+PhoneBookApp (main)
+    |
+    |-- создаёт и связывает:
+    |   - ContactRepository (InMemoryContactRepository)
+    |   - InputService (ConsoleInputService)
+    |   - OutputService (ConsoleOutputService)
+    |   - Список команд (каждая команда получает ссылки на репозиторий и сервисы)
+    |
+    |-- запускает цикл:
+        - выводит меню через OutputService
+        - получает выбор через InputService
+        - вызывает execute() у выбранной команды
+```
+
+3. Принципы SOLID в проекте
+
+S — Single Responsibility Principle (Принцип единственной ответственности)
+
+Каждый класс выполняет только одну задачу:
+
+· Contact — только хранение данных контакта.
+· InMemoryContactRepository — только управление списком контактов (CRUD).
+· ConsoleInputService — только чтение ввода с консоли.
+· ConsoleOutputService — только вывод на консоль.
+· Каждая команда (например, AddContactCommand) — только реализация конкретного действия пользователя.
+· PhoneBookApp — только инициализация и запуск главного цикла.
+
+O — Open/Closed Principle (Принцип открытости/закрытости)
+
+Классы открыты для расширения, но закрыты для модификации:
+
+· Чтобы добавить новую команду, достаточно создать новый класс, реализующий Command, и добавить его в список команд в main() — существующий код не меняется.
+· Чтобы изменить способ хранения (например, на файлы), нужно создать новый класс, реализующий ContactRepository, и подставить его в main() — код команд не требует изменений.
+
+L — Liskov Substitution Principle (Принцип подстановки Барбары Лисков)
+
+Любая реализация интерфейса может быть заменена другой без нарушения логики:
+
+· InMemoryContactRepository можно заменить на FileContactRepository (если бы он был), и все команды продолжат корректно работать, так как они зависят только от абстракции ContactRepository.
+
+I — Interface Segregation Principle (Принцип разделения интерфейсов)
+
+Интерфейсы узкоспециализированы:
+
+· InputService содержит только методы для чтения данных.
+· OutputService — только методы для вывода.
+· Command — только методы execute() и getDescription().
+  Ни один класс не вынужден реализовывать методы,которые ему не нужны.
+
+D — Dependency Inversion Principle (Принцип инверсии зависимостей)
+
+Модули верхнего уровня (команды, PhoneBookApp) зависят от абстракций (интерфейсов), а не от конкретных классов:
+
+· Команды получают в конструкторе ContactRepository, InputService, OutputService — все через интерфейсы.
+· PhoneBookApp также зависит от Command (интерфейс) и сервисов через интерфейсы.
+· Конкретные реализации подставляются на этапе сборки приложения (в методе main).
+
+4. Детальное описание классов и интерфейсов
+
+4.1. Модель Contact
+
+```java
+public class Contact {
+    private String name;
+    private String phoneNumber;
+    private String email;
+
+    public Contact(String name, String phoneNumber, String email) { ... }
+    // геттеры и сеттеры
+    // toString()
+}
+```
+
+Назначение: хранит информацию об одном контакте. Не содержит логики, только данные.
+
+4.2. Интерфейс ContactRepository
+
+```java
+public interface ContactRepository {
+    void add(Contact contact);
+    List<Contact> findAll();
+    Optional<Contact> findById(int id);
+    void update(int id, Contact contact);
+    void delete(int id);
+    List<Contact> search(String query);
+}
+```
+
+Назначение: определяет контракт для работы с хранилищем контактов. Использование Optional для findById явно указывает, что контакт может отсутствовать.
+
+4.3. Реализация InMemoryContactRepository
+
+```java
+public class InMemoryContactRepository implements ContactRepository {
+    private final List<Contact> contacts = new ArrayList<>();
+
+    @Override
+    public void add(Contact contact) { contacts.add(contact); }
+
+    @Override
+    public List<Contact> findAll() {
+        return new ArrayList<>(contacts); // защитное копирование
+    }
+
+    @Override
+    public Optional<Contact> findById(int id) {
+        if (id >= 0 && id < contacts.size()) {
+            return Optional.of(contacts.get(id));
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public void update(int id, Contact contact) {
+        if (id >= 0 && id < contacts.size()) {
+            contacts.set(id, contact);
+        }
+    }
+
+    @Override
+    public void delete(int id) {
+        if (id >= 0 && id < contacts.size()) {
+            contacts.remove(id);
+        }
+    }
+
+    @Override
+    public List<Contact> search(String query) {
+        String lowerQuery = query.toLowerCase();
+        return contacts.stream()
+                .filter(c -> c.getName().toLowerCase().contains(lowerQuery) ||
+                             c.getPhoneNumber().contains(lowerQuery))
+                .collect(Collectors.toList());
+    }
+}
+```
+
+Назначение: реализует хранение контактов в оперативной памяти (список). Защитное копирование в findAll() предотвращает изменение списка извне.
+
+4.4. Интерфейсы сервисов ввода/вывода
+
+InputService
+
+```java
+public interface InputService {
+    String readString(String prompt);
+    int readInt(String prompt);
+}
+```
+
+Назначение: абстракция для чтения пользовательского ввода.
+
+OutputService
+
+```java
+public interface OutputService {
+    void print(String message);
+    void printLine(String message);
+    void printContact(Contact contact);
+    void printContacts(List<Contact> contacts);
+}
+```
+
+Назначение: абстракция для вывода информации.
+
+4.5. Консольные реализации сервисов
+
+ConsoleInputService
+
+```java
+public class ConsoleInputService implements InputService {
+    private final Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public String readString(String prompt) {
+        System.out.print(prompt);
+        return scanner.nextLine();
+    }
+
+    @Override
+    public int readInt(String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Пожалуйста, введите число.");
+            }
+        }
+    }
+}
+```
+
+Особенности: метод readInt обрабатывает исключение NumberFormatException, запрашивая повторный ввод, пока не будет введено корректное число.
+
+ConsoleOutputService
+
+```java
+public class ConsoleOutputService implements OutputService {
+    @Override
+    public void print(String message) { System.out.print(message); }
+
+    @Override
+    public void printLine(String message) { System.out.println(message); }
+
+    @Override
+    public void printContact(Contact contact) { System.out.println(contact); }
+
+    @Override
+    public void printContacts(List<Contact> contacts) {
+        if (contacts.isEmpty()) {
+            System.out.println("Список контактов пуст.");
+            return;
+        }
+        for (int i = 0; i < contacts.size(); i++) {
+            System.out.println((i + 1) + ". " + contacts.get(i));
+        }
+    }
+}
+```
+
+4.6. Интерфейс команды Command
+
+```java
+public interface Command {
+    void execute();
+    String getDescription();
+}
+```
+
+Назначение: определяет единый способ выполнения действий и получения описания для меню.
+
+4.7. Конкретные команды
+
+Все команды получают необходимые зависимости через конструктор. Рассмотрим одну из них как пример:
+
+AddContactCommand
+
+```java
+public class AddContactCommand implements Command {
+    private final ContactRepository repository;
+    private final InputService input;
+    private final OutputService output;
+
+    public AddContactCommand(ContactRepository repository, InputService input, OutputService output) {
+        this.repository = repository;
+        this.input = input;
+        this.output = output;
+    }
+
+    @Override
+    public void execute() {
+        output.printLine("\n--- Добавление нового контакта ---");
+        String name = input.readString("Введите имя: ");
+        String phone = input.readString("Введите номер телефона: ");
+        String email = input.readString("Введите email (необязательно): ");
+
+        Contact contact = new Contact(name, phone, email);
+        repository.add(contact);
+        output.printLine("Контакт успешно добавлен!");
+    }
+
+    @Override
+    public String getDescription() {
+        return "Добавить контакт";
+    }
+}
+```
+
+Аналогично реализованы:
+
+· ViewAllCommand — выводит все контакты через output.printContacts().
+· UpdateContactCommand — запрашивает номер контакта, затем новые данные, обновляет через repository.update().
+· DeleteContactCommand — удаляет контакт по номеру.
+· SearchContactCommand — ищет по запросу через repository.search() и выводит результаты.
+
+4.8. Главный класс PhoneBookApp
+
+```java
+public class PhoneBookApp {
+    private final List<Command> commands;
+    private final OutputService output;
+    private final InputService input;
+
+    public PhoneBookApp(List<Command> commands, OutputService output, InputService input) {
+        this.commands = commands;
+        this.output = output;
+        this.input = input;
+    }
+
+    public void run() {
+        while (true) {
+            printMenu();
+            int choice = input.readInt("Выберите действие: ");
+
+            if (choice == 0) {
+                output.printLine("До свидания!");
+                break;
+            }
+
+            if (choice > 0 && choice <= commands.size()) {
+                commands.get(choice - 1).execute();
+            } else {
+                output.printLine("Неверный выбор. Попробуйте снова.");
+            }
+        }
+    }
+
+    private void printMenu() {
+        output.printLine("\n=== ТЕЛЕФОННАЯ КНИГА ===");
+        for (int i = 0; i < commands.size(); i++) {
+            output.printLine((i + 1) + ". " + commands.get(i).getDescription());
+        }
+        output.printLine("0. Выход");
+    }
+
+    public static void main(String[] args) {
+        // Создание зависимостей
+        ContactRepository repository = new InMemoryContactRepository();
+        InputService input = new ConsoleInputService();
+        OutputService output = new ConsoleOutputService();
+
+        // Создание команд
+        List<Command> commands = new ArrayList<>();
+        commands.add(new AddContactCommand(repository, input, output));
+        commands.add(new ViewAllCommand(repository, output));
+        commands.add(new UpdateContactCommand(repository, input, output));
+        commands.add(new DeleteContactCommand(repository, input, output));
+        commands.add(new SearchContactCommand(repository, input, output));
+
+        // Запуск приложения
+        PhoneBookApp app = new PhoneBookApp(commands, output, input);
+        app.run();
+    }
+}
+```
+
+Назначение: инициализирует все компоненты, связывает их и запускает главный цикл обработки команд. Все зависимости передаются через конструкторы (внедрение зависимостей).
+
+5. Поток выполнения программы
+
+1. Пользователь запускает метод main класса PhoneBookApp.
+2. Создаются экземпляры:
+   · InMemoryContactRepository (хранилище в памяти)
+   · ConsoleInputService (чтение с консоли)
+   · ConsoleOutputService (вывод на консоль)
+   · Пять команд, каждая получает необходимые зависимости.
+3. Создаётся объект PhoneBookApp со списком команд и сервисами.
+4. Вызывается метод run(), который в бесконечном цикле:
+   · Выводит меню (через OutputService).
+   · Запрашивает выбор пользователя (через InputService).
+   · Если выбран 0 — завершает программу.
+   · Иначе проверяет корректность ввода и выполняет соответствующую команду (вызов execute()).
+5. Команда выполняет свою логику, используя repository, input, output.
+6. После завершения команды цикл повторяется.
+
+6. Инструкция по запуску
+
+Требования
+
+· Установленный Java Development Kit (JDK) версии 8 или выше.
+· Любая среда разработки (или компиляция из командной строки).
+
+Компиляция и запуск из командной строки
+
+1. Сохраните все файлы в одной папке. Убедитесь, что имена файлов соответствуют именам классов:
+   · Contact.java
+   · ContactRepository.java
+   · InMemoryContactRepository.java
+   · InputService.java
+   · ConsoleInputService.java
+   · OutputService.java
+   · ConsoleOutputService.java
+   · Command.java
+   · AddContactCommand.java
+   · ViewAllCommand.java
+   · UpdateContactCommand.java
+   · DeleteContactCommand.java
+   · SearchContactCommand.java
+   · PhoneBookApp.java
+2. Откройте терминал в этой папке.
+3. Скомпилируйте все Java-файлы:
+   ```
+   javac *.java
+   ```
+4. Запустите главный класс:
+   ```
+   java PhoneBookApp
+   ```
+
+Запуск в среде разработки (IDE)
+
+· Создайте новый проект, скопируйте все классы в соответствующие файлы.
+· Запустите метод main в классе PhoneBookApp.
+
+7. Возможные расширения и улучшения
+
+Проект спроектирован так, чтобы легко добавлять новые функции без изменения существующего кода. Вот несколько идей для самостоятельной работы:
+
+1. Файловое хранилище
+      Создайте класс FileContactRepository, реализующий ContactRepository. В нём можно сохранять контакты в текстовый файл (например, CSV) и загружать их при старте. Просто замените в main new InMemoryContactRepository() на new FileContactRepository("contacts.txt").
+2. Сортировка контактов
+      Добавьте новую команду SortContactsCommand, которая будет сортировать список по имени или телефону. Можно использовать Collections.sort() или Stream API.
+3. Экспорт в CSV
+      Создайте команду ExportCommand, которая записывает все контакты в CSV-файл.
+4. Валидация ввода
+      Усовершенствуйте InputService, добавив проверку формата телефона или email.
+5. Графический интерфейс
+      Можно заменить консольный ввод/вывод на графический (Swing/JavaFX), создав новые реализации InputService и OutputService.
+6. Юнит-тесты
+      Напишите тесты для репозитория и команд, используя библиотеку JUnit. Благодаря слабой связанности, можно легко подменить зависимости моками.
+
+8. Заключение
+
+Этот проект наглядно демонстрирует, как применение принципов SOLID помогает создавать гибкие, расширяемые и легко поддерживаемые приложения. Даже такая простая программа, как телефонная книга, выигрывает от чёткого разделения ответственности и использования абстракций.
+
+Надеемся, что документация помогла вам разобраться в архитектуре. Удачи в изучении Java и объектно-ориентированного проектирования!
