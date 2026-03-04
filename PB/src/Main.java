@@ -1,25 +1,78 @@
-import tmp.Runner;
+import model.Contact;
+import model.Gender;
+import model.User;
+import repository.FileManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-    import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        //Desktop.Action action = Desktop.Action.BROWSE;
-
-        Runner runner = new Runner();
-        runner.run();
+//        testContact();
+//        System.out.println("test Contact - done");
+//        testUser();
+//        System.out.println("test User - done");
+//        testFileManager();
+//        System.out.println("test FileManager - done");
+        run();
 
     }
 
+    public static void testContact() {
+        List<String> contactPhones = new ArrayList<>();
+        contactPhones.add("+71234567890");
+        contactPhones.add("+77712345678");
+
+//        (String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers)
+        Contact testContact = new Contact("Name", "Surname", 20, Gender.MALE, "email", contactPhones);
+        Contact testContact2 = new Contact("Name2", "Surname2", 22, Gender.FEMALE, "email", contactPhones);
+        System.out.println(testContact);
+        System.out.println(testContact2);
+    }
+
+    public static void testUser() {
+        //        User(String firstName, String lastName, String username, String password)
+        User user1 = new User("admin", "pass1", "Alex", "Petrov");
+        User user2 = new User("guest", "pass2", "Dima", "Ivanov");
+        System.out.println(user1);
+        System.out.println(user2);
+
+        String inputLogin = "admin";
+        String inputPassword = "pass1";
+
+        if (user1.getLogin().equals(inputLogin) && user1.getPassword().equals(inputPassword)) {
+            System.out.printf("✅ Login successful. Welcome, %s! ", user1.getFirstName());
+        } else {
+            System.out.println("❌ Access denied. Invalid username or password.");
+        }
+    }
+
+    public static void testFileManager() {
+        FileManager fileManager = new FileManager();
+
+        User user1 = new User("admin", "pass1", "Alex", "Petrov");
+        User user2 = new User("guest", "pass2", "Dima", "Ivanov");
+
+        fileManager.saveUser(user1);
+        fileManager.saveUser(user2);
+        System.out.println("✅ Users saved to file.");
+
+        List<User> loadedUsers = fileManager.loadUsers();
+        System.out.println("--- Loaded Users ---");
+        loadedUsers.forEach(System.out::println);
+
+        if (loadedUsers.size() == 2) {
+            System.out.println("🎉 Success! All users recovered.");
+        } else {
+            System.out.println("⚠️ Warning: User count mismatch!");
+        }
+    }
+
     public static void run() {
+        FileManager fileManager = new FileManager();
         Scanner scanner = new Scanner(System.in);
-        List<Contact1> contacts = new ArrayList<>();
-        List<User> users = new ArrayList<>();
-        Logger logger = new Logger();
         boolean run = true;
         int userChoise;
 
@@ -34,15 +87,19 @@ public class Main {
                     |        3   -   Exit              |
                     |                                  |
                      -----------------------------------""");
-            userChoise = scanner.nextInt();
+            userChoise = Integer.parseInt(scanner.nextLine());
 
             if (userChoise == 1) {
                 boolean login = true;
                 System.out.println("Login");
-                System.out.println("Enter userName");
-                String userName = scanner.nextLine();
-                System.out.println("Enter userLogin");
-                String userLogin = scanner.nextLine();
+                System.out.println("Enter login");
+                String UserLogin = scanner.nextLine();
+                System.out.println("Enter password");
+                String userPassword = scanner.nextLine();
+
+                fileManager.loadUsers();
+
+
                 while (login) {
                     System.out.println("""
                      -----------------------------------
@@ -55,7 +112,7 @@ public class Main {
                     |        6   -   Back              |
                     |                                  |
                      -----------------------------------""");
-                    userChoise = scanner.nextInt();
+                    userChoise = Integer.parseInt(scanner.nextLine());
                     if (userChoise == 1) {
                         System.out.println("Contacts");
                         System.out.println("""
@@ -105,7 +162,7 @@ public class Main {
 
                     if (userChoise == 5) {
                         System.out.println("Logger");
-                        logger.makeLog("Create log");
+                        //logger.makeLog("Create log");
 
                     }
 
@@ -117,11 +174,26 @@ public class Main {
             }
 
             if (userChoise == 2) {
-                System.out.println("Register");
-                System.out.println("Enter username");
+                System.out.println("Registration");
+                System.out.println("Enter name");
+                String name = scanner.nextLine();
                 System.out.println("Enter surname");
+                String surname = scanner.nextLine();
                 System.out.println("Enter login");
+                String login = scanner.nextLine();
                 System.out.println("Enter passowrd");
+                String password = scanner.nextLine();
+
+                List<User> users = fileManager.loadUsers();
+
+                boolean isTaken = users.stream().anyMatch(u -> u.getLogin().equals(login));
+                if (isTaken) {
+                    System.out.printf("❌ Error: Username %s is already taken!", login);
+                } else {
+                    User newUser = new User(login, password, name, surname);
+                    fileManager.saveUser(newUser);
+                    System.out.println("✅ Registration successful!");
+                }
 
             }
 

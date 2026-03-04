@@ -1,26 +1,33 @@
-package tmp;
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Contact {
+
+    List<String> phoneNumbers = new ArrayList<>();
     private int id;
     private String name;
     private int age;
     private String surname;
     private String email;
-    private String phoneNumber;
+    private Gender gender;
+    private static int idCounter = 1;
 
-    public Contact(int id, int age, String name, String surname, String email, String phoneNumber) {
-        this.age = age;
-        this.id = id;
+
+    public Contact(String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers) {
+        this.id = idCounter++;
         this.name = name;
         this.surname = surname;
+        this.age = age;
+        this.gender = gender;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumbers = phoneNumbers; // Теперь данные из параметров попадают в объект
     }
 
     public int getId() {
         return id;
     }
-
     public String getName() {
         return name;
     }
@@ -39,11 +46,11 @@ public class Contact {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public List<String> getPhoneNumber() {
+        return phoneNumbers;
     }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void addPhoneNumber(String phoneNumber) {
+        this.phoneNumbers.add(phoneNumber);
     }
     public int getAge() {
         return age;
@@ -52,8 +59,9 @@ public class Contact {
         this.age = age;
     }
 
+
     @Override
     public String toString() {
-        return String.format("Contact[ID: %d, age: %d, name: %s, surname %s, e-mail: %s, phoneNumber: %s",id, age, name, surname, email, phoneNumber);
+        return String.format("Contact[ID: %d, name: %s, surname %s, age: %d, e-mail: %s, phoneNumber: %s",id, name, surname, age, email, phoneNumbers);
     }
 }
