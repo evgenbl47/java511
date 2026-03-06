@@ -5,6 +5,7 @@ import repository.FileManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
@@ -71,6 +72,7 @@ public class Main {
     }
 
     public static void run() {
+        User currentUser = null;
         FileManager fileManager = new FileManager();
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
@@ -93,11 +95,25 @@ public class Main {
                 boolean login = true;
                 System.out.println("Login");
                 System.out.println("Enter login");
-                String UserLogin = scanner.nextLine();
+                String userLogin = scanner.nextLine();
                 System.out.println("Enter password");
                 String userPassword = scanner.nextLine();
 
-                fileManager.loadUsers();
+                List<User> users = fileManager.loadUsers();
+                Optional<User> foundUser = users.stream()
+                        .filter(u -> u.getLogin().equals(userLogin) && u.getPassword().equals(userPassword))
+                        .findFirst();
+
+                if (foundUser.isPresent()) {
+                    currentUser = foundUser.get();
+                    System.out.printf("Welcome, %s!\n", currentUser.getFirstName());
+                    login = true;
+                }else {
+                    System.out.println("❌ Invalid login or password");
+                    login = false;
+                }
+
+
 
 
                 while (login) {
@@ -169,6 +185,7 @@ public class Main {
                     if (userChoise == 6) {
                         System.out.println("Back");
                         login = false;
+                        currentUser = null;
                     }
                 }
             }
