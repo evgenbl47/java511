@@ -2,22 +2,22 @@ import model.Contact;
 import model.Gender;
 import model.User;
 import repository.FileManager;
+import service.AuthService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-//        testContact();
+        testContact();
 //        System.out.println("test Contact - done");
 //        testUser();
 //        System.out.println("test User - done");
 //        testFileManager();
 //        System.out.println("test FileManager - done");
-        run();
+        //run();
 
     }
 
@@ -27,10 +27,18 @@ public class Main {
         contactPhones.add("+77712345678");
 
 //        (String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers)
-        Contact testContact = new Contact("Name", "Surname", 20, Gender.MALE, "email", contactPhones);
-        Contact testContact2 = new Contact("Name2", "Surname2", 22, Gender.FEMALE, "email", contactPhones);
+        Contact testContact = new Contact("Tom", "Smith", 20, Gender.MALE, "tom@test_email", contactPhones);
+        Contact testContact2 = new Contact("Eva", "Burty", 22, Gender.FEMALE, "eva@test_email", contactPhones);
         System.out.println(testContact);
         System.out.println(testContact2);
+
+        FileManager fileManager = new FileManager();
+//        fileManager.saveContact(testContact, "Tom");
+//        fileManager.saveContact(testContact2, "Eva");
+
+        List<Contact> loaded = fileManager.loadContacts("Eva");
+        System.out.println("------Loaded Contacts ------");
+        loaded.forEach(System.out::println);
     }
 
     public static void testUser() {
@@ -74,47 +82,31 @@ public class Main {
     public static void run() {
         User currentUser = null;
         FileManager fileManager = new FileManager();
+        AuthService authService = new AuthService(fileManager);
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
         int userChoise;
 
         do {
-            System.out.println("""
-                     -----------------------------------
-                    |                                  |
-                    |        1   -   Sign in           |
-                    |                                  |
-                    |        2   -   Sign up           |
-                    |                                  |
-                    |        3   -   Exit              |
-                    |                                  |
-                     -----------------------------------""");
+            printLoginPage();
             userChoise = Integer.parseInt(scanner.nextLine());
 
             if (userChoise == 1) {
                 boolean login = true;
                 System.out.println("Login");
                 System.out.println("Enter login");
-                String userLogin = scanner.nextLine();
+                String inputLogin = scanner.nextLine();
                 System.out.println("Enter password");
-                String userPassword = scanner.nextLine();
+                String inputPassword = scanner.nextLine();
 
-                List<User> users = fileManager.loadUsers();
-                Optional<User> foundUser = users.stream()
-                        .filter(u -> u.getLogin().equals(userLogin) && u.getPassword().equals(userPassword))
-                        .findFirst();
-
-                if (foundUser.isPresent()) {
-                    currentUser = foundUser.get();
+                currentUser = authService.login(inputLogin, inputPassword);
+                if (currentUser != null) {
                     System.out.printf("Welcome, %s!\n", currentUser.getFirstName());
                     login = true;
-                }else {
+                } else {
                     System.out.println("❌ Invalid login or password");
                     login = false;
                 }
-
-
-
 
                 while (login) {
                     System.out.println("""
@@ -201,15 +193,11 @@ public class Main {
                 System.out.println("Enter passowrd");
                 String password = scanner.nextLine();
 
-                List<User> users = fileManager.loadUsers();
-
-                boolean isTaken = users.stream().anyMatch(u -> u.getLogin().equals(login));
-                if (isTaken) {
-                    System.out.printf("❌ Error: Username %s is already taken!", login);
-                } else {
-                    User newUser = new User(login, password, name, surname);
-                    fileManager.saveUser(newUser);
+                boolean success = authService.register(login, password, name,surname);
+                if (success) {
                     System.out.println("✅ Registration successful!");
+                } else {
+                    System.out.printf("❌ Error: Username %s is already taken!\n", login);
                 }
 
             }
@@ -220,6 +208,19 @@ public class Main {
             }
         } while (run);
 
+    }
+
+    private static void printLoginPage() {
+        System.out.println("""
+                     -----------------------------------
+                    |                                  |
+                    |        1   -   Sign in           |
+                    |                                  |
+                    |        2   -   Sign up           |
+                    |                                  |
+                    |        3   -   Exit              |
+                    |                                  |
+                     -----------------------------------""");
     }
 
 }

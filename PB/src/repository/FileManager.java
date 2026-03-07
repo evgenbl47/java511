@@ -1,9 +1,12 @@
 package repository;
 
+import model.Contact;
+import model.Gender;
 import model.User;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FileManager {
@@ -57,5 +60,65 @@ public class FileManager {
             throw new RuntimeException(e);
         }
         return users;
+    }
+
+    // ID;Имя;Фамилия;Возраст;Пол;Email;phone1|phone2
+    public void saveContact(Contact contact, String userName) {
+        String path = "PB/src/tmp/data/" + userName + ".txt";
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(path, true))) {
+            String phones = String.join("|", contact.getPhoneNumber());
+            String result = String.format("%d;%s;%s;%d;%s;%s;%s",
+                    contact.getId(),
+                    contact.getName(),
+                    contact.getSurname(),
+                    contact.getAge(),
+                    contact.getGender(),
+                    contact.getEmail(),
+                    phones);
+            writer.println(result);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Contact> loadContacts(String userName) {
+        String path = "PB/src/tmp/data/" + userName + ".txt";
+        List<Contact> contacts = new ArrayList<>();
+        File file = new File(path);
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+            String line;
+            while (true) {
+                if ((line = bufferedReader.readLine()) == null) break;
+                String[] parts = line.split(";");
+                // ID;Имя;Фамилия;Возраст;Пол;Email;phone1|phone2
+                int id = Integer.parseInt(parts[0]);
+                String name = parts[1];
+                String surname = parts[2];
+                int age = Integer.parseInt(parts[3]);
+
+                Gender gender = Gender.valueOf(parts[4]);
+                String email = parts[5];
+                List<String> phoneNumbers = Arrays.asList(parts[6].split("\\|"));
+                Contact contact = new Contact(name, surname, age, gender, email, phoneNumbers);
+
+                contacts.add(new Contact(
+                        name,
+                        surname,
+                        age,
+                        gender,
+                        email,
+                        phoneNumbers));
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return contacts;
     }
 }
