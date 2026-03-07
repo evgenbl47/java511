@@ -95,7 +95,7 @@ public class FileManager {
             while (true) {
                 if ((line = bufferedReader.readLine()) == null) break;
                 String[] parts = line.split(";");
-                // ID;Имя;Фамилия;Возраст;Пол;Email;phone1|phone2
+                // number;ID;Имя;Фамилия;Возраст;Пол;Email;phone1|phone2
                 int id = Integer.parseInt(parts[0]);
                 String name = parts[1];
                 String surname = parts[2];
@@ -105,14 +105,7 @@ public class FileManager {
                 String email = parts[5];
                 List<String> phoneNumbers = Arrays.asList(parts[6].split("\\|"));
                 Contact contact = new Contact(name, surname, age, gender, email, phoneNumbers);
-
-                contacts.add(new Contact(
-                        name,
-                        surname,
-                        age,
-                        gender,
-                        email,
-                        phoneNumbers));
+                contacts.add(contact);
             }
 
         } catch (IOException e) {

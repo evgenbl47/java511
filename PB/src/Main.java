@@ -3,7 +3,7 @@ import model.Gender;
 import model.User;
 import repository.FileManager;
 import service.AuthService;
-
+import service.ContactService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,13 +11,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        testContact();
+//        testContact();
 //        System.out.println("test Contact - done");
 //        testUser();
 //        System.out.println("test User - done");
 //        testFileManager();
 //        System.out.println("test FileManager - done");
-        //run();
+        run();
 
     }
 
@@ -33,8 +33,8 @@ public class Main {
         System.out.println(testContact2);
 
         FileManager fileManager = new FileManager();
-//        fileManager.saveContact(testContact, "Tom");
-//        fileManager.saveContact(testContact2, "Eva");
+        fileManager.saveContact(testContact, "");
+        fileManager.saveContact(testContact2, "evgenbl47");
 
         List<Contact> loaded = fileManager.loadContacts("Eva");
         System.out.println("------Loaded Contacts ------");
@@ -82,6 +82,7 @@ public class Main {
     public static void run() {
         User currentUser = null;
         FileManager fileManager = new FileManager();
+        ContactService contactService = new ContactService(fileManager);
         AuthService authService = new AuthService(fileManager);
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
@@ -122,17 +123,33 @@ public class Main {
                      -----------------------------------""");
                     userChoise = Integer.parseInt(scanner.nextLine());
                     if (userChoise == 1) {
-                        System.out.println("Contacts");
-                        System.out.println("""
-                     -----------------------------------
-                    |                                  |
-                    |        1   -   Add               |
-                    |        2   -   Remove            |
-                    |        3   -   Edit              |
-                    |        4   -   Display           |
-                    |                                  |
-                     -----------------------------------""");
+                    showContactMenu();
+                        int contactMenuChoice = Integer.parseInt(scanner.nextLine());
 
+                        if (contactMenuChoice == 1) {
+//                            System.out.println("Add");
+                            addContact(scanner, currentUser, contactService);
+                        }
+                        if (contactMenuChoice == 2) {
+//                            System.out.println("Remove");
+                        }
+                        if (contactMenuChoice == 3) {
+//                            System.out.println("Edit");
+                        }
+                        if (contactMenuChoice == 4) {
+//                            System.out.println("Display");
+                            //displayContact();
+                            List<Contact> contacts = contactService.getContacts(currentUser.getLogin());
+                            if (contacts.isEmpty()) {
+                                System.out.println("No contacts");
+                            } else {
+                                for (int i = 0; i < contacts.size(); i++) {
+                                    int displayNumber = i + 1;
+                                    Contact contact = contacts.get(i);
+                                    System.out.printf("%d | %s%n", displayNumber, contact);
+                                }
+                            }
+                        }
                     }
 
                     if (userChoise == 2) {
@@ -210,6 +227,18 @@ public class Main {
 
     }
 
+    private static void showContactMenu() {
+        System.out.println("Contacts");
+        System.out.println("""
+                     -----------------------------------
+                    |                                  |
+                    |        1   -   Add               |
+                    |        2   -   Remove            |
+                    |        3   -   Edit              |
+                    |        4   -   Display           |
+                    |                                  |
+                     -----------------------------------""");
+    }
     private static void printLoginPage() {
         System.out.println("""
                      -----------------------------------
@@ -221,6 +250,76 @@ public class Main {
                     |        3   -   Exit              |
                     |                                  |
                      -----------------------------------""");
+    }
+
+    private static void addContact(Scanner scanner, User currentUser, ContactService contactService) {
+        //Имя;Фамилия;Возраст;Пол;Email;phone1|phone2
+
+        String name = null;
+        do {
+            System.out.println("Enter name (required) or 'back' for cancel:");
+            String userInput = scanner.nextLine();
+            if (userInput.equals("back")) {
+                System.out.println("Canceled");
+                return;
+            }
+
+            if (userInput.isEmpty()) {
+                System.out.println("❌ Name required!");
+            } else {
+                name = userInput;
+            }
+         } while (name == null);
+
+        System.out.println("Enter surname");
+        String surname = scanner.nextLine();
+        System.out.println("Enter age");
+        int age;
+        try {
+            age = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            age = 0;
+            System.out.println("Age is incorrect");
+        }
+        System.out.println("Enter gender 1 - MALE, 2 - FEMALE, 0 - Skip (default MALE)");
+        String gen = scanner.nextLine();
+        Gender gender;
+        switch (gen) {
+            case "1":
+                gender = Gender.MALE;
+                break;
+            case "2":
+                gender = Gender.FEMALE;
+                break;
+            default:
+                gender = Gender.MALE;
+        }
+        System.out.println("Enter email");
+        String email = scanner.nextLine();
+
+        String phone = null;
+        List<String> phoneNumbers = new ArrayList<>();
+        while (true) {
+            System.out.println("Enter phoneNumber (required) or 'back' for cancel:");
+            String userInput = scanner.nextLine();
+
+            if (userInput.equals("back")) {
+                System.out.println("Canceled");
+                return;
+            }
+
+            if (userInput.isEmpty() && phoneNumbers.isEmpty()) {
+                System.out.println("❌ PhoneNumber required!");
+            }
+
+            if (phone == null) {
+                return;
+            }
+            phoneNumbers.add(phone);
+        }
+        Contact contact = new Contact(name, surname, age, gender, email, phoneNumbers);
+        contactService.addContact(contact, currentUser.getLogin());
+        System.out.println("✅ Контакт успешно добавлен!");
     }
 
 }

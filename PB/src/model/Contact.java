@@ -68,6 +68,6 @@ public class Contact {
 
     @Override
     public String toString() {
-        return String.format("Contact[ID: %d, name: %s, surname %s, age: %d, e-mail: %s, phoneNumber: %s",id, name, surname, age, email, phoneNumbers);
+        return String.format("Contact[ ID: %d, name: %s, surname: %s, age: %d, e-mail: %s, phoneNumber: %s ]",id, name, surname, age, email, phoneNumbers);
     }
 }
