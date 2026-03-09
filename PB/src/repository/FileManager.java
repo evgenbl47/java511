@@ -96,15 +96,14 @@ public class FileManager {
                 if ((line = bufferedReader.readLine()) == null) break;
                 String[] parts = line.split(";");
                 // number;ID;Имя;Фамилия;Возраст;Пол;Email;phone1|phone2
-                int id = Integer.parseInt(parts[0]);
-                String name = parts[1];
-                String surname = parts[2];
-                int age = Integer.parseInt(parts[3]);
-
-                Gender gender = Gender.valueOf(parts[4]);
-                String email = parts[5];
+                int id = Integer.parseInt(parts[0].trim());
+                String name = parts[1].trim();
+                String surname = parts[2].trim();
+                int age = Integer.parseInt(parts[3].trim());
+                Gender gender = Gender.valueOf(parts[4].trim());
+                String email = parts[5].trim();
                 List<String> phoneNumbers = Arrays.asList(parts[6].split("\\|"));
-                Contact contact = new Contact(name, surname, age, gender, email, phoneNumbers);
+                Contact contact = Contact.fromFile(id, name, surname, age, gender, email, phoneNumbers);
                 contacts.add(contact);
             }
 
@@ -113,5 +112,26 @@ public class FileManager {
         }
 
         return contacts;
+    }
+
+    public void saveAllContacts(List<Contact> contacts, String userName) {
+        String path = "PB/src/tmp/data/" + userName + ".txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(path, false))) {
+            for (Contact contact : contacts) {
+                String phones = String.join("|", contact.getPhoneNumber());
+                String result = String.format("%d;%s;%s;%d;%s;%s;%s",
+                        contact.getId(),
+                        contact.getName(),
+                        contact.getSurname(),
+                        contact.getAge(),
+                        contact.getGender(),
+                        contact.getEmail(),
+                        phones);
+                writer.println(result);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

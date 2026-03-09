@@ -14,15 +14,25 @@ public class Contact {
     private Gender gender;
     private static int idCounter = 1;
 
-
-    public Contact(String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers) {
-        this.id = idCounter++;
+    private Contact(int id, String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers) {
+       this.phoneNumbers = phoneNumbers;
+        this.id = id;
         this.name = name;
-        this.surname = surname;
         this.age = age;
-        this.gender = gender;
+        this.surname = surname;
         this.email = email;
-        this.phoneNumbers = phoneNumbers; // Теперь данные из параметров попадают в объект
+        this.gender = gender;
+    }
+
+    public static Contact createNew(String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers) {
+        return new Contact(idCounter++, name, surname, age, gender, email, phoneNumbers);
+    }
+
+    public static Contact fromFile(int id, String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers) {
+        if (id >= idCounter) {
+            idCounter = id + 1;
+        }
+        return new Contact(id, name, surname, age, gender, email, phoneNumbers);
     }
 
     public int getId() {
@@ -48,6 +58,9 @@ public class Contact {
     }
     public List<String> getPhoneNumber() {
         return phoneNumbers;
+    }
+    public void setPhoneNumbers(List<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
     public void addPhoneNumber(String phoneNumber) {
         this.phoneNumbers.add(phoneNumber);

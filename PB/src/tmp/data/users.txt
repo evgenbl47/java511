@@ -1,2 +1,0 @@
-evgenbl47;password;Evgen;Rich
-;;guest;root
