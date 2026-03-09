@@ -12,7 +12,7 @@ import java.util.List;
 //        (String name, String surname, int age, Gender gender, String email, List<String> phoneNumbers)
 public class ContactIntegrationTest {
     public static void testEditContact() {
-        //deleteTestFile
+        //deleteTestFile//
         File testFile = new File("PB/src/tmp/data/testUser.txt");
         if (testFile.exists()) {
             testFile.delete();
