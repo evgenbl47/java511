@@ -1,0 +1,2 @@
+1;Tom;;0;MALE;;123456|564321
+2;test;asdf;0;MALE;asdf@asdfg.ru;23676257

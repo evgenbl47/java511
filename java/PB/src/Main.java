@@ -271,8 +271,79 @@ public class Main {
 //    Предложи ввести новое или оставить пустым (для сохранения старого).
 //    Вызови сервис и выведи результат.
     private static void editContact(Scanner scanner, User currentUser, ContactService contactService) {
-        displayContact(contactService, currentUser);
-        String chooseID =scanner.nextLine();
+        List<Contact> contacts = contactService.getContacts(currentUser.getLogin());
+
+        if (contacts.isEmpty()) {
+            System.out.println("No contacts");
+            return;
+        }
+
+        for (int i = 0; i < contacts.size(); i++) {
+            System.out.printf("%d %s%n", i + 1, contacts.get(i));
+        }
+
+        Contact contactToEdit = null;
+        while (contactToEdit == null) {
+            System.out.print("Enter contact number (or Enter to cancel)");
+            String input = scanner.nextLine();
+
+            if (input.isEmpty()) {
+                return;
+            }
+
+            try {
+                int number = Integer.parseInt(input);
+                if (number >= 1 && number <= contacts.size()) {
+                    contactToEdit = contacts.get(number - 1);
+                }
+            } catch (Exception e) {
+                System.out.print("\nYou input not a number");
+            }
+        }
+//        Имя;Фамилия;Возраст;Пол;Email;phone1|phone
+        System.out.print("\nInput new contact name: ");
+        String newName = scanner.nextLine();
+        if (!newName.isEmpty()) {
+            contactToEdit.setName(newName);
+
+        }
+
+        System.out.print("\nInput new contact surname: ");
+        String newSurname = scanner.nextLine();
+        if (!newSurname.isEmpty()) {
+            contactToEdit.setName(newName);
+
+        }
+
+        System.out.print("\nInput new contact age: ");
+        try {
+            int newAge = Integer.parseInt(scanner.nextLine());
+            if (!newSurname.isEmpty()) {
+                contactToEdit.setName(newName);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("\nYou enter not a number");
+        }
+
+        System.out.print("\nInput new email: ");
+        String newEmail = scanner.nextLine();
+        if (!newEmail.isEmpty()) {
+            contactToEdit.setName(newName);
+
+        }
+
+        System.out.print("\nInput new email: ");
+        try {
+            int newPhone = Integer.parseInt(scanner.nextLine());
+            if (newPhone == 0) {
+                contactToEdit.setName(newName);
+
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("You input not a number");
+        }
+
+//        boolean success = contactService.editContact(currentUser.getFirstName(), );
     }
 
     private static void displayContact(ContactService contactService, User currentUser) {
