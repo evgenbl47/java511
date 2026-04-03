@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+   <header>
+      <h2>Header</h2>
+   </header>
+
+   <nav>
+      <h2>Navigation</h2>
+   </nav>
+
+   <main>
+      <h2>Main</h2>
+   </main>
+
+   <aside>
+      <h2>Aside</h2>
+   </aside>
+
+   <footer>
+      <h2>Footer</h2>
+   </footer>
+
+   <form>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Отправить</button>
+   </form>
+
+   <table border="1">
+    <tr>
+      <th>Имя</th>
+      <th>Возраст</th>
+   </tr>
+    <tr>
+      <td>Евгений</td>
+      <td>30+</td>
+   </tr>
+</table>
+
+<table border="1">
+   <tr>
+      <th>level1</th>
+      <th>level2</th>
+      <th>level3</th>
+      <th>info</th>
+      <th>name</th>
+   </tr>
+   <tr>
+      <!-- <td rowspan="2">1</td> -->
+      <td rowspan="6">System</td>
+      <td rowspan="4">System Apps</td>
+      <td rowspan="3">SystemEnv</td>
+      <td>App Test</td>
+      <td>foo</td>
+   </tr>
+   <tr>
+      <td>App Memory</td>
+      <!-- <td colspan="2">2</td> -->
+      <td>foo</td>
+   </tr>
+    <tr>
+      <td>App Test</td>
+      <td>bar</td>
+   </tr>
+       <tr>
+      <td>SystemEnv2</td>
+      <td>App Test</td>
+      <td>bar</td>
+   </tr>
+   <tr>
+      <td rowspan="2">System Memory</td>
+      <td rowspan="2">Memory Test</td>
+      <td>Memory Func</td>
+      <td>foo</td>
+   </tr>
+   <tr>
+      <td>Apes Test</td>
+      <td>foo</td>
+   </tr>
+
+</table>
+
+<form action="/send">
+    <input type="email" placeholder="email@example.com" required>
+    <select>
+        <option>Java</option>
+        <option>SQL</option>
+    </select>
+    <button>Отправить</button>
+</form>
+
+
+   <h1>Lesson2</h1>
+
+
+   <!-- div>ol>li*3 -->
+
+   <img src="src/tmp.png" alt="img" width="400">
+
+   <!-- Списки
+Списки делятся на маркированные (<ul> с <li>), нумерованные (<ol> с <li>) и описательные (<dl> с <dt> и <dd>).
+
+Маркированный: кофе, чай, молоко.
+
+Нумерованный: 1. Варить, 2. Мешать, 3. Подавать.
+Многоуровневые списки вкладываются друг в друга. -->
+
+   <dl>
+      <dt>описательные </dt>
+      <dd>описательные  </dd>
+   </dl>
+
+   <ol type="1">
+      <li>нумерованные</li>
+      <li>нумерованные</li>
+   </ol>
+
+   <ul>
+      <li>маркированные</li>
+      <li>маркированные</li>
+   </ul>
+
+   <span>text</span>
+   <div>block</div>
+   <pre>save formatting</pre>
+
+   <a href="http://127.0.0.1:5500/html/lesson1/index.html" target="_blank">lesson1</a>
+   <a href="http://127.0.0.1:5500/html/lesson2/index.html">lesson2</a>
+   <a href="file.txt" download="file.txt" target="_blank">download</a>
+
+</body>
+</html>
