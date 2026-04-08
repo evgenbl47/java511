@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+   <title>SQL</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+   <style>
+      .codeList li {
+         display: inline-block;
+         background-color: white;
+         padding: 0 5px;
+         border-radius: 10px;
+         margin-bottom: 5px;
+         color: red;
+      }
+   </style>
+
+</head>
+
+<body>
+   <form method="post" action="./" id="form1">
+
+      <main id="Page">
+
+
+         <div>
+
+
+            <h1 class="Jumbotron"><span class="courseTitle72">Structured Query Language</span></h1>
+            <aside id="TOC"></aside>
+            <article id="doc">
+               <h2 style="clear: both;" id="ComputerProgramming">Introduction to SQL</h2>
+               <p style="clear: both;" class="indent">The structured query language (SQL - pronounced <em>sequel</em>)
+                  is a domain specific query language used for manipulating data in a relational database management
+                  system (RDBMS) or for stream processing in a relational data stream managment system (RDSMS). It is
+                  particularly useful in handling structured data, i.e. data incoporating relations among entities and
+                  variables. SQL offers two main advantages over older read/write APIs such as <a
+                     href="https://en.wikipedia.org/wiki/ISAM">ISAM</a> or <a
+                     href="https://en.wikipedia.org/wiki/Virtual_Storage_Access_Method">VSAM</a>. Firstly it introduced
+                  the concept of accessing many records with one single command. Secondly, it eliminates the need to
+                  specify how to reach a record, e.g. with or without an index.</p>
+               <p style="clear: both;" class="indent">SQL consists of many types of statements, which may be informally
+                  classed as sublanguages, commonly: a data query language (DQL), a data definition language (DDL), a
+                  data control language (DCL), and a data manipulation language (DML). The scope of SQL includes data
+                  query, data manipulation (insert, update and delete), data definition (schema creation and
+                  modification), and data access control. It is essentially a declarative language (4GL), but also
+                  includes procedural elements. Four of the most common tasks that can be accomplished using SQL are
+                  create, retrieve, update, and delete or CRUD for short.</p>
+               <p style="clear: both;" class="indent">Popular RDBMS that support the SQL language are commercial
+                  products like <a href="https://www.oracle.com/database/technologies/">Oracle Database</a> and <a
+                     href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">Microsofts SQL server</a>
+                  and the open source <a href="https://www.mysql.com/">MySQL</a>. SQL became a standard of the <a
+                     href="https://en.wikipedia.org/wiki/American_National_Standards_Institute">American National
+                     Standards Institute (ANSI)</a> in 1986, and the <a
+                     href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">International
+                     Organization for Statdarization (ISO)</a> in 1987. Although the SQL language is standardized, its
+                  implementation varies slightly from system to system; meaning that code that needs to be ported from
+                  one system to another will most likely require some modification.</p>
+               <h2>SQL Syntax</h2>
+               <p class="indent">
+                  The SQL language is subdivided into several language elements, including:</p>
+               <ul>
+                  <li>
+                     <p class="indent">
+                        <em>Clauses</em>, which are constituent components of statements and queries. (In some cases,
+                        these are optional.)
+                     </p>
+                  </li>
+                  <li>
+                     <p class="indent">
+                        <em>Expressions</em>, which can produce either scalar values, or tables consisting of columns
+                        and rows of data
+                     </p>
+                  </li>
+                  <li>
+                     <p class="indent">
+                        <em>Predicates</em>, which specify conditions that can be evaluated to SQL three-valued logic
+                        (3VL) (true/false/unknown) or Boolean truth values and are used to limit the effects of
+                        statements and queries, or to change program flow.
+                     </p>
+                  </li>
+                  <li>
+                     <p class="indent">
+                        <em>Queries</em>, which retrieve the data based on specific criteria. This is an important
+                        element of SQL.
+                     </p>
+                  </li>
+                  <li>
+                     <p class="indent">
+                        <em>Statements</em>, which may have a persistent effect on schemata and data, or may control
+                        transactions, program flow, connections, sessions, or diagnostics.
+                        SQL statements also include the semicolon (";") statement terminator. Though not required on
+                        every platform, it is defined as a standard part of the SQL grammar.
+                     </p>
+                  </li>
+                  <li>
+                     <p class="indent">
+                        Insignificant whitespace is generally ignored in SQL statements and queries, making it easier to
+                        format SQL code for readability. </p>
+                  </li>
+               </ul>
+               <figure style="margin:0;text-align:center;">
+                  <img src="/images/SQL_LanguageElements.png" alt="" />
+                  <figcaption>SQL language elements.</figcaption>
+               </figure>
+               <p class="indent"><span class="instructionalStep">NOTE:</span> The version of SQL supported by the
+                  Microsoft SQL server is known as <em>Transact SQL</em> or <em>T-SQL</em> for short. The keywords and
+                  functions shown below are for T-SQL. Rest your mouse over the top of a keyword or function to view its
+                  description.</p>
+               <h2 id="Keywords" style="clear: both;">T-SQL Keywords</h2>
+
+               <ul class="codeList" style="list-style:none;">
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_0"
+                        title="	Adds a column in an existing table" class="code">ADD</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_1"
+                        title="Adds a constraint after a table is already created" class="code">ADD CONSTRAINT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_2"
+                        title="Returns true if all of the subquery values meet the condition" class="code">ALL</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_3"
+                        title="	Adds, deletes, or modifies columns in a table, or changes the data type of a column in a table"
+                        class="code">ALTER</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_4"
+                        title="	Changes the data type of a column in a table" class="code">ALTER COLUMN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_5"
+                        title="	Adds, deletes, or modifies columns in a table" class="code">ALTER TABLE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_6"
+                        title="Only includes rows where both conditions is true" class="code">AND</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_7"
+                        title="Returns true if any of the subquery values meet the condition" class="code">ANY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_8"
+                        title="Renames a column or table with an alias" class="code">AS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_9"
+                        title="Sorts the result set in ascending order" class="code">ASC</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_10"
+                        title="Creates a back up of an existing database" class="code">BACKUP DATABASE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_11"
+                        title="Selects values within a given range" class="code">BETWEEN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_12"
+                        title="	Creates different outputs based on conditions" class="code">CASE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_13"
+                        title="	A constraint that limits the value that can be placed in a column"
+                        class="code">CHECK</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_14"
+                        title="Changes the data type of a column or deletes a column in a table"
+                        class="code">COLUMN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_15"
+                        title="Adds or deletes a constraint" class="code">CONSTRAINT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_16"
+                        title="Creates a database, index, view, table, or procedure" class="code">CREATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_17"
+                        title="Creates a new SQL database" class="code">CREATE DATABASE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_18"
+                        title="Creates an index on a table (allows duplicate values)" class="code">CREATE INDEX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_19" title="Updates a view"
+                        class="code">CREATE OR REPLACE VIEW</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_20"
+                        title="Creates a stored procedure" class="code">CREATE PROCEDURE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_21"
+                        title="Creates a new table in the database" class="code">CREATE TABLE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_22"
+                        title="Creates a unique index on a table (no duplicate values)" class="code">CREATE UNIQUE
+                        INDEX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_23"
+                        title="Creates a view based on the result set of a SELECT statement" class="code">CREATE
+                        VIEW</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_24"
+                        title="Creates or deletes an SQL database" class="code">DATABASE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_25"
+                        title="A constraint that provides a default value for a column" class="code">DEFAULT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_26"
+                        title="Deletes rows from a table" class="code">DELETE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_27"
+                        title="Sorts the result set in descending order" class="code">DESC</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_28"
+                        title="Selects only distinct (different) values" class="code">DISTINCT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_29"
+                        title="Deletes a column, constraint, database, index, table, or view" class="code">DROP</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_30"
+                        title="Deletes a column in a table" class="code">DROP COLUMN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_31"
+                        title="Deletes a UNIQUE, PRIMARY KEY, FOREIGN KEY, or CHECK constraint" class="code">DROP
+                        CONSTRAINT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_32"
+                        title="Deletes an existing SQL database" class="code">DROP DATABASE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_33"
+                        title="Deletes a DEFAULT constraint" class="code">DROP DEFAULT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_34"
+                        title="Deletes an index in a table" class="code">DROP INDEX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_35"
+                        title="Deletes an existing table in the database" class="code">DROP TABLE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_36" title="Deletes a view"
+                        class="code">DROP VIEW</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_37"
+                        title="Executes a stored procedure" class="code">EXEC</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_38"
+                        title="Tests for the existence of any record in a subquery" class="code">EXISTS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_39"
+                        title="A constraint that is a key used to link two tables together" class="code">FOREIGN
+                        KEY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_40"
+                        title="Specifies which table to select or delete data from" class="code">FROM</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_41"
+                        title="Returns all rows when there is a match in either left table or right table"
+                        class="code">FULL OUTER JOIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_42"
+                        title="Groups the result set (used with aggregate functions: COUNT, MAX, MIN, SUM, AVG)"
+                        class="code">GROUP BY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_43"
+                        title="Used instead of WHERE with aggregate functions" class="code">HAVING</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_44"
+                        title="Creates or deletes an index in a table" class="code">IN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_45"
+                        title="Returns rows that have matching values in both tables" class="code">INNER JOIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_46"
+                        title="Inserts new rows in a table" class="code">INSERT INTO</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_47"
+                        title="Copies data from one table into another table" class="code">INSERT INTO SELECT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_48"
+                        title="Tests for non-empty values" class="code">IS NOT NULL</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_49" title="Tests for empty values"
+                        class="code">IS NULL</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_50" title="Joins tables"
+                        class="code">JOIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_51"
+                        title="Returns all rows from the left table, and the matching rows from the right table"
+                        class="code">LEFT JOIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_52"
+                        title="Searches for a specified pattern in a column" class="code">LIKE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_53"
+                        title="Specifies the number of records to return in the result set" class="code">LIMIT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_54"
+                        title="Only includes rows where a condition is not true" class="code">NOT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_55"
+                        title="A constraint that enforces a column to not accept NULL values" class="code">NOT
+                        NULL</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_56"
+                        title="Includes rows where either condition is true" class="code">OR</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_57"
+                        title="Sorts the result set in ascending or descending order" class="code">ORDER BY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_58"
+                        title="Returns all rows when there is a match in either left table or right table"
+                        class="code">OUTER JOIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_59"
+                        title="A constraint that uniquely identifies each record in a database table"
+                        class="code">PRIMARY KEY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_60" title="A stored procedure"
+                        class="code">PROCEDURE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_61"
+                        title="Returns all rows from the right table, and the matching rows from the left table"
+                        class="code">RIGHT JOIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_62"
+                        title="Specifies the number of records to return in the result set" class="code">ROWNUM</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_63"
+                        title="Selects data from a database" class="code">SELECT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_64"
+                        title="Selects only distinct (different) values" class="code">SELECT DISTINCT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_65"
+                        title="Copies data from one table into a new table" class="code">SELECT INTO</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_66"
+                        title="Specifies the number of records to return in the result set" class="code">SELECT
+                        TOP</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_67"
+                        title="Specifies which columns and values that should be updated in a table"
+                        class="code">SET</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_68"
+                        title="Creates a table, or adds, deletes, or modifies columns in a table, or deletes a table or data inside a table"
+                        class="code">TABLE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_69"
+                        title="Specifies the number of records to return in the result set" class="code">TOP</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_70"
+                        title="Deletes the data inside a table, but not the table itself" class="code">TRUNCATE
+                        TABLE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_71"
+                        title="Combines the result set of two or more SELECT statements (only distinct values)"
+                        class="code">UNION</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_72"
+                        title="Combines the result set of two or more SELECT statements (allows duplicate values)"
+                        class="code">UNION ALL</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_73"
+                        title="	A constraint that ensures that all values in a column are unique"
+                        class="code">UNIQUE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_74"
+                        title="Updates existing rows in a table" class="code">UPDATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_75"
+                        title="Specifies the values of an INSERT INTO statement" class="code">VALUES</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_76"
+                        title="Creates, updates, or deletes a view" class="code">VIEW</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater1_Keywords_77"
+                        title="Filters a result set to include only records that fulfill a specified condition"
+                        class="code">WHERE</span>
+                  </li>
+
+               </ul>
+               <h2 id="StringFunctions">T-SQL String Functions</h2>
+
+               <ul class="codeList" style="list-style:none;">
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_0"
+                        title="	Returns the ASCII value for the specific character" class="code">ASCII</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_1"
+                        title="Returns the character based on the ASCII code" class="code">CHAR</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_2"
+                        title="Returns the position of a substring in a string" class="code">CHARINDEX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_3"
+                        title="Adds two or more strings together" class="code">CONCAT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_4"
+                        title="Adds two or more strings together" class="code">Concat with +</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_5"
+                        title="Adds two or more strings together with a separator" class="code">CONCAT_WS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_6"
+                        title="Returns the number of bytes used to represent an expression"
+                        class="code">DATALENGTH</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_7"
+                        title="Compares two SOUNDEX values, and returns an integer value" class="code">DIFFERENCE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_8"
+                        title="Formats a value with the specified format" class="code">FORMAT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_9"
+                        title="Extracts a number of characters from a string (starting from left)"
+                        class="code">LEFT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_10"
+                        title="Returns the length of a string" class="code">LEN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_11"
+                        title="Converts a string to lower-case" class="code">LOWER</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_12"
+                        title="Removes leading spaces from a string" class="code">LTRIM</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_13"
+                        title="Returns the Unicode character based on the number code" class="code">NCHAR</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_14"
+                        title="Returns the position of a pattern in a string" class="code">PATINDEX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_15"
+                        title="Returns a Unicode string with delimiters added to make the string a valid SQL Server delimited identifier"
+                        class="code">QUOTENAME</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_16"
+                        title="Replaces all occurrences of a substring within a string, with a new substring"
+                        class="code">REPLACE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_17"
+                        title="Repeats a string a specified number of times" class="code">REPLICATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_18"
+                        title="	Reverses a string and returns the result" class="code">REVERSE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_19"
+                        title="Extracts a number of characters from a string (starting from right)"
+                        class="code">RIGHT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_20"
+                        title="Removes trailing spaces from a string" class="code">RTRIM</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_21"
+                        title="Returns a four-character code to evaluate the similarity of two strings"
+                        class="code">SOUNDEX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_22"
+                        title="Returns a string of the specified number of space characters" class="code">SPACE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_23"
+                        title="Returns a number as string" class="code">STR</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_24"
+                        title="Deletes a part of a string and then inserts another part into the string, starting at a specified position"
+                        class="code">STUFF</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_25"
+                        title="Extracts some characters from a string" class="code">SUBSTRING</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_26"
+                        title="Returns the string from the first argument after the characters specified in the second argument are translated into the characters specified in the third argument."
+                        class="code">TRANSLATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_27"
+                        title="Removes leading and trailing spaces (or other specified characters) from a string"
+                        class="code">TRIM</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_28"
+                        title="Returns the Unicode value for the first character of the input expression"
+                        class="code">UNICODE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater2_StringFunctions_29"
+                        title="Converts a string to upper-case" class="code">UPPER</span>
+                  </li>
+
+               </ul>
+               <h2 id="MathNumericFunctions">T-SQL Math/Numeric Functions</h2>
+
+               <ul class="codeList" style="list-style:none;">
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_0"
+                        title="Returns the absolute value of a number" class="code">ABS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_1"
+                        title="Returns the arc cosine of a number" class="code">ACOS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_2"
+                        title="Returns the arc sine of a number" class="code">ASIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_3"
+                        title="Returns the arc tangent of a number" class="code">ATAN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_4"
+                        title="Returns the arc tangent of two numbers" class="code">ATN2</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_5"
+                        title="Returns the average value of an expression" class="code">AVG</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_6"
+                        title="Returns the smallest integer value that is >= a number" class="code">CEILING</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_7"
+                        title="Returns the cosine of a number" class="code">COS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_8"
+                        title="Returns the cotangent of a number" class="code">COT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_9"
+                        title="	Returns the number of records returned by a select query" class="code">COUNT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_10"
+                        title="Converts a value in radians to degrees" class="code">DEGREES</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_11"
+                        title="Returns e raised to the power of a specified number" class="code">EXP</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_12"
+                        title="Returns the largest integer value that is &lt;= to a number" class="code">FLOOR</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_13"
+                        title="	Returns the natural logarithm of a number, or the logarithm of a number to a specified base"
+                        class="code">LOG</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_14"
+                        title="Returns the natural logarithm of a number to base 10" class="code">LOG10</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_15"
+                        title="Returns the maximum value in a set of values" class="code">MAX</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_16"
+                        title="	Returns the minimum value in a set of values" class="code">MIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_17"
+                        title="	Returns the value of PI" class="code">PI</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_18"
+                        title="Returns the value of a number raised to the power of another number"
+                        class="code">POWER</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_19"
+                        title="Converts a degree value into radians" class="code">RADIANS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_20"
+                        title="Returns a random number" class="code">RAND</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_21"
+                        title="Rounds a number to a specified number of decimal places" class="code">ROUND</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_22"
+                        title="Returns the sign of a number" class="code">SIGN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_23"
+                        title="Returns the sine of a number" class="code">SIN</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_24"
+                        title="Returns the square root of a number" class="code">SQRT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_25"
+                        title="Returns the square of a number" class="code">SQUARE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_26"
+                        title="Calculates the sum of a set of values" class="code">SUM</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater3_MathNumericFunctions_27"
+                        title="	Returns the tangent of a number" class="code">TAN</span>
+                  </li>
+
+               </ul>
+               <h2 id="DateFunctions">T-SQL Date Functions</h2>
+
+               <ul class="codeList" style="list-style:none;">
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_0"
+                        title="	Returns the current date and time" class="code">CURRENT_TIMESTAMP</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_1"
+                        title="	Adds a time/date interval to a date and then returns the date"
+                        class="code">DATEADD</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_2"
+                        title="Returns the difference between two dates" class="code">DATEDIFF</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_3"
+                        title="Returns a date from the specified parts (year, month, and day values)"
+                        class="code">DATEFROMPARTS</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_4"
+                        title="	Returns a specified part of a date (as string)" class="code">DATENAME</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_5"
+                        title="	Returns a specified part of a date (as integer)" class="code">DATEPART</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_6"
+                        title="Returns the day of the month for a specified date" class="code">DAY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_7"
+                        title="Returns the current database system date and time" class="code">GETDATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_8"
+                        title="Returns the current database system UTC date and time" class="code">GETUTCDATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_9"
+                        title="Checks an expression and returns 1 if it is a valid date, otherwise 0"
+                        class="code">ISDATE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_10"
+                        title="Returns the month part for a specified date (a number from 1 to 12)"
+                        class="code">MONTH</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_11"
+                        title="Returns the date and time of the SQL Server" class="code">SYSDATETIME</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater4_DateFunctions_12"
+                        title="Returns the year part for a specified date" class="code">YEAR</span>
+                  </li>
+
+               </ul>
+               <h2 id="AdvancedFunctions">T-SQL Advanced Functions</h2>
+
+               <ul class="codeList" style="list-style:none;">
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_0"
+                        title="Converts a value (of any type) into a specified datatype" class="code">CAST</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_1"
+                        title="Returns the first non-null value in a list" class="code">COALESCE</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_2"
+                        title="Converts a value (of any type) into a specified datatype" class="code">CONVERT</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_3"
+                        title="Returns the name of the current user in the SQL Server database"
+                        class="code">CURRENT_USER</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_4"
+                        title="Returns a value if a condition is TRUE, or another value if a condition is FALSE"
+                        class="code">IIF</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_5"
+                        title="Return a specified value if the expression is NULL, otherwise return the expression"
+                        class="code">ISNULL</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_6"
+                        title="Tests whether an expression is numeric" class="code">ISNUMERIC</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_7"
+                        title="Returns NULL if two expressions are equal" class="code">NULLIF</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_8"
+                        title="Returns the name of the current user in the SQL Server database"
+                        class="code">SESSION_USER</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_9"
+                        title="Returns the session settings for a specified option" class="code">SESSIONPROPERTY</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_10"
+                        title="Returns the login name for the current user" class="code">SYSTEM_USER</span>
+                  </li>
+
+                  <li>
+                     <span id="PageContent_PageContentPlaceHolder_Repeater5_AdvancedFunctions_11"
+                        title="	Returns the database user name based on the specified id" class="code">USER_NAME</span>
+                  </li>
+
+               </ul>
+
+            </article>
+
+
+
+         </div>
+
+      </main>
+   </form>
+
+</body>
+
+</html>

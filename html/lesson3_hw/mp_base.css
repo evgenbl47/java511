@@ -1,8 +1,8 @@
 /*
    New Perspectives on HTML5 and CSS3, 7th Edition
    Tutorial 1
-   Tutorial Case
-   Filename: base.css
+   Review Assignment
+   Filename: mp_base.css
 
    This file contains the base styles used by all pages in the website
 
@@ -14,7 +14,7 @@
    =============================================
 */
 
-article, aside, details, dl, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, details, dl, figcaption, figure, footer, header, main, nav, section {
 	display: block;
 }
 
@@ -108,7 +108,13 @@ pre {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 }
-
+q {
+	xquotes: none;
+}
+q:before, q:after {
+	xcontent: "";
+	xcontent: none;
+}
 small {
 	font-size: 85%;
 }
@@ -161,6 +167,8 @@ figure {
 }
 audio, canvas, video {
 	display: inline-block;
+*display: inline;
+*zoom: 1;
 }
 
 
@@ -182,6 +190,7 @@ label {
 }
 legend {
 	border: 0;
+*margin-left: -7px;
 	padding: 0;
 	white-space: normal;
 }
@@ -189,6 +198,7 @@ button, input, select, textarea {
 	font-size: 100%;
 	margin: 0;
 	vertical-align: baseline;
+*vertical-align: middle;
 }
 button, input {
 	line-height: normal;
@@ -196,6 +206,7 @@ button, input {
 button, input[type="button"], input[type="reset"], input[type="submit"] {
 	cursor: pointer;
 	-webkit-appearance: button;
+*overflow: visible;
 }
 button[disabled], input[disabled] {
 	cursor: default;
@@ -203,6 +214,8 @@ button[disabled], input[disabled] {
 input[type="checkbox"], input[type="radio"] {
 	box-sizing: border-box;
 	padding: 0;
+*width: 13px;
+*height: 13px;
 }
 input[type="search"] {
 	-webkit-appearance: textfield;
@@ -222,7 +235,11 @@ textarea {
 	vertical-align: top;
 	resize: vertical;
 }
-
+input:valid, textarea:valid {
+}
+input:invalid, textarea:invalid {
+background-color: #f0dddd;
+}
 
 
 /* =============================================
