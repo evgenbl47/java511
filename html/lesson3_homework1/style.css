@@ -1,0 +1,64 @@
+.mainframe{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+}
+
+.loading{
+    width: 100;
+    height: 40px;
+    background-color: purple;
+    /* padding: 10px; */
+    border: solid 1px black;
+    margin: 10px;
+}
+
+.num{
+    width: 10px;
+    height: 20px;
+    background-color: purple;
+}
+
+.num, .apple, .orange, .pineapple, .pear, .cherry{
+    display: inline-block;
+    /* vertical-align: middle; */
+}
+
+.apple{
+    width: 100px;
+    height: 20px;
+    background-color: red;
+    padding: 10px;
+    
+}  
+
+.orange{
+    width: 200px;
+    height: 20px;
+    background-color: red;
+    padding: 10px;
+}   
+
+.pineapple{
+    width: 250px;
+    height: 20px;
+    background-color: red;
+    padding: 10px;
+} 
+
+.pear{
+    width: 300px;
+    height: 20px;
+    background-color: red;
+    padding: 10px;
+} 
+
+.cherry{
+    width: 350px;
+    height: 20px;
+    background-color: red;
+    padding: 10px;
+} 
+
