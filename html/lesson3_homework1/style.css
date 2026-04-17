@@ -1,64 +1,146 @@
-.mainframe{
-    width: 500px;
-    height: 500px;
-    background-color: aqua;
-    padding: 10px;
-    margin: 10px;
+.mainframe1 {
+  width: 500px;
+  background-color: #e597ad;
+  padding: 10px;
+  margin: 10px;
+  font-family: Arial, sans-serif;
 }
 
-.loading{
-    width: 100;
-    height: 40px;
-    background-color: purple;
-    /* padding: 10px; */
-    border: solid 1px black;
-    margin: 10px;
+.loading {
+  height: 30px;
+  line-height: 30px;
+  background-color: #bc6a83;
+  margin: 10px 0;
+  color: white;
 }
 
-.num{
-    width: 10px;
-    height: 20px;
-    background-color: purple;
+.num {
+  width: 10px;
+  text-align: center;
 }
 
-.num, .apple, .orange, .pineapple, .pear, .cherry{
-    display: inline-block;
-    /* vertical-align: middle; */
+.num,
+.apple,
+.orange,
+.pineapple,
+.pear,
+.cherry {
+  display: inline-block;
 }
 
-.apple{
-    width: 100px;
-    height: 20px;
-    background-color: red;
-    padding: 10px;
-    
-}  
+.apple,
+.orange,
+.pineapple,
+.pear,
+.cherry {
+  background-color: #922c4d;
+  padding-left: 10px;
+}
 
-.orange{
-    width: 200px;
-    height: 20px;
-    background-color: red;
-    padding: 10px;
-}   
+.apple {
+  width: 100px;
+}
 
-.pineapple{
-    width: 250px;
-    height: 20px;
-    background-color: red;
-    padding: 10px;
-} 
+.orange {
+  width: 200px;
+}
 
-.pear{
-    width: 300px;
-    height: 20px;
-    background-color: red;
-    padding: 10px;
-} 
+.pineapple {
+  width: 250px;
+}
 
-.cherry{
-    width: 350px;
-    height: 20px;
-    background-color: red;
-    padding: 10px;
-} 
+.pear {
+  width: 300px;
+}
 
+.cherry {
+  width: 350px;
+}
+
+.fillDark,
+.fillLight,
+.fillBright {
+  width: 520px;
+  line-height: 40px;
+  border: solid 1px black;
+  position: relative;
+  padding-left: 10px;
+}
+
+.fillDark {
+  background-color: #87adc1;
+}
+.fillLight {
+  background-color: #d1e8ef;
+}
+.fillBright {
+  background-color: #add8e6;
+}
+
+.uncheck,
+.check,
+.inline,
+.arrow-right,
+.arrow-left {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.check + .inline {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.mainframe2 {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+}
+
+.arrow-left {
+  transform: rotate(180deg);
+  margin-left: -14px;
+  position: relative;
+  top: -6px;
+}
+
+.inline {
+  position: relative;
+  top: -2px;
+}
+
+.mainframe3{
+    font-family: serif;
+}
+
+.example{
+    color: gray;
+    margin-left: 20px;
+}
+
+.synonyms{
+    display: inline;
+    color: blue
+}
+
+i{
+    color: gray
+}
+
+.phonetic{
+    margin-bottom: 10px;
+}
+
+li{
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+h3{
+    font-weight: 900;
+    font-size: 40px;
+    margin: 0px;
+}
+
+.part1, part2{
+    margin-top: 20px;
+}
