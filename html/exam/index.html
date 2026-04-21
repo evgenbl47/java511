@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard: News & Rewards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+        
+        <!-- ЛЕВАЯ КОЛОНКА: НОВОСТИ -->
+        <section class="news-widget">
+            <h2 class="widget-title">News</h2>
+            <div class="news-container">
+                
+                <div class="news-item">
+                    <div class="news-icon calendar">
+                        <img src="./images/calendar.png" alt="icon">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <h3>Weekends</h3>
+                            <span class="news-date">1 days ago</span>
+                        </div>
+                        <p>Dear students, kindly be informed that there will be no lessons on 5th and 6th April...</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-icon bank">
+                        <img src="./images/bank.png" alt="icon">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-header">
+                            <h3>Meeting with ABC Bank</h3>
+                            <span class="news-date">20.03.2019</span>
+                        </div>
+                        <p>On Monday, March 27 at 7:00 pm, we invite you to a business meeting with ABC Bank.</p>
+                    </div>
+                </div>
+                
+                <div class="news-footer">More</div>
+            </div>
+        </section>
+
+        <!-- ПРАВАЯ КОЛОНКА: НАГРАДЫ -->
+        <section class="rewards-widget">
+            <h2 class="widget-title">Rewards</h2>
+            <div class="rewards-container">
+                
+                <!-- Строка 1 (Обычная) -->
+                <div class="reward-row">
+                    <div class="bubble arrow-right">Class attended</div>
+                    <div class="reward-center">
+                        <span class="plus">+1</span>
+                        <img src="./images/medal.png" alt="medal" class="medal-icon">
+                    </div>
+                    <div class="bubble date arrow-left">20.04.2019</div>
+                </div>
+
+                <!-- Строка 2 (Зеркальная) -->
+                <div class="reward-row reverse">
+                    <div class="bubble arrow-left">Class attended</div>
+                    <div class="reward-center">
+                        <span class="plus">+1</span>
+                        <img src="./images/medal.png" alt="medal" class="medal-icon">
+                    </div>
+                    <div class="bubble date arrow-right">19.04.2019</div>
+                </div>
+
+                <div class="rewards-footer">More</div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* Общие настройки страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 40px;
+}
+
+/* Сетка Dashboard */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    /*flex-wrap: wrap;  Для мобильных устройств блоки встанут друг под друга */
+}
+
+.widget-title {
+    text-align: center;
+    color: #888;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* --- СТИЛИ НОВОСТЕЙ --- */
+.news-container {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 450px;
+}
+
+.news-item {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    gap: 15px;
+}
+
+.news-icon {
+    flex-shrink: 0;
+    width: 70px;
+}
+
+.news-icon img { width: 100%; }
+
+.news-content h3 { margin: 0; font-size: 16px; color: #444; }
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.news-date { font-size: 11px; color: #bbb; }
+
+.news-content p {
+    margin: 0;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.news-footer, .rewards-footer {
+    text-align: center;
+    padding: 10px;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* --- СТИЛИ НАГРАД --- */
+.rewards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 450px;
+}
+
+.reward-row {
+    display: flex;
+    align-items: center;
+}
+
+.reward-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Базовая плашка (пузырек) */
+.bubble {
+    position: relative;
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #666;
+    background: #fff;
+}
+
+/* Острый кончик через поворот квадрата */
+.bubble::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    top: 50%;
+}
+
+.arrow-right { margin-right: 12px; }
+.arrow-right::after {
+    right: -5px;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.arrow-left { margin-left: 12px; text-align: right; }
+.arrow-left::after {
+    left: -5px;
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Центральная часть с медалью */
+.reward-center {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 15px;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.plus { font-weight: bold; color: #555; }
+.medal-icon { width: 24px; height: 24px; }
