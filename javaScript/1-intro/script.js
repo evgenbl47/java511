@@ -32,4 +32,4 @@
 
 
 
-var x = parseInt(x);
+// var x = parseInt(x);
