@@ -99,28 +99,28 @@ body {
 }
 
 /* Острый кончик через поворот квадрата */
-.bubble::after {
+/* .bubble::after {
     content: "";
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 22px;
+    height: 22px;
     background: #fff;
     border-top: 1px solid #ddd;
     border-right: 1px solid #ddd;
     top: 50%;
-}
+} */
 
-.arrow-right { margin-right: 12px; }
-.arrow-right::after {
-    right: -5px;
+/* .arrow-right { margin-right: 12px; } */
+/* .arrow-right::after {
+    right: -13px;
     transform: translateY(-50%) rotate(45deg);
-}
+} */
 
-.arrow-left { margin-left: 12px; text-align: right; }
+/* .arrow-left { margin-left: 12px; text-align: right; }
 .arrow-left::after {
-    left: -5px;
+    left: -13px;
     transform: translateY(-50%) rotate(-135deg);
-}
+} */
 
 /* Центральная часть с медалью */
 .reward-center {

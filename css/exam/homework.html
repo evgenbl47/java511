@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Diary - Homework</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Наш CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styleHomeWork.css">
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="nav-left d-flex align-items-center">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/logo.png" alt="logo" class="logo-img">
+                </a>
+                <div class="nav-links">
+                    <a class="nav-link" href="./index.html">Home</a>
+                    <!-- Активный пункт теперь Homework -->
+                    <a class="nav-link active" href="#">Homework</a>
+                    <a class="nav-link" href="./settings.html">Settings</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <img src="./images/user.png" alt="Profile" class="profile-img">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        
+        <!-- Заголовок и Легенда -->
+        <div class="d-flex justify-content-between align-items-center mb-4 header-block">
+            <h2 class="page-title">Homework</h2>
+            
+            <!-- Легенда цветов -->
+            <div class="legend">
+            <div class="legend-item">current -<span class="dot dot-white"></span></div>
+            <div class="legend-item">reviewed -<span class="dot dot-green"></span></div>
+            <div class="legend-item">under review -<span class="dot dot-blue"></span></div>
+            <div class="legend-item">overdue -<span class="dot dot-red"></span></div>
+         </div>
+        </div>
+
+        <!-- Секция: JavaScript -->
+        <h3 class="subject-title">JavaScript</h3>
+        <div class="row g-3 mb-5">
+            <!-- Карточка 1: Current (Белая) -->
+            <div class="col-md-4">
+                <div class="task-card card-white">
+                    <div class="task-header">
+                        <h5>Loops</h5>
+                        <span class="task-date">10/05/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <!-- Форма загрузки файла -->
+                        <div class="file-upload-group">
+                            <input type="text" class="form-control" placeholder="Choose file" readonly>
+                            <button class="btn-upload">Browse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Under review (Синяя) -->
+            <div class="col-md-4">
+                <div class="task-card card-blue">
+                    <div class="task-header">
+                        <h5>Conditional statements</h5>
+                        <span class="task-date">8/05/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="action-buttons">
+                           <button class="btn-action">
+                              <img src="./images/images.png" alt="Upload" class="btn-icon"> 
+                              Your file
+                           </button>
+                            <!-- <button class="btn-action"><i class="bi bi-upload"></i> Your file</button> -->
+                             <button class="btn-action">
+                                 <img src="./images/dust.png" alt="Delete" class="btn-icon"> 
+                                 Remove
+                              </button>
+                            <!-- <button class="btn-action"><i class="bi bi-trash"></i> Remove</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Under review (Синяя) -->
+            <div class="col-md-4">
+                <div class="task-card card-blue">
+                    <div class="task-header">
+                        <h5>Variables</h5>
+                        <span class="task-date">5/05/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="action-buttons">
+                           <button class="btn-action">
+                              <img src="./images/images.png" alt="Upload" class="btn-icon"> 
+                              Your file
+                           </button>
+                            <!-- <button class="btn-action"><i class="bi bi-upload"></i> Your file</button> -->
+                             <button class="btn-action">
+                                 <img src="./images/dust.png" alt="Delete" class="btn-icon"> 
+                                 Remove
+                              </button>
+                            <!-- <button class="btn-action"><i class="bi bi-trash"></i> Remove</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Секция: HTML & CSS -->
+        <h3 class="subject-title">HTML & CSS</h3>
+        <div class="row g-3">
+            <!-- Карточка 1: Overdue (Красная) -->
+            <div class="col-md-4">
+                <div class="task-card card-red">
+                    <div class="task-header">
+                        <h5>Adaptive layout</h5>
+                        <span class="task-date">29/04/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="file-upload-group">
+                            <input type="text" class="form-control" placeholder="Choose file" readonly>
+                            <button class="btn-upload">Browse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Overdue (Красная) -->
+            <div class="col-md-4">
+                <div class="task-card card-red">
+                    <div class="task-header">
+                        <h5>Grid Layout</h5>
+                        <span class="task-date">27/04/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="file-upload-group">
+                            <input type="text" class="form-control" placeholder="Choose file" readonly>
+                            <button class="btn-upload">Browse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Reviewed (Зеленая) С ОЦЕНКОЙ -->
+            <div class="col-md-4">
+                <div class="task-card card-green">
+                    <!-- Бейдж с оценкой -->
+                    <div class="score-badge">11</div>
+                    <div class="task-header">
+                        <h5>Flexbox</h5>
+                        <span class="task-date">24/04/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="action-buttons">
+                           <button class="btn-action">
+                              <img src="./images/images1.png" alt="Upload" class="btn-icon"> 
+                              Your file
+                           </button>
+                            <button class="btn-action">
+                              <img src="./images/reset.png" alt="Resend" class="btn-icon btn-icon-large"> 
+                              Resend
+                           </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 4: Reviewed (Зеленая) -->
+            <div class="col-md-4">
+                <div class="task-card card-green">
+                    <div class="score-badge">10</div>
+                    <div class="task-header">
+                        <h5>Animations</h5>
+                        <span class="task-date">20/04/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="action-buttons">
+                            <!-- <button class="btn-action"><i class="bi bi-download"></i> Your file</button>
+                            <button class="btn-action"><i class="bi bi-arrow-repeat"></i> Resend</button> -->
+                             <button class="btn-action">
+                                    <img src="./images/images1.png" alt="Upload" class="btn-icon"> 
+                                    Your file
+                                 </button>
+                                 <button class="btn-action">
+                                    <img src="./images/reset.png" alt="Resend" class="btn-icon btn-icon-large"> 
+                                    Resend
+                                 </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 5: Reviewed (Зеленая) -->
+            <div class="col-md-4">
+                <div class="task-card card-green">
+                    <div class="score-badge">10</div>
+                    <div class="task-header">
+                        <h5>Forms</h5>
+                        <span class="task-date">18/04/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="action-buttons">
+                            <!-- <button class="btn-action"><i class="bi bi-download"></i> Your file</button>
+                            <button class="btn-action"><i class="bi bi-arrow-repeat"></i> Resend</button> -->
+                             <button class="btn-action">
+                                    <img src="./images/images1.png" alt="Upload" class="btn-icon"> 
+                                    Your file
+                                 </button>
+                                 <button class="btn-action">
+                                    <img src="./images/reset.png" alt="Resend" class="btn-icon btn-icon-large"> 
+                                    Resend
+                                 </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 6: Reviewed (Зеленая) -->
+            <div class="col-md-4">
+                <div class="task-card card-green">
+                    <div class="score-badge">12</div>
+                    <div class="task-header">
+                        <h5>Tables</h5>
+                        <span class="task-date">17/04/2019</span>
+                    </div>
+                    <div class="task-body">
+                        <div class="action-buttons">
+                            <!-- <button class="btn-action"><i class="bi bi-download"></i> Your file</button>
+                            <button class="btn-action"><i class="bi bi-arrow-repeat"></i> Resend</button> -->
+                                 <button class="btn-action">
+                                    <img src="./images/images1.png" alt="Upload" class="btn-icon"> 
+                                    Your file
+                                 </button>
+                                 <button class="btn-action">
+                                    <img src="./images/reset.png" alt="Resend" class="btn-icon btn-icon-large"> 
+                                    Resend
+                                 </button>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Diary - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Наш CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Левая часть: Логотип и Меню -->
+            <div class="nav-left d-flex align-items-center">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/logo.png" alt="logo" class="logo-img">
+                    <!-- <i class="bi bi-journal-bookmark-fill"></i> -->
+                    <!-- <span>Diary</span> -->
+                    <!-- Вставь сюда название или оставь текст -->
+                </a>
+                
+                <!-- Ссылки меню -->
+                <div class="nav-links">
+                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="./homework.html">Homework</a>
+                    <a class="nav-link" href="./settings.html">Settings</a>
+                </div>
+            </div>
+
+            <!-- Правая часть: Аватарка -->
+            <div class="nav-right">
+                <!-- ВСТАВЬ СЮДА ПУТЬ К АВАТАРКЕ (например, img/avatar.png) -->
+                <!-- Пока стоит временная картинка из интернета -->
+                <img src="./images/user.png" alt="Profile" class="profile-img">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <!-- Заголовок -->
+        <h2 class="student-name">Dakota Greenaway (ABC_123)</h2>
+
+        <div class="row">
+            <!-- КОЛОНКА НОВОСТЕЙ -->
+            <div class="col-md-6">
+                <h3 class="section-title">News</h3>
+
+                <!-- Новость 1 -->
+                <div class="news-item">
+                    <div class="news-content">
+                        <!-- ВСТАВЬ СЮДА ПУТЬ К ИКОНКЕ НОВОСТИ 1 -->
+                        <img src="./images/calendar.png" alt="Calendar" class="news-icon">
+                        <div class="news-text">
+                            <div class="news-header">
+                                <h5>Weekends</h5>
+                                <span class="news-date">1 days ago</span>
+                            </div>
+                            <p>Dear students, kindly be informed that there will be no lessons on 5th and 6th April at the Academy due to the holiday.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Новость 2 -->
+                <div class="news-item">
+                    <div class="news-content">
+                        <!-- ВСТАВЬ СЮДА ПУТЬ К ИКОНКЕ НОВОСТИ 2 -->
+                        <div class="news-text">
+                            <div class="news-header">
+                                <h5>Programming consultations</h5>
+                                <span class="news-date">3 days ago</span>
+                            </div>
+                            <p>This Sunday, March 26 at 1:00 pm the Academy will be holding programming consultations for first-year students.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Новость 3 -->
+                <div class="news-item">
+                    <div class="news-content">
+                        <!-- ВСТАВЬ СЮДА ПУТЬ К ИКОНКЕ НОВОСТИ 3 -->
+                        <img src="./images/bank.png" alt="Bank Icon" class="news-icon">
+                        <div class="news-text">
+                            <div class="news-header">
+                                <h5>Meeting with ABC Bank</h5>
+                                <span class="news-date">20.03.2019</span>
+                            </div>
+                            <p>On Monday, March 27 at 7:00 pm, we invite you to a business meeting with ABC Bank.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-more">More</button>
+            </div>
+
+            <!-- КОЛОНКА НАГРАД (REWARDS) -->
+            <div class="col-md-6">
+                <h3 class="section-title">Rewards</h3>
+
+                <!-- Строка 1: Текст слева, Дата справа -->
+                <div class="reward-row">
+                    <!-- Блок с текстом (заострение вправо) -->
+                    <div class="reward-box arrow-right">Class attended</div>
+                    
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+
+                    <!-- Блок с датой (заострение влево) -->
+                    <div class="reward-box arrow-left">20.04.2019</div>
+                </div>
+
+                <!-- Строка 2: Дата слева, Текст справа (меняем местами визуально через CSS или HTML) -->
+                <!-- В примере на картинке они чередуются. Сделаем зеркально -->
+                <div class="reward-row reverse">
+                    <div class="reward-box arrow-left">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-right">19.04.2019</div>
+                </div>
+
+                <!-- Строка 3 -->
+                <div class="reward-row">
+                    <div class="reward-box arrow-right">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-left">18.04.2019</div>
+                </div>
+
+                <!-- Строка 4 -->
+                <div class="reward-row reverse">
+                    <div class="reward-box arrow-left">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-right">17.04.2019</div>
+                </div>
+
+                <!-- Строка 5 -->
+                <div class="reward-row">
+                    <div class="reward-box arrow-right">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-left">16.04.2019</div>
+                </div>
+
+                <!-- Строка 6 -->
+                <div class="reward-row reverse">
+                    <div class="reward-box arrow-left">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-right">15.04.2019</div>
+                </div>
+
+                <!-- Строка 7 -->
+                <div class="reward-row">
+                    <div class="reward-box arrow-right">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-left">14.04.2019</div>
+                </div>
+
+                <!-- Строка 8 -->
+                <div class="reward-row reverse">
+                    <div class="reward-box arrow-left">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-right">13.04.2019</div>
+                </div>
+
+                <!-- Строка 9 -->
+                <div class="reward-row">
+                    <div class="reward-box arrow-right">Class attended</div>
+                    <div class="reward-center">
+                        <span class="reward-count">+1</span>
+                        <img src="./images/medal.png" alt="Medal" class="medal-icon">
+                    </div>
+                    <div class="reward-box arrow-left">12.04.2019</div>
+                </div>
+                <button class="btn-more btn-rewards">More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

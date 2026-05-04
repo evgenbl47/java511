@@ -1,0 +1,80 @@
+.rewards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 450px;
+    margin: 20px auto;
+}
+
+.reward-row {
+    display: flex;
+    align-items: center;
+}
+
+.reward-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Базовая плашка — строго прямоугольная */
+.bubble {
+    position: relative;
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #666;
+    background: #fff;
+    border-radius: 0; /* Убираем скругления */
+}
+
+/* Острый кончик */
+.bubble::after {
+    content: "";
+    position: absolute;
+    width: 23px; /* Размер квадрата для хвоста */
+    height: 23px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    top: 50%;
+    box-sizing: border-box; /* Чтобы границы не раздували размер */
+}
+
+/* Хвостик справа */
+.arrow-right { 
+    margin-right: 12px; 
+}
+.arrow-right::after {
+    right: -12px; /* Смещение на половину диагонали */
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* Хвостик слева */
+.arrow-left { 
+    margin-left: 12px; 
+    text-align: right; 
+}
+.arrow-left::after {
+    left: -12px;
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Центр */
+.reward-center {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 15px;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.plus { 
+    font-weight: bold; 
+    color: #555; 
+}
+
+.medal-icon { 
+    width: 24px; 
+    height: 24px; 
+}

@@ -1,0 +1,79 @@
+/* --- Стили для Task 3 --- */
+
+.main-content {
+    padding-top: 40px; /* Отступ от верхнего меню */
+}
+
+.page-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 25px; /* Отступ до блока вкладок */
+}
+
+/* Вкладки настроек */
+.settings-tabs {
+    background-color: #d6eaf8; /* Светло-голубой фон как на макете */
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: default; /* Вкладки декоративные по заданию */
+}
+
+.tab-item.active {
+    background-color: transparent; /* Убираем белый фон */
+    color: #555; /* Цвет текста как у остальных */
+    font-weight: 600;
+}
+
+/* Большая аватарка */
+.settings-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 0%;
+    object-fit: cover;
+}
+
+/* Поля ввода */
+.settings-input {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.settings-input::placeholder {
+    color: #999;
+}
+
+.settings-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    outline: none;
+}
+
+/* Кнопки настроек */
+.btn-settings {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-settings:hover {
+    background-color: #5a6268;
+}
