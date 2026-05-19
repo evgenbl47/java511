@@ -1,62 +1,22 @@
+
+
+
+//setTimeout запустить код разово
 function test() {
-    console.log("Hello from test func");
-    
+    console.log("Hello world");
 }
 
-test();
-
-let person = {
-    firstName: "Tom",
-    lastName:  "Smith",
-    fatherName: "Ithan",
-    age: 30,
-    child:{
-        firstChildName: "Tomik",
-        lastChildName:  "Simpson",
-        fatherChildName: "Arktur",
-        age: 30,
-    },
-    hi: function () {
-        console.log(`Hello ${this.firstName} ${this.lastName}!`);
-    },
-    arr: ["", "", ""],      //массив
-    dogs:[                  //массив собак
-        {
-            name: "Totoshka",
-            age: 2
-        },
-        {
-            name: "Nota",
-            age: 4
-        },
-        {
-            name: "Martin",
-            age: 4
-        }
-    ],
-    foo:test //вызов функции 
-}
-
-console.log(person.firstName);
-console.log(person.lastName);
-console.log(person.age);
-console.log(person["age"]);
-console.log(person.phone); //undefind
-person.phone = "8-009-111-00-11";
-console.log(person);
-delete person.fatherName;
-person.foo();
+//1s = 100ms
+setTimeout(test, 5 * 1000);//   =   через 5 сек вызвать метод test() и на этом всё
 
 
-let user = new Object(); //тоже создание нового обьекта
-user.name = "Tom";
+setTimeout(() =>{//   =   та-же запись только через lambda выражение
+    console.log("Hello World");
+}, 5 * 1000);
 
 
-class Preson{ ///ещё один способ создания нового обьекта
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
-    }
-}
-
-let p = new Preson("Tom", 38);
+//setInterval запустить код через интервал постоянно
+let count = 1;
+setInterval(() => {
+    console.log("Count: " + count++);
+}, 2 * 1000);//  =  запускает код каждые 2 секунды
