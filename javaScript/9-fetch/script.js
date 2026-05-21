@@ -23,16 +23,13 @@ console.log("Hello");
 //Если REST API — это конкретный архитектурный стиль работы через интернет, то API в широком смысле — это вообще любой «переводчик» или «мост» между разными цифровыми системами.
 
 //https://api.openweathermap.org/data/2.5/weather?q=Baku&appid=
-
+let api_key = '2ef22e32e29bb09a457ee71bb6841d00b';
 
 async function searchByTitle(title) {
 
-    let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${title}&appid=&units=metric`);
+    let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${title}&appid=${api_key}&units=metric`);
 
-    let data = await result.json();
-    console.log(data);
-    console.log(1);
-    
+    let data = await result.json();   
     
     return data;
 }
@@ -47,13 +44,13 @@ myForm.addEventListener('submit', async function() {
     
     if (cityName.trim()) {
         let result = await searchByTitle(cityName);
-        console.log(cityName);
+        console.log(result);
 
         list.innerHTML += `
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="https://openweathermap.org/payload/api/media/file/${result.weather[0].icon}.png" class="card-img-top" alt="img">
                 <div class="card-body">
-                    <h5 class="card-title">${result.name} ${Math.round(result.main.temp)}</h5>
+                    <h5 class="card-title">${result.name} ${Math.round(result.main.temp)} &deg;C</h5>
                     <p class="card-text">${result.weather[0].description}</p>
                 </div>
             </div>

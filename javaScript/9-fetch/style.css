@@ -1,0 +1,14 @@
+img{
+    /* width: 50%px; */
+    height: 150px;
+    object-fit: contain;
+}
+
+.card-body{
+width: 50%;
+}
+
+.card{
+    display: flex;
+    flex-direction: row-reverse;
+}
