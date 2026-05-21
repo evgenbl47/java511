@@ -1,4 +1,5 @@
-console.log("Hello");
+console.log("Hello"); // Выводит приветственное сообщение в консоль.
+
 //AJAX (Asynchronous JavaScript and XML) — это подход к разработке веб-страниц, который позволяет им обмениваться данными с сервером в фоновом режиме и обновлять контент без полной перезагрузки страницы.
 
 //JSON (JavaScript Object Notation) — это простой текстовый формат обмена данными, который легко читается человеком и быстро обрабатывается компьютерами. Он используется для передачи информации между сервером и веб-приложением (например, в связке с AJAX).
@@ -22,30 +23,34 @@ console.log("Hello");
 
 //Если REST API — это конкретный архитектурный стиль работы через интернет, то API в широком смысле — это вообще любой «переводчик» или «мост» между разными цифровыми системами.
 
-//https://api.openweathermap.org/data/2.5/weather?q=Baku&appid=
+// Ключ API для получения данных о погоде из OpenWeatherMap
 let api_key = '2ef22e32e29bb09a457ee71bb6841d00b';
 
-async function searchByTitle(title) {
-
+async function searchByTitle(title) { // Асинхронная функция для получения данных о погоде по названию города
+    // Получение данных о погоде из OpenWeatherMap API с использованием указанного названия города и ключа API
     let result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${title}&appid=${api_key}&units=metric`);
 
+    // Преобразование ответа в формате JSON в объект
     let data = await result.json();   
     
-    return data;
+    return data; // Возврат данных о погоде вызывающей функции
 }
 
+// Получение формы и элемента списка из HTML-документа
 let myForm = document.forms.myForm;
 let list = document.querySelector('.list');
 
-myForm.addEventListener('submit', async function() {
-    event.preventDefault();
+// Добавление обработчика события на отправку формы
+myForm.addEventListener('submit', async function(event) { // Асинхронная функция для обработки отправки формы
+    event.preventDefault(); // Предотвращает стандартное поведение отправки формы
 
-    let cityName = myForm.cityName.value;
+    let cityName = myForm.cityName.value; // Получение значения поля ввода названия города
     
-    if (cityName.trim()) {
-        let result = await searchByTitle(cityName);
-        console.log(result);
+    if (cityName.trim()) { // Проверка, что название города не пустое
+        let result = await searchByTitle(cityName); // Получение данных о погоде для указанного города
+        console.log(result); // Вывод результата в консоль для отладки
 
+        // Добавление информации о погоде в список в HTML
         list.innerHTML += `
             <div class="card">
                 <img src="https://openweathermap.org/payload/api/media/file/${result.weather[0].icon}.png" class="card-img-top" alt="img">
@@ -55,8 +60,7 @@ myForm.addEventListener('submit', async function() {
                 </div>
             </div>
         `;
-
     }
     
-    myForm.reset();
+    myForm.reset(); // Сброс формы после отправки
 })
