@@ -62,13 +62,25 @@ let boxes = document.getElementsByClassName('box'); //возвращает ма�
 boxes[0].innerText = 'Learn bitch!!!';  //изменяет нулевой элемент из масства
 
 
-let elem = document.querySelector('h2'); // первое вхождение
+let elem = document.querySelector('h2'); // elem by tag первое вхождение
                               // .elem by class
                               // #elem by id
 elem.innerText = 'Learn@@@';
 
-document.querySelector('h3').innerText = 'You need to learn!!!';
+document.querySelector('h3').innerText = 'You need to learn!!!';// в одну строчку
+
 let h30 = document.querySelector('h3');
 h30.innerText = 'You must to know';
 
-h30.style = "color:red; font-size:100px;";
+h30.style = "color:red; font-size:100px;";//добавление стилей
+h30.style = "margin: 20px;"//затирает верхнюю строку
+
+// не затирает предыдущее значение, особый стиль написания свойств(camelCase)
+h30.style.color = "red";
+h30.style.fontSize = "15px"; 
+h30.style.backgroundColor = "green";
+ 
+//('key', "value"); можно добавить important
+h30.style.setProperty('color', "red");
+h30.style.setProperty('font-size', "20px", 'important');
+h30.style.setProperty('background-color', "green");
