@@ -9,27 +9,66 @@ console.log("innerWidth: " + innerWidth);
 console.log("outerHeight: " + outerHeight);
 console.log("outerWidth: " + outerWidth);
 
+let direction = 'down';
+let counter = 0;
+
+// 🎨 Функция для генерации случайного HEX-цвета
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Или вариант с RGB (можно раскомментировать, если нравится больше):
+/*
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+*/
+
+box.element.innerText = counter;
+box.element.style.backgroundColor = getRandomColor();
 
 setInterval(() => {
-    let count = 0
     box.element.style.top = box.top + 'px';
     box.element.style.left = box.left + 'px';
 
-    let direction = 'down';
+    let prevDirection = direction;
+    box.element.style.backgroundColor = getRandomColor();
 
-
-    if (box.top < window.innerHeight - 210) {
+     if (direction === 'down') {
         box.top += 10;
-        console.log("box.top: " + box.top);
-    }else if(box.left < window.innerWidth - 140){
+        if (box.top >= window.innerHeight - 210) direction = 'right';
+    } else if (direction === 'right') {
         box.left += 10;
-        console.log("box.left: " + box.left);
-    }else if(box.top > window.innerHeight - 210){
+        if (box.left >= window.innerWidth - 140) direction = 'up';
+    } else if (direction === 'up') {
         box.top -= 10;
-        console.log("box.top: " + box.top);
+        if (box.top <= 0) direction = 'left'; // Добавьте верхнюю границу при необходимости
+    } else if (direction === 'left') {
+        box.left -= 10;
+        // 🎯 Ключевой момент: если были 'left' и стали 'down' — оборот завершён!
+        if (box.left <= 0) {
+            direction = 'down';
+            // Проверяем, что вернулись в стартовую позицию
+            if (prevDirection === 'left' && direction === 'down') {
+                counter++; // Увеличиваем счётчик
+                box.element.innerText = counter; // Обновляем текст в блоке
+                console.log(`🔄 Полный оборот! Счёт: ${counter}`);
+            }
+        }
+        // if (box.left <= 0) direction = 'down'; // Опционально: зацикливание
     }
 
-}, 1 * 50);
+    console.log(`Direction: ${direction}, Top: ${box.top}, Left: ${box.left}`);
+
+}, 1 * 500);
 
 // let direction = 'down'; // Начинаем движение вниз
 
