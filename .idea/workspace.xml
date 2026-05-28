@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b97e61-9222-41f8-b261-1efd2433a566" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/java/TextAnalyzer/TextAnalyzer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.continue/prompts/new-prompt.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/exam/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/exam/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/10-tmp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/10-tmp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/10-tmp/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/10-tmp/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +66,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/Мой дом/IdeaProjects/java511/git/Lesson24_List/src/classWork",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Мой дом/IdeaProjects/java511/git/TextAnalyzer/src/Main.java",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.17168675"
@@ -86,7 +86,7 @@
       <recent name="classWork" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.26">
     <configuration name="26" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
