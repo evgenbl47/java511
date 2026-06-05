@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b97e61-9222-41f8-b261-1efd2433a566" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/javaScript/10-tmp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/10-tmp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaScript/10-tmp/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/10-tmp/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/java-messenger.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +33,12 @@
     &quot;assignee&quot;: &quot;evgenbl47&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/evgenbl47/java511.git&quot;,
-    &quot;accountId&quot;: &quot;7594a8df-b041-4b5d-8acc-9252ae82b238&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/evgenbl47/java511.git",
+    "accountId": "9f976d4a-7ece-41e7-9e67-fd768a4d0078"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -72,8 +74,9 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/Мой дом/IdeaProjects/java511/git/Lesson24_List/src/classWork",
+    "last_opened_file_path": "/home/nt4h/IdeaProjects/Java511/java511/network/turorial/lesson1",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Мой дом/IdeaProjects/java511/git/TextAnalyzer/src/Main.java",
+    "onboarding.tips.debug.path": "/home/nt4h/IdeaProjects/Java511/java511/network/turorial/lesson1/java-messenger/src/Main.java",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.17168675"
   }
@@ -86,7 +89,7 @@
       <recent name="classWork" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.26">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="26" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -132,13 +135,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Lesson34 Thread" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Lesson37 Date_Time" />
@@ -156,6 +152,13 @@
     <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Lesson1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="java-messenger" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,7 +192,7 @@
       <item itemvalue="Application.32" />
       <item itemvalue="Application.33" />
       <item itemvalue="Application.PB" />
-      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Main (2)" />
       <item itemvalue="Application.Main (3)" />
       <item itemvalue="Application.Main (4)" />
@@ -197,11 +200,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.PB_Test" />
         <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (2)" />
-        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -214,6 +217,9 @@
       <updated>1763227219651</updated>
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -258,6 +264,16 @@
           <url>file://$PROJECT_DIR$/java/TextAnalyzer/src/Main.java</url>
           <line>11</line>
           <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/network/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/Main.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
