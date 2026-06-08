@@ -1,74 +1,103 @@
-let h3 = document.children[0].children[1].children[2];
+let box = {
+    element:document.querySelector('.box'),
+    top: 0,
+    left: 0
+};
+console.log("innerHeight: " + innerHeight);
+console.log("innerWidth: " + innerWidth);
 
-h3.innerHTML = "TOM";//  =  Внутренний html, если написать <mark>TOM</mark> то добавит тег и текст
-h3.innterText = "TOM";//  =  Нужен для добавление только текста, добавит все как текст
-h3.textContent = "TOM";
+console.log("outerHeight: " + outerHeight);
+console.log("outerWidth: " + outerWidth);
 
+let direction = 'down';
+let counter = 0;
 
-document.querySelector
-// Находит первый элемент, который соответствует указанному CSS-селектору.
-// Что возвращает: Один элемент или null.
-// Универсальность: Позволяет искать по ID (#id), классам (.class), тегам (div) и сложным комбинациям.
-// Пример: document.querySelector('.container > ul li.item')
-
-document.querySelectorAll
-// Находит все элементы, соответствующие указанному CSS-селектору.
-// Что возвращает: Статичную (NodeList) коллекцию элементов.
-// Особенность: Коллекция «статична» и не меняется, если на страницу позже добавятся новые элементы. Удобна тем, что у неё есть встроенный метод .forEach() для перебора элементов.
-// Пример: document.querySelectorAll('.gallery img')
-
-document.getElementById
-// Находит один уникальный элемент по его атрибуту id.
-// Что возвращает: Один объект элемента или null, если элемент не найден.
-// Скорость: Самый быстрый метод поиска.
-// Пример: document.getElementById('main-nav')
-
-document.getElementsByClassName
-// Находит все элементы с указанным классом.
-// Что возвращает: «Живую» (HTMLCollection) коллекцию элементов.
-// Особенность: Если на странице появятся новые элементы с этим классом, коллекция обновится автоматически.
-// Пример: document.getElementsByClassName('active-button')
-
-document.getElementsByTagName
-// Находит все элементы с указанным тегом (например, все ссылки или абзацы).
-// Что возвращает: «Живую» коллекцию (HTMLCollection).
-// Пример: document.getElementsByTagName('p') (найдет все теги <p>)
-
-document.getElementsByName
-// Находит все элементы с конкретным атрибутом name (чаще всего используется для полей форм и радиокнопок).
-// Что возвращает: «Живую» коллекцию узлов (NodeList).
-// Пример: document.getElementsByName('gender')
-
-// Метод             Что принимает        Что возвращает    Тип коллекции              Популярность сегодня    
-// getElementById    Только строку ID     1 элемент         —                          Очень популярный (быстрый)
-// querySelector     Любой CSS-селектор   1 элемент         —                          Самый популярный (универсальный)
-// querySelectorAll  Любой CSS-селектор   Все совпадения    Статичная (NodeList)       Самый популярный для списков
-// getElementsBy...  Только класс/тег/имя Все совпадения    «Живая» (HTMLCollection)   Используется редко (устаревает)   
-
-//выбрать только 1 элемент по id
-let h1 = document.getElementById('test');
-h1.innerText = 'MOT';
-
-//выбрать элементы по тегу
-let arrh2 = document.getElementsByTagName('h2');  //возвращает массив элементов
-arrh2[2].innerText = 'OMT';  //изменяет элемент из масства под тегом №2
-//пройти по всем тегам h2 и изменить их
-for (let h2 of arrh2) {
-   h2.innerText = "Учись сука!!!";    
+// 🎨 Функция для генерации случайного HEX-цвета
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
-//выбрать элементы по className
-let boxes = document.getElementsByClassName('box'); //возвращает массив элементов
-boxes[0].innerText = 'Learn bitch!!!';  //изменяет нулевой элемент из масства
+// Или вариант с RGB (можно раскомментировать, если нравится больше):
+/*
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+*/
 
+box.element.innerText = counter;
+box.element.style.backgroundColor = getRandomColor();
 
-let elem = document.querySelector('h2'); // первое вхождение
-                              // .elem by class
-                              // #elem by id
-elem.innerText = 'Learn@@@';
+setInterval(() => {
+    box.element.style.top = box.top + 'px';
+    box.element.style.left = box.left + 'px';
 
-document.querySelector('h3').innerText = 'You need to learn!!!';
-let h30 = document.querySelector('h3');
-h30.innerText = 'You must to know';
+    let prevDirection = direction;
+    box.element.style.backgroundColor = getRandomColor();
 
-h30.style = "color:red; font-size:100px;";
+     if (direction === 'down') {
+        box.top += 10;
+        if (box.top >= window.innerHeight - 210) direction = 'right';
+    } else if (direction === 'right') {
+        box.left += 10;
+        if (box.left >= window.innerWidth - 140) direction = 'up';
+    } else if (direction === 'up') {
+        box.top -= 10;
+        if (box.top <= 0) direction = 'left'; // Добавьте верхнюю границу при необходимости
+    } else if (direction === 'left') {
+        box.left -= 10;
+        // 🎯 Ключевой момент: если были 'left' и стали 'down' — оборот завершён!
+        if (box.left <= 0) {
+            direction = 'down';
+            // Проверяем, что вернулись в стартовую позицию
+            if (prevDirection === 'left' && direction === 'down') {
+                counter++; // Увеличиваем счётчик
+                box.element.innerText = counter; // Обновляем текст в блоке
+                console.log(`🔄 Полный оборот! Счёт: ${counter}`);
+            }
+        }
+        // if (box.left <= 0) direction = 'down'; // Опционально: зацикливание
+    }
+
+    console.log(`Direction: ${direction}, Top: ${box.top}, Left: ${box.left}`);
+
+}, 1 * 500);
+
+// let direction = 'down'; // Начинаем движение вниз
+
+// function animate() {
+//     // Обновляем позицию в зависимости от текущего направления
+//     if (direction === 'down') {
+//         box.top += 10;
+//         console.log("box.top: " + box.top);
+//         if (box.top >= window.innerHeight - 210) direction = 'right';
+//     } else if (direction === 'right') {
+//         box.left += 10;
+//         console.log("box.left: " + box.left);
+//         if (box.left >= window.innerWidth - 140) direction = 'up';
+//     } else if (direction === 'up') {
+//         box.top -= 10;
+//         console.log("box.top: " + box.top);
+//         if (box.top <= 0) direction = 'left'; // Добавьте верхнюю границу при необходимости
+//     } else if (direction === 'left') {
+//         box.left -= 10;
+//         console.log("box.left: " + box.left);
+//         if (box.left <= 0) direction = 'down'; // Опционально: зацикливание
+//     }
+
+//     // Применяем стили
+//     box.element.style.top = box.top + 'px';
+//     box.element.style.left = box.left + 'px';
+
+//     // Планируем следующий кадр
+//     requestAnimationFrame(animate);
+// }
+
+// requestAnimationFrame(animate);
