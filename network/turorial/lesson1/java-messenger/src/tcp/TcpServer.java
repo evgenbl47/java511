@@ -14,7 +14,7 @@ public class TcpServer {
             Socket clientSocket = serverSocket.accept();
             System.out.println("Connect success");
 
-            //TODO
+            System.out.println("Receive message...");
 
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
@@ -22,8 +22,8 @@ public class TcpServer {
                     )
             );
 
-            String resivedMessage = reader.readLine();
-            System.out.println(resivedMessage);
+            String receivedMessage = reader.readLine();
+            System.out.println(receivedMessage);
         }
     }
 }

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b97e61-9222-41f8-b261-1efd2433a566" name="Changes" comment="Add ServerSocket in TcpServer.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c8b97e61-9222-41f8-b261-1efd2433a566" name="Changes" comment="Send first TCP message from client to server">
       <change beforePath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpServer.java" afterDir="false" />
     </list>
@@ -253,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780916955842</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Send first TCP message from client to server">
+      <option name="closed" value="true" />
+      <created>1781003526426</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781003526426</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +281,8 @@
     <MESSAGE value="Create TcpClient.java, and Socket" />
     <MESSAGE value="Create TcpServer.java" />
     <MESSAGE value="Add ServerSocket in TcpServer.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ServerSocket in TcpServer.java" />
+    <MESSAGE value="Send first TCP message from client to server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send first TCP message from client to server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

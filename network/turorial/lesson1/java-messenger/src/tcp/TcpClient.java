@@ -12,13 +12,14 @@ public class TcpClient {
         System.out.println("Connect to server...");
         try (Socket socket = new Socket("127.0.0.1", 27015)){
             System.out.println("Connect success");
-            //TODO
+
             PrintWriter printWriter = new PrintWriter(
                     socket.getOutputStream(),
                     true
             );
 
             printWriter.println(MESSAGE);
+            System.out.println("Message sent");
 
         }
     }
