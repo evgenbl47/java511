@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b97e61-9222-41f8-b261-1efd2433a566" name="Changes" comment="Create TcpClient.java, and Socket">
-      <change afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpServer.java" afterDir="false" />
+    <list default="true" id="c8b97e61-9222-41f8-b261-1efd2433a566" name="Changes" comment="Add ServerSocket in TcpServer.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/turorial/lesson1/java-messenger/src/tcp/TcpServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,40 +46,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.26.executor&quot;: &quot;Run&quot;,
-    &quot;Application.28.executor&quot;: &quot;Run&quot;,
-    &quot;Application.29.executor&quot;: &quot;Run&quot;,
-    &quot;Application.30.executor&quot;: &quot;Run&quot;,
-    &quot;Application.32.executor&quot;: &quot;Run&quot;,
-    &quot;Application.33.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ContactIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (3).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (4).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PB.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PB_Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Solution.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Мой дом/IdeaProjects/java511/git/Lesson24_List/src/classWork&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nt4h/IdeaProjects/Java511/java511/network/turorial/lesson1&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/nt4h/IdeaProjects/Java511/java511/network/turorial/lesson1/java-messenger/src/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.17168675&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.26.executor": "Run",
+    "Application.28.executor": "Run",
+    "Application.29.executor": "Run",
+    "Application.30.executor": "Run",
+    "Application.32.executor": "Run",
+    "Application.33.executor": "Run",
+    "Application.ContactIntegrationTest.executor": "Run",
+    "Application.Main (1).executor": "Run",
+    "Application.Main (2).executor": "Run",
+    "Application.Main (3).executor": "Run",
+    "Application.Main (4).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.PB.executor": "Run",
+    "Application.PB_Test.executor": "Run",
+    "Application.Solution.executor": "Run",
+    "Application.TcpClient.executor": "Run",
+    "Application.TcpServer.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Мой дом/IdeaProjects/java511/git/Lesson24_List/src/classWork",
+    "last_opened_file_path": "/home/nt4h/IdeaProjects/Java511/java511/network/turorial/lesson1",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/nt4h/IdeaProjects/Java511/java511/network/turorial/lesson1/java-messenger/src/Main.java",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.splitter.proportion": "0.17168675"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Мой дом\IdeaProjects\java511\git\java" />
@@ -88,7 +90,7 @@
       <recent name="classWork" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TcpClient">
     <configuration name="26" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -134,20 +136,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Lesson37 Date_Time" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="PhoneBook" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Lesson1" />
@@ -184,6 +172,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TcpClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tcp.TcpClient" />
+      <module name="java-messenger" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tcp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TcpServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tcp.TcpServer" />
+      <module name="java-messenger" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tcp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.26" />
       <item itemvalue="Application.28" />
@@ -191,19 +205,19 @@
       <item itemvalue="Application.32" />
       <item itemvalue="Application.33" />
       <item itemvalue="Application.PB" />
+      <item itemvalue="Application.TcpClient" />
+      <item itemvalue="Application.TcpServer" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main (2)" />
-      <item itemvalue="Application.Main (3)" />
       <item itemvalue="Application.Main (4)" />
       <item itemvalue="Application.PB_Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TcpClient" />
+        <item itemvalue="Application.TcpServer" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.PB_Test" />
-        <item itemvalue="Application.Main (3)" />
-        <item itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +237,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780657091675</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create TcpServer.java">
+      <option name="closed" value="true" />
+      <created>1780916440404</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1780916440404</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add ServerSocket in TcpServer.java">
+      <option name="closed" value="true" />
+      <created>1780916955842</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780916955842</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +272,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create TcpClient.java, and Socket" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create TcpClient.java, and Socket" />
+    <MESSAGE value="Create TcpServer.java" />
+    <MESSAGE value="Add ServerSocket in TcpServer.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ServerSocket in TcpServer.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -289,5 +321,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
